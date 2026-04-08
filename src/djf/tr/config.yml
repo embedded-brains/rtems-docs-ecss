@@ -21,8 +21,8 @@ document-license-map:
   CC-BY-SA-4.0 OR BSD-2-Clause: BSD-2-Clause
   CC-BY-SA-4.0 OR MIT: MIT
 document-releases:
-- date: ${.:/component/document-date}
-  status: Approved
+- date: '2026-04-03'
+  status: Replaced
   changes: |
     This is the final release issued for project *RTEMS SMP Updates into the
     Qualification DP* with ESA Contract No. 4000150715/25/NL/VR.
@@ -32,6 +32,10 @@ document-releases:
     GitHub repository through
     `pull request #19 <https://github.com/embedded-brains/rtems-docs-ecss/pull/19>`__
     with GitHub Copilot review.
+- date: ${.:/component/document-date}
+  status: Draft
+  changes: |
+    This is the draft release.
 document-components:
 - action: copy-and-substitute
   add-to-index: false

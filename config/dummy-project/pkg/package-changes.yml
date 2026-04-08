@@ -393,8 +393,8 @@ change-list:
   package-status: package-status/esa-6.2
 - description: |
     This is a draft release.
-  name: Package Version 7.0
-  package-status: package-status/esa-7.1
+  name: Package Version 6.3
+  package-status: package-status/esa-6.2
 copyrights:
 - Copyright (C) 2020, 2026 embedded brains GmbH & Co. KG
 enabled-by: true

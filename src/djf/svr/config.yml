@@ -297,8 +297,8 @@ document-releases:
     * For the code coverage reports, the results of the ``gcovr`` tool are used.
 
     * Logos were alphabetically sorted by company names.
-- date: ${.:/component/document-date}
-  status: Approved
+- date: '2026-04-03'
+  status: Replaced
   changes: |
     This is the final release issued for project *RTEMS SMP Updates into the
     Qualification DP* with ESA Contract No. 4000150715/25/NL/VR.
@@ -339,6 +339,10 @@ document-releases:
 
     * The :ref:`SpecComparisonV6` was added.  It provides a listing of the
       specification changes from package version 5 to 6.
+- date: ${.:/component/document-date}
+  status: Draft
+  changes: |
+    This is the draft release.
 document-components:
 - action: copy-and-substitute
   add-to-index: false
