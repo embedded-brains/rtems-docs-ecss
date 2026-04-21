@@ -3,9 +3,9 @@ copyrights:
 - Copyright (C) 2020, 2021 embedded brains GmbH & Co. KG
 - Copyright (C) 2021 EDISOFT
 copyrights-by-license: {}
-directory: ${.:/component/build-directory}
+directory: ${.:/component/deployment-directory}
 directory-state-type: sphinx
-document-base-path: $${.:/component/prefix-directory}
+document-base-path: ${.:/directory}
 document-copyrights:
 - Copyright (C) 2020, 2026 embedded brains GmbH & Co. KG
 document-title: ${.:/component/document-package-title}\breakSoftware Configuration\breakFile\break[${.:/component/document-variant}]

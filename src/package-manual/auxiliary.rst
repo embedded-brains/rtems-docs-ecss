@@ -463,7 +463,7 @@ for the RTEMS pre-qualification project:
 
 * ${/ref/tn/qt-109-r6:/cite-long}
 
-  * `<${/pkg/deployment/doc-tn-qt:/file:relpath %(/pkg/component:/prefix-directory)}>`__
+  * `<${/pkg/deployment/doc-tn-qt:/file:relpath %(*:/directory)}>`__
 
   The technical note contains the tailoring of ECSS documents for the RTEMS
   pre-qualification project (chapter 4) and other relevant technical

@@ -199,11 +199,11 @@ The package includes the following technical notes:
 
 * ${/ref/tn/qt-109-r6:/cite-long}
 
-  * `<${/pkg/deployment/doc-tn-qt:/file:relpath %(/pkg/component:/prefix-directory)}>`__
+  * `<${/pkg/deployment/doc-tn-qt:/file:relpath %(*:/directory)}>`__
 
 * ${/ref/tn/rtems-space-profile-r6:/cite-long}
 
-  * `<${/pkg/deployment/doc-tn-sp:/file:relpath %(.:/component/prefix-directory)}>`__
+  * `<${/pkg/deployment/doc-tn-sp:/file:relpath %(*:/directory)}>`__
 
 .. _RTEMSDocs:
 
@@ -217,27 +217,27 @@ The package includes the following manuals of the RTEMS documentation set:
 
 * RTEMS User Manual ${/ref/rtems/user:/cite}
 
-  * `<${/pkg/deployment/doc-rtems:/directory:relpath %(/pkg/component:/prefix-directory)}/user.pdf>`__
+  * `<${/pkg/deployment/doc-rtems:/directory:relpath %(*:/directory)}/user.pdf>`__
 
-  * `<${/pkg/deployment/doc-rtems:/directory:relpath %(/pkg/component:/prefix-directory)}/user/index.html>`__
+  * `<${/pkg/deployment/doc-rtems:/directory:relpath %(*:/directory)}/user/index.html>`__
 
 * RTEMS Classic API Guide ${/ref/rtems/c-user:/cite}
 
-  * `<${/pkg/deployment/doc-rtems:/directory:relpath %(/pkg/component:/prefix-directory)}/c-user.pdf>`__
+  * `<${/pkg/deployment/doc-rtems:/directory:relpath %(*:/directory)}/c-user.pdf>`__
 
-  * `<${/pkg/deployment/doc-rtems:/directory:relpath %(/pkg/component:/prefix-directory)}/c-user/index.html>`__
+  * `<${/pkg/deployment/doc-rtems:/directory:relpath %(*:/directory)}/c-user/index.html>`__
 
 * RTEMS Software Engineering ${/ref/rtems/eng:/cite}
 
-  * `<${/pkg/deployment/doc-rtems:/directory:relpath %(/pkg/component:/prefix-directory)}/eng.pdf>`__
+  * `<${/pkg/deployment/doc-rtems:/directory:relpath %(*:/directory)}/eng.pdf>`__
 
-  * `<${/pkg/deployment/doc-rtems:/directory:relpath %(/pkg/component:/prefix-directory)}/eng/index.html>`__
+  * `<${/pkg/deployment/doc-rtems:/directory:relpath %(*:/directory)}/eng/index.html>`__
 
 * RTEMS CPU Supplement ${/ref/rtems/cpu:/cite}
 
-  * `<${/pkg/deployment/doc-rtems:/directory:relpath %(/pkg/component:/prefix-directory)}/cpu-supplement.pdf>`__
+  * `<${/pkg/deployment/doc-rtems:/directory:relpath %(*:/directory)}/cpu-supplement.pdf>`__
 
-  * `<${/pkg/deployment/doc-rtems:/directory:relpath %(/pkg/component:/prefix-directory)}/cpu-supplement/index.html>`__
+  * `<${/pkg/deployment/doc-rtems:/directory:relpath %(*:/directory)}/cpu-supplement/index.html>`__
 
 .. _FormalMethods:
 
@@ -251,15 +251,15 @@ The package includes the following Formal Methods documentation set:
 
 * ${/ref/tn/rtems-fvp:/cite-long}
 
-  * `<${/pkg/deployment/doc-fm-fvp:/file:relpath %(.:/component/prefix-directory)}>`__
+  * `<${/pkg/deployment/doc-fm-fvp:/file:relpath %(*:/directory)}>`__
 
 * ${/ref/tn/rtems-fva:/cite-long}
 
-  * `<${/pkg/deployment/doc-fm-fva:/file:relpath %(.:/component/prefix-directory)}>`__
+  * `<${/pkg/deployment/doc-fm-fva:/file:relpath %(*:/directory)}>`__
 
 * ${/ref/tn/rtems-fvr:/cite-long}
 
-  * `<${/pkg/deployment/doc-fm-fvr:/file:relpath %(.:/component/prefix-directory)}>`__
+  * `<${/pkg/deployment/doc-fm-fvr:/file:relpath %(*:/directory)}>`__
 
 .. _ISVVDocs:
 
@@ -395,7 +395,7 @@ This section covers some topics which need to be considered when migrating an
 application from a previous RTEMS versions to the RTEMS version delivered by
 the package.  The focus is on a migration from RTEMS 4.8 and the EDISOFT RTEMS
 Improvement.  For migration help from other versions, see also the
-`RTEMS User Manual <${/pkg/deployment/doc-rtems:/directory:relpath %(/pkg/component:/prefix-directory)}/user/migration/index.html>`__.
+`RTEMS User Manual <${/pkg/deployment/doc-rtems:/directory:relpath %(*:/directory)}/user/migration/index.html>`__.
 
 No -specs bsp_specs GCC option
 ------------------------------
@@ -594,7 +594,7 @@ Linker command file requirements
 
 The RTEMS version of the package supports thread-local storage
 (${/glossary/tls:/term}) and uses a
-`linker set <${/pkg/deployment/doc-rtems:/directory:relpath %(/pkg/component:/prefix-directory)}/c-user/linker_sets.html>`__
+`linker set <${/pkg/deployment/doc-rtems:/directory:relpath %(*:/directory)}/c-user/linker_sets.html>`__
 based system initialization.  For this some linker output section definitions are
 required to be present in the linker command file.  It is recommended to use
 the linker command file installed by the BSP.  To use a custom linker command
@@ -687,7 +687,7 @@ are not supported by any RTEMS version of the RTEMS Project.  They are also not
 supported by the RTEMS version delivered by the package.  Applications should
 do the error reporting if needed on their own.  The RTEMS Project offers
 alternative tracing solutions, see also the
-`RTEMS User Manual <${/pkg/deployment/doc-rtems:/directory:relpath %(/pkg/component:/prefix-directory)}/user/tracing/eventrecording.html>`__.
+`RTEMS User Manual <${/pkg/deployment/doc-rtems:/directory:relpath %(*:/directory)}/user/tracing/eventrecording.html>`__.
 
 Customise the inter-processor interrupt number
 ----------------------------------------------

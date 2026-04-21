@@ -9,5 +9,5 @@ reference-type: manual
 title: RTEMS Software Engineering, Git Commit ${/pkg/source/rtems-docs:/commit}
 type: reference
 work-hash: null
-work-url: doc/rtems/eng.pdf
+work-url: ${/pkg/deployment/doc-rtems:/directory:relpath %(*:/directory)}/eng.pdf
 year: '2026'
