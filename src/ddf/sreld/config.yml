@@ -5,6 +5,7 @@ copyrights:
 copyrights-by-license: {}
 directory: ${.:/component/documentation-directory}/ddf/sreld
 directory-state-type: sphinx
+document-base-path: $${.:/directory}
 document-copyrights:
 - Copyright (C) 2021, 2026 embedded brains GmbH & Co. KG
 document-title: ${.:/component/document-package-title}\breakSoftware\breakRelease Document\break[${.:/component/document-variant}]
@@ -168,7 +169,7 @@ enabled-by: RTEMS_QUAL
 files: []
 hash: null
 links: []
-output-html: html
+output-html: .
 output-pdf: sreld.pdf
 pkg-type: directory-state
 type: pkg

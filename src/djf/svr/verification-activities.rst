@@ -612,7 +612,7 @@ Software Unit Test to Requirements, Design
 
 A traceability from software unit tests to requirements and the software design
 is not provided.  For a justification see the
-`Introduction <${.:/component/documentation-directory}/djf/suitp/html/introduction.html>`_
+`Introduction <${.:/component/documentation-directory}/djf/suitp/introduction.html>`_
 of the |SUITP| ${doc-djf-suitp:/cite} and the *On Demand Unit and Integration
 Testing* section of the ${/ref/tn/qt-109-r6:/cite-long}.
 

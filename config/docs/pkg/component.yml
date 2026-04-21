@@ -23,6 +23,8 @@ enabled-set-feedback-mapping: {}
 ident: Ident
 links:
 - role: use-package-component-template
+  uid: /pkg/template/docs/component
+- role: use-package-component-template
   uid: /pkg/template/project/component
 - role: glossary
   uid: /glossary/group

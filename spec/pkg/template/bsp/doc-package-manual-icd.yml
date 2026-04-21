@@ -2,9 +2,9 @@ SPDX-License-Identifier: CC-BY-SA-4.0 OR BSD-2-Clause
 attribute-actions: []
 attributes:
   content: |
-    * `<$${.:/component/documentation-directory}/ts/icd/icd.pdf>`__
+    * `<$${.:/component/documentation-directory:relpath %(/pkg/component:/prefix-directory)}/ts/icd/icd.pdf>`__
 
-    * `<$${.:/component/documentation-directory}/ts/icd/html/index.html>`__
+    * `<$${.:/component/documentation-directory:relpath %(/pkg/component:/prefix-directory)}/ts/icd/index.html>`__
   element-key: icd
   enabled-by: RTEMS_QUAL
   header: Component - $${.:/component/ident}

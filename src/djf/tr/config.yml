@@ -4,6 +4,7 @@ copyrights:
 copyrights-by-license: {}
 directory: ${.:/component/documentation-directory}/djf/tr
 directory-state-type: sphinx
+document-base-path: $${.:/directory}
 document-copyrights:
 - Copyright (C) 2022, 2026 embedded brains GmbH & Co. KG
 document-title: ${.:/component/document-package-title}\breakTest Report\break[${.:/component/document-variant}]
@@ -92,7 +93,7 @@ enabled-by: true
 files: []
 hash: null
 links: []
-output-html: html
+output-html: .
 output-pdf: tr.pdf
 pkg-type: directory-state
 type: pkg

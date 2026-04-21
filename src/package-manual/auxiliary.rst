@@ -461,7 +461,7 @@ for the RTEMS pre-qualification project:
 
   * `<${.:/component/deployment-directory}/doc/paf/spap/html/index.html>`_
 
-* QT-109 Technical Note RTEMS SMP Qualification Target
+* ${/ref/tn/qt-109-r6:/cite-long}
 
   * `<${/pkg/deployment/doc-tn-qt:/file:relpath %(/pkg/component:/prefix-directory)}>`__
 
@@ -485,9 +485,7 @@ Verify the affected parts of the QDP deliverables, according below:
 
 * Verifications specific to the SRS:
 
-  * `<${.:/component/deployment-directory}/doc/ts/srs/srs.pdf>`_
-
-  * `<${.:/component/deployment-directory}/doc/ts/srs/html/index.html>`_
+${.:/document-elements:2:srs}
 
   * Verification following the SDP, section 5.3 (for requirement specifications)
 
@@ -495,9 +493,7 @@ Verify the affected parts of the QDP deliverables, according below:
 
 * Verifications specific to the ICD:
 
-  * `<${.:/component/deployment-directory}/doc/ts/icd/icd.pdf>`_
-
-  * `<${.:/component/deployment-directory}/doc/ts/icd/html/index.html>`_
+${.:/document-elements:2:icd}
 
   * Verification following SDP, section 5.3 (for interface specifications)
 
@@ -505,7 +501,7 @@ Verify the affected parts of the QDP deliverables, according below:
 
 * Verifications specific to the SDD:
 
-  * `<${.:/component/deployment-directory}/doc/ddf/sdd/html/index.html>`_
+${.:/document-elements:2:sdd}
 
   * Verification following SDP, section 5.3
 
@@ -513,9 +509,7 @@ Verify the affected parts of the QDP deliverables, according below:
 
 * Verifications specific to the SVS and SUITP:
 
-  * `<${.:/component/deployment-directory}/doc/djf/svs/svs.pdf>`_
-
-  * `<${.:/component/deployment-directory}/doc/djf/svs/html/index.html>`_
+${.:/document-elements:2:svs}
 
   * Verification following SDP, section 5.3 (for test specifications)
 
@@ -529,9 +523,7 @@ Verify the affected parts of the QDP deliverables, according below:
 
 * Verifications specific to the SVR - **the one generated for the own hardware, according to the previous section**:
 
-  * `<${.:/component/deployment-directory}/doc/djf/svr/svr.pdf>`_
-
-  * `<${.:/component/deployment-directory}/doc/djf/svr/html/index.html>`_
+${.:/document-elements:2:svr}
 
   * Verification following SDP, section 10 (only the parts applicable to RTEMS)
 
@@ -547,9 +539,7 @@ Verify the affected parts of the QDP deliverables, according below:
 
 * Verifications specific to the SPAMR:
 
-  * `<${.:/component/deployment-directory}/doc/paf/spamr/spamr.pdf>`_
-
-  * `<${.:/component/deployment-directory}/doc/paf/spamr/html/index.html>`_
+${.:/document-elements:2:spamr}
 
   * Verification following SPAP, section 6.5
 

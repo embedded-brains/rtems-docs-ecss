@@ -2,9 +2,9 @@ SPDX-License-Identifier: CC-BY-SA-4.0 OR BSD-2-Clause
 attribute-actions: []
 attributes:
   content: |
-    * `<$${.:/component/documentation-directory}/ddf/sreld/sreld.pdf>`__
+    * `<$${.:/component/documentation-directory:relpath %(/pkg/component:/prefix-directory)}/ddf/sreld/sreld.pdf>`__
 
-    * `<$${.:/component/documentation-directory}/ddf/sreld/html/index.html>`__
+    * `<$${.:/component/documentation-directory:relpath %(/pkg/component:/prefix-directory)}/ddf/sreld/index.html>`__
   element-key: sreld
   enabled-by: RTEMS_QUAL
   header: Component - $${.:/component/ident}

@@ -5,6 +5,7 @@ copyrights:
 copyrights-by-license: {}
 directory: ${.:/component/documentation-directory}/djf/svr
 directory-state-type: sphinx
+document-base-path: $${.:/directory}
 document-copyrights:
 - Copyright (C) 2021, 2026 embedded brains GmbH & Co. KG
 document-title: ${.:/component/document-package-title}\breakSoftware\breakVerification Report\break[${.:/component/document-variant}]
@@ -411,6 +412,6 @@ files: []
 hash: null
 links: []
 output-pdf: svr.pdf
-output-html: html
+output-html: .
 pkg-type: directory-state
 type: pkg

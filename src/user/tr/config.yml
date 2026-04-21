@@ -4,6 +4,7 @@ copyrights:
 copyrights-by-license: {}
 directory: ${.:/component/documentation-directory}/user/tr
 directory-state-type: sphinx
+document-base-path: $${.:/directory}
 document-copyrights:
 - Copyright (C) 9999 Some Company
 document-title: ${.:/component/document-package-title}\breakUser Test Report\break[${.:/component/document-variant}]
@@ -83,7 +84,7 @@ enabled-by: true
 files: []
 hash: null
 links: []
-output-html: html
+output-html: .
 output-pdf: tr.pdf
 pkg-type: directory-state
 type: pkg
