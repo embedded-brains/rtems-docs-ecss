@@ -47,16 +47,15 @@ For normal use of the package, install the following packages:
 .. code-block:: none
     :linenos:
 
-    $$ apt-get install libncurses6 make pkg-config
+    $$ apt-get install libncurses6 make pkg-config python3 python3-dateutil python3-pykwalify python3-yaml
 
-If you want to build a User Test Report (see also :ref:`UserTestReports`),
-install the following additional packages:
+If you want to build :ref:`UserTestReports`, install the following additional
+packages:
 
 .. code-block:: none
     :linenos:
 
-    $$ apt-get install git latexmk pipx python3 \
-        texlive texlive-fonts-extra texlive-latex-extra
+    $$ apt-get install git latexmk pipx texlive texlive-fonts-extra texlive-latex-extra
 
 openSUSE
 --------
