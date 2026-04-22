@@ -4,7 +4,7 @@ SPDX-License-Identifier: CC-BY-SA-4.0
 Copyright (C) 2026 embedded brains GmbH & Co. KG
 -->
 
-## Overview
+# Overview
 
 This repository contains the [ECSS](https://ecss.nl/) documentation set for the
 pre-qualified feature set of the [RTEMS](https://www.rtems.org/) real-time
@@ -51,7 +51,7 @@ customization.
 An ECSS standard tailoring is **not provided**.  See
 [Policy for use of ECSS System by non-ECSS members](https://ecss.nl/license-agreement-disclaimer/).
 
-## Package Integration
+# Package Integration
 
 This repository should be used in a package repository as a Git submodule.  In
 the package repository, add the package specification [spec](spec)
@@ -65,12 +65,12 @@ the documentation sources [src](src) relative to the package build workspace
 rtems-docs-ecss-directory: modules/rtems-docs-ecss/src
 ```
 
-## Contributing
+# Contributing
 
 Please refer to our
 [Contributing Guidelines](CONTRIBUTING.md).
 
-## Origin
+# Origin
 
 Content from the
 [ESA GitLab rtems-smp-qualification](https://gitlab.esa.int/gitrepos/external/rtems-smp-qualification)

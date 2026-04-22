@@ -93,6 +93,9 @@ document-releases:
     * The document was generated using the new
       `specmake <https://pypi.org/project/specmake/>`__ tools.
 
+    * Links to other documents of the package are now relative.  This allows
+      browsing through the documents in a relocated package.
+
     * The document sources were published to the
       `embedded-brains/rtems-docs-ecss <https://github.com/embedded-brains/rtems-docs-ecss>`__
       GitHub repository through

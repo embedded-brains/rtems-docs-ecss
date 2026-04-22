@@ -474,11 +474,11 @@ wheels = [
 
 [[package]]
 name = "idna"
-version = "3.11"
+version = "3.12"
 source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/6f/6d/0703ccc57f3a7233505399edb88de3cbd678da106337b9fcde432b65ed60/idna-3.11.tar.gz", hash = "sha256:795dafcc9c04ed0c1fb032c2aa73654d8e8c5023a7df64a53f39190ada629902", size = 194582, upload-time = "2025-10-12T14:55:20.501Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/22/12/2948fbe5513d062169bd91f7d7b1cd97bc8894f32946b71fa39f6e63ca0c/idna-3.12.tar.gz", hash = "sha256:724e9952cc9e2bd7550ea784adb098d837ab5267ef67a1ab9cf7846bdbdd8254", size = 194350, upload-time = "2026-04-21T13:32:48.916Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/0e/61/66938bbb5fc52dbdf84594873d5b51fb1f7c7794e9c0f5bd885f30bc507b/idna-3.11-py3-none-any.whl", hash = "sha256:771a87f49d9defaf64091e6e6fe9c18d4833f140bd19464795bc32d966ca37ea", size = 71008, upload-time = "2025-10-12T14:55:18.883Z" },
+    { url = "https://files.pythonhosted.org/packages/53/b2/acc33950394b3becb2b664741a0c0889c7ef9f9ffbfa8d47eddb53a50abd/idna-3.12-py3-none-any.whl", hash = "sha256:60ffaa1858fac94c9c124728c24fcde8160f3fb4a7f79aa8cdd33a9d1af60a67", size = 68634, upload-time = "2026-04-21T13:32:47.403Z" },
 ]
 
 [[package]]
@@ -1155,7 +1155,7 @@ requires-dist = [
     { name = "jsonschema", specifier = ">=4.26.0" },
     { name = "metrixpp", specifier = ">=1.8.1" },
     { name = "pykwalify", specifier = ">=1.8.0" },
-    { name = "specmake", specifier = ">=1.2.3" },
+    { name = "specmake", specifier = ">=1.2.4" },
     { name = "sphinx-better-subsection", specifier = ">=0.2" },
     { name = "sphinx-book-theme", specifier = ">=1.1.4" },
     { name = "sphinx-copybutton", specifier = ">=0.5.2" },
@@ -1673,7 +1673,7 @@ wheels = [
 
 [[package]]
 name = "specmake"
-version = "1.2.3"
+version = "1.2.4"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "gcovr" },
@@ -1695,9 +1695,9 @@ dependencies = [
     { name = "sphinxcontrib-serializinghtml" },
     { name = "yapf" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/69/5f/6604df87ee4c391bd30eef68595246a0e7424746ed31d23c55d5ada4a5bd/specmake-1.2.3.tar.gz", hash = "sha256:74301786c163eed1836ec2a0a234208fbdcca34ce7faea59f8b0c6c2526233b5", size = 161060, upload-time = "2026-04-21T09:28:00.628Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/37/a5/af1cef78f888c4e4e27b4cd4698eb462a65c7c6883257b945b216a527593/specmake-1.2.4.tar.gz", hash = "sha256:f66ec336a17242c7463589247a042580f05820ff3e8421ad946479f49ef04215", size = 161152, upload-time = "2026-04-22T01:51:28.699Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/69/f1/234b3a14abcd7fead2a51349bbb418484f11b13622ccc67c957b1624508f/specmake-1.2.3-py3-none-any.whl", hash = "sha256:39e388eb60446fe214305b05744a6bc22d24b4a94cdae2fdb66992cda0512488", size = 213647, upload-time = "2026-04-21T09:27:59.443Z" },
+    { url = "https://files.pythonhosted.org/packages/3e/47/f96fada988e7dc7f3469ad80b721614e4a66d2f27cfd487fb7927532f35b/specmake-1.2.4-py3-none-any.whl", hash = "sha256:921e0a5f69053f49e7bea6a1871bc822fe48dc050ce3b6333fbe6fae42be9704", size = 213713, upload-time = "2026-04-22T01:51:30.019Z" },
 ]
 
 [[package]]

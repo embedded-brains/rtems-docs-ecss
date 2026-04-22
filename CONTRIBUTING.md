@@ -4,14 +4,14 @@ SPDX-License-Identifier: CC-BY-SA-4.0
 Copyright (C) 2026 embedded brains GmbH & Co. KG
 -->
 
-## Submitting issues
+# Submitting issues
 
-Please submit issues related to the this documentation project through
-[ESA Gitlab issues](https://gitlab.esa.int/gitrepos/external/rtems-smp-qualification/-/issues).
+Please submit issues related to this documentation project through
+[ESA GitLab issues](https://gitlab.esa.int/gitrepos/external/rtems-smp-qualification/-/issues).
 
-## Contributing to the project
+# Contributing to the project
 
-### Sign your work
+## Sign your work
 
 We use the
 [Developer Certificate of Origin (DCO)](DCO.txt)
