@@ -83,12 +83,11 @@ ${/glossary/target-arch:/plural}.  The :file:`pkg-config` tool is provided to
 query the tool settings from a installed ${/glossary/bsp:/term}, see
 :ref:`ToolFlags`.  The tools do not require third-party DLLs.  The package does
 not contain build tools like :file:`make`.  The RTEMS Tools are not provided.
-You can build them from source if needed.  Since the package is not located at
-the intended prefix :file:`${.:/component/prefix-directory}`, the links between
-documents may not work.  You can build RTEMS BSPs and the third-party libraries
-using a Python 3 installation from `python.org <https://www.python.org/>`__
-directly in a Windows command line.  There is no `MSYS2
-<https://www.msys2.org/>`__ or `Cygwin <https://www.cygwin.com/>`__ required.
+You can build them from source if needed.  You can build RTEMS BSPs and the
+third-party libraries using a Python 3 installation from `python.org
+<https://www.python.org/>`__ directly in a Windows command line.  There is no
+`MSYS2 <https://www.msys2.org/>`__ or `Cygwin <https://www.cygwin.com/>`__
+required.
 ${.:/pop-enabled-by}
 
 Check the package integrity
@@ -112,16 +111,28 @@ one.
 Unpack the package archive
 ==========================
 
-It is recommended to unpack the package archive in
-:file:`${.:/component/prefix-directory}`.  Other locations may work, but this use
-case was not tested and is not documented.
+.. note::
+
+    The current document uses relative links to documents of the package.
+    Place the document into the top-level package directory so that the
+    relative links resolve to the proper documents of the package.
+
+It is recommended to unpack the package archive in the prefix directory
+:file:`${.:/component/prefix-directory}`.  Other locations may work, but this
+use case was not tested.  The documents use relative links to other documents
+of the package so that browsing the documents in a relocated package works.
+Let :file:`~/Downloads` be the directory containing the package archive
+:file:`${.:/input/archive/file:basename}` and the current document
+:file:`${.:/output-pdf:basename}`.  Use the following commands to unpack the
+archive and place the current document into the intended location:
 
 .. code-block:: none
     :linenos:
 
     $$ sudo mkdir -p ${.:/component/prefix-directory}
     $$ cd ${.:/component/prefix-directory}
-    $$ sudo tar xf ${.:/input/archive/file:basename}
+    $$ sudo tar xf ~/Downloads/${.:/input/archive/file:basename}
+    $$ sudo cp ~/Downloads/${.:/output-pdf:basename} ${.:/component/package-directory:basename}
 
 .. _Examples:
 
@@ -151,11 +162,11 @@ Docker container presented below allows you to
 
 When the package is used directly on the host computer, it is recommended to
 unpack the package archive into the intended prefix directory
-:file:`${.:/component/prefix-directory}`, so that the links between documents
-work.  In our Docker scenario here, the package is mounted at the prefix
-directory inside the Docker container.  However, on your host computer it can
-be in any location.  Let the absolute path to the package location on your host
-be ``$${workspace}`` throughout this section.
+:file:`${.:/component/prefix-directory}`.  In our Docker scenario here, the
+package is mounted at the prefix directory inside the Docker container.
+However, on your host computer it can be in any location.  Let the absolute
+path to the package location on your host be ``$${workspace}`` throughout this
+section.
 
 .. topic:: User IDs inside and outside of a container
 
