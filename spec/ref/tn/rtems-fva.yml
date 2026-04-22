@@ -11,5 +11,5 @@ reference-type: manual
 title: Formal Verification Artefacts
 type: reference
 work-hash: null
-work-url: doc/fm/fva/FV2-201.pdf
+work-url: ${/pkg/deployment/doc-fm-fva:/file:relpath %(*:/directory)}
 year: '2023'

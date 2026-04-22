@@ -16,5 +16,5 @@ reference-type: manual
 title: 'QT-109 Technical Note: RTEMS SMP Qualification Target, Release 6'
 type: reference
 work-hash: null
-work-url: doc/technical-notes/QT-109.pdf
+work-url: ${/pkg/deployment/doc-tn-qt:/file:relpath %(*:/directory)}
 year: '2021'
