@@ -9,5 +9,5 @@ reference-type: manual
 title: Formal Verification Report
 type: reference
 work-hash: null
-work-url: doc/fm/fvr/FV3-202.pdf
+work-url: ${/pkg/deployment/doc-fm-fvr:/file:relpath %(*:/directory)}
 year: '2021'

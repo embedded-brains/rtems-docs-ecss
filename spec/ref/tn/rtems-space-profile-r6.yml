@@ -12,5 +12,5 @@ reference-type: manual
 title: 'Technical Note: Space Profile, Release 6'
 type: reference
 work-hash: null
-work-url: doc/technical-notes/tn-space-profile.pdf
+work-url: ${/pkg/deployment/doc-tn-sp:/file:relpath %(*:/directory)}
 year: '2021'
