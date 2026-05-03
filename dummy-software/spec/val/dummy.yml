@@ -1,0 +1,34 @@
+SPDX-License-Identifier: CC-BY-SA-4.0 OR BSD-2-Clause
+copyrights:
+- Copyright (C) 2026 embedded brains GmbH & Co. KG
+enabled-by: true
+links: []
+test-actions:
+- action-brief: |
+    Validate ${../if/add:/name}.
+  action-code: |
+    int result = dummy_add( 1, 2 );
+  checks:
+  - brief: |
+      Check that the result has the expected value.
+    code: |
+      T_eq_int( result, 3 );
+    links:
+    - role: validation
+      uid: ../req/add
+  links: []
+test-brief: |
+  Tests some ${../if/group:/name} interfaces.
+test-context: []
+test-context-support: null
+test-description: null
+test-header: null
+test-includes:
+- dummy.h
+test-local-includes: []
+test-setup: null
+test-stop: null
+test-support: null
+test-target: tests/tc-dummy.c
+test-teardown: null
+type: test-case

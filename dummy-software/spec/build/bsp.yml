@@ -1,0 +1,15 @@
+SPDX-License-Identifier: CC-BY-SA-4.0 OR BSD-2-Clause
+arch: Arch
+bsp: BSP
+build-type: bsp
+cflags: []
+copyrights:
+- Copyright (C) 2026 embedded brains GmbH & Co. KG
+cppflags: []
+enabled-by: true
+family: BSPFamily
+includes: []
+install: []
+links: []
+source: []
+type: build

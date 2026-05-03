@@ -1,0 +1,13 @@
+SPDX-License-Identifier: CC-BY-SA-4.0 OR BSD-2-Clause
+build-type: config-header
+copyrights:
+- Copyright (C) 2026 embedded brains GmbH & Co. KG
+enabled-by: true
+guard: DUMMY_OPTIONS_H
+include-headers: []
+install-path: ${BSP_INCLUDEDIR}/dummy
+links:
+- role: build-dependency
+  uid: optbuildlabel
+target: include/dummy/options.h
+type: build
