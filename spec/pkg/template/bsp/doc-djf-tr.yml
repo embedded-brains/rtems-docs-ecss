@@ -5,6 +5,9 @@ attribute-actions:
   path: /links
   value:
   - citation-group-key: tr
+    label: Introduction
+    name: Introduction
+    path: /introduction.html
     role: citation-group-member
     uid: /pkg/component
   - hash: null
