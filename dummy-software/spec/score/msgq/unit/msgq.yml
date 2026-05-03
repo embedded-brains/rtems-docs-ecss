@@ -1,0 +1,23 @@
+SPDX-License-Identifier: CC-BY-SA-4.0 OR BSD-2-Clause
+copyrights:
+- Copyright (C) 2026 embedded brains GmbH & Co. KG
+enabled-by: true
+links:
+- role: validation
+  uid: /req/unit-test-dead-code
+test-actions: []
+test-brief: |
+  Brief.
+test-context: []
+test-context-support: null
+test-description: |
+  Description.
+test-header: null
+test-includes: []
+test-local-includes: []
+test-setup: null
+test-stop: null
+test-support: null
+test-target: tests/tc-msgq.c
+test-teardown: null
+type: test-case

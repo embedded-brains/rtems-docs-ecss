@@ -1,0 +1,22 @@
+SPDX-License-Identifier: CC-BY-SA-4.0 OR BSD-2-Clause
+copyrights:
+- Copyright (C) 2021 embedded brains GmbH & Co. KG
+enabled-by: true
+links:
+- role: requirement-refinement
+  uid: /testsuites/membench
+- role: validation
+  uid: ../req/mem-clock
+test-brief: |
+  This static memory usage benchmark program facilitates a basic application
+  configuration.
+test-code: |
+  int main( void )
+  {
+    return 0;
+  }
+test-description: null
+test-includes: []
+test-local-includes: []
+test-target: tests/mem-clock.c
+type: memory-benchmark
