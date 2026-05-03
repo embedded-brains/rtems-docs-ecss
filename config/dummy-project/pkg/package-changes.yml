@@ -314,7 +314,7 @@ change-list:
 
     The RTEMS source code changes from package version 6 to 6.2 with respect to
     the pre-qualified feature set of RTEMS can be reviewed in *Annex B* of the
-    ${/glossary/svr:/plural} ${/pkg/component:/cite-group:svr}.
+    ${/pkg/component:/cite-group:svr}.
 
     The RTEMS specification was updated to facilitate bug fixes, improvements,
     and align with the RTEMS Project evolution.  The specification changes from
