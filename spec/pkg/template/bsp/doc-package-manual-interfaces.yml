@@ -11,6 +11,10 @@ attributes:
     role: input
     uid: component
   - hash: null
+    name: test-aggregation
+    role: input
+    uid: aggregate-test-results
+  - hash: null
     header: Component - $${.:/component/ident}
     header-is-optional: true
     name: document-section
