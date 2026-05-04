@@ -27,10 +27,6 @@ attribute-actions:
     role: input
     uid: perf-images
   - hash: null
-    name: images
-    role: input
-    uid: rtems-tests-images
-  - hash: null
     name: source
     role: input
     uid: ../../../source/doc-rtems-djf-tr
