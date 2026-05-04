@@ -1,0 +1,23 @@
+SPDX-License-Identifier: CC-BY-SA-4.0 OR BSD-2-Clause
+brief: |
+  This is a board of the package user.
+copyrights:
+- Copyright (C) 2026 embedded brains GmbH & Co. KG
+enabled-by: true
+description:
+  This describes a board of the package user.
+key: user
+links:
+- role: test-timeouts
+  uid: user/test-timeouts
+- role: performance-runtime-limits-provider
+  uid: user/perf-default
+name: Board of Package User
+non-functional-type: design-target
+rationale: null
+references: []
+requirement-type: non-functional
+target-hash: cpI09Ju6orF2eoJcmJi4igeIarypsRNwUxTrZSs9LMg=
+text: |
+  The ${.:/name} shall be a ${/glossary/target:/term}.
+type: requirement

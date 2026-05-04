@@ -1,0 +1,8 @@
+SPDX-License-Identifier: CC-BY-SA-4.0 OR BSD-2-Clause
+copyrights:
+- Copyright (C) 2026 embedded brains GmbH & Co. KG
+enabled-by: true
+links: []
+time-of-last-update: '2026-03-25T03:53:02.766926'
+timeouts: {}
+type: test-timeouts

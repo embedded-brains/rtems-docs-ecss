@@ -19,12 +19,13 @@ all: documentation-clean documentation
 documentation: | prepare
 	uv run specbuild $(GIT_OPTIONS) $(LOG_OPTIONS) \
 	  spec \
+	  dummy-software/spec \
 	  config/dummy-project \
 	  config/docs
 
 documentation-move-artifacts: | prepare
 	mkdir -p $(ARTIFACTS_PREFIX)/delivery $(ARTIFACTS_PREFIX)/internal
-	mv $(BUILD)/build/*-scf.pdf $$(find $(BUILD)/doc -name '*.pdf') $(ARTIFACTS_PREFIX)/delivery
+	mv $(BUILD)/*-scf.pdf $$(find $(BUILD)/doc -name '*.pdf' -a -not -path '*/_images/*' -a -not -path '*/user/*') $(ARTIFACTS_PREFIX)/delivery
 
 documentation-clean: | prepare
 	if test -d $(BUILD) ; then cd $(BUILD) && git clean -xdf . && git co . ; fi

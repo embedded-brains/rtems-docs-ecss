@@ -18,6 +18,9 @@ links:
   name: component
   role: input
   uid: ../component
+- name: spec-export
+  role: output
+  uid: spec
 - name: verify-script
   role: output
   uid: verify-package
