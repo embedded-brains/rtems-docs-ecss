@@ -45,8 +45,17 @@ jobs:
         uses: actions/checkout@v6
       - name: Make
         run: |
+          uv --version
+          uv sync --all-groups
+          . .venv/bin/activate
+          metrix++ --help
+          clang-check --version
+          cppcheck --version
+          git config --global user.email "you@example.com"
+          git config --global user.name "Your Name"
           git config --global --add safe.directory $PWD
           make GIT_OPTIONS=--do-not-use-git > log.txt 2>&1
+          make documentation-move-artifacts
       - name: Logs
         uses: actions/upload-artifact@v7
         if: always()
@@ -59,6 +68,5 @@ jobs:
         with:
           name: Documents
           path: |
-            build/build/*.pdf
-            build/doc/**/*.pdf
+            artifacts/delivery/*.pdf
           overwrite: true
