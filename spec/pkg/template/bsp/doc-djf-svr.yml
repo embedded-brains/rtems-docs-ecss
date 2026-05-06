@@ -7,6 +7,12 @@ attribute-actions:
   - citation-group-key: svr
     role: citation-group-member
     uid: /pkg/component
+  - citation-group-key: svr-test-coverage
+    label: Coverage
+    name: Structural Code Coverage Achievement
+    path: /verification-activities.html
+    role: citation-group-member
+    uid: /pkg/component
   - hash: null
     name: component
     role: input

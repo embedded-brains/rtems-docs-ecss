@@ -1,0 +1,30 @@
+SPDX-License-Identifier: CC-BY-SA-4.0 OR BSD-2-Clause
+actions:
+- get-boolean: null
+- env-assign: null
+- set-value: ${PREFIX}/${ARCH}-rtems${__RTEMS_MAJOR__}/${BSP_NAME}
+- substitute: null
+- env-assign: BSP_PREFIX
+- set-value: ${BSP_PREFIX}/lib
+- substitute: null
+- env-assign: BSP_LIBDIR
+- set-value: ${BSP_LIBDIR}/include
+- substitute: null
+- env-assign: BSP_INCLUDEDIR
+- set-value: ${BSP_LIBDIR}/tests
+- substitute: null
+- env-assign: BSP_TESTDIR
+build-type: option
+copyrights:
+- Copyright (C) 2026 embedded brains GmbH & Co. KG
+default:
+- enabled-by: true
+  value: true
+description: |
+  If this option is enabled, then installable artefacts such as header files
+  and libraries are installed.  The installation of test executables is
+  controlled separately by ${INSTALL_TESTS}.
+enabled-by: true
+links: []
+name: INSTALL
+type: build

@@ -1,0 +1,51 @@
+SPDX-License-Identifier: CC-BY-SA-4.0 OR BSD-2-Clause
+build-type: library
+cflags: []
+copyrights:
+- Copyright (C) 2026 embedded brains GmbH & Co. KG
+cppflags: []
+cxxflags: []
+enabled-by: true
+includes: []
+install:
+- destination: ${BSP_INCLUDEDIR}
+  source:
+  - cpukit/include/sha224.h
+  - cpukit/include/sha256.h
+- destination: ${BSP_INCLUDEDIR}/rtems
+  source:
+  - cpukit/include/rtems/base64.h
+  - cpukit/include/rtems/bspIo.h
+  - cpukit/include/rtems/linkersets.h
+  - cpukit/include/rtems/test-gcov.h
+  - cpukit/include/rtems/test-info.h
+  - cpukit/include/rtems/test.h
+- destination: ${BSP_INCLUDEDIR}/rtems/dev
+  source:
+  - cpukit/include/rtems/dev/io.h
+- destination: ${BSP_INCLUDEDIR}/rtems/score
+  source:
+  - cpukit/include/rtems/score/basedefs.h
+  - cpukit/include/rtems/score/hash.h
+- destination: ${BSP_INCLUDEDIR}/sys
+  source:
+  - cpukit/include/sys/endian.h
+install-path: ${BSP_LIBDIR}
+links: []
+source:
+- cpukit/test/base64-encode.c
+- cpukit/test/gcovdumpinfo.c
+- cpukit/test/gcovdumpinfobase64.c
+- cpukit/test/gcovinfoset.c
+- cpukit/test/hash.c
+- cpukit/test/ioprintf.c
+- cpukit/test/iovprintf.c
+- cpukit/test/sha256c.c
+- cpukit/test/t-test-checks.c
+- cpukit/test/t-test-hash-sha256.c
+- cpukit/test/t-test-time.c
+- cpukit/test/t-test.c
+- cpukit/test/testbeginend.c
+- cpukit/test/testgcovdumpinfo.c
+target: test
+type: build

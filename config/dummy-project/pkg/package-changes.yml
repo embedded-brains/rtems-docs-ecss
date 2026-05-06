@@ -314,21 +314,20 @@ change-list:
 
     The RTEMS source code changes from package version 6 to 6.2 with respect to
     the pre-qualified feature set of RTEMS can be reviewed in *Annex B* of the
-    ${/glossary/svr:/plural} ${/pkg/component:/cite-group:svr}.
+    ${/pkg/component:/cite-group:svr}.
 
     The RTEMS specification was updated to facilitate bug fixes, improvements,
     and align with the RTEMS Project evolution.  The specification changes from
     package version 6 to 6.2 can be reviewed in *Annex C* of the SVRs.  To
     improve the maintainability, the specification items of RTEMS moved from a
     separate repository to the RTEMS sources in
-    ${/pkg/source/rtems:/directory}.  This is used to generate change logs for
-    the specification modifications from one package version to another for the
-    ${/glossary/icd:/plural} ${/pkg/component:/cite-group:icd},
-    ${/glossary/srs:/plural} ${/pkg/component:/cite-group:srs}, and
-    ${/glossary/svs:/plural} ${/pkg/component:/cite-group:svs}.  There are a
-    lot of changes between package version 5 and 6, since the specification
-    tree verification and presentation was significantly improved by the
-    corresponding ESA project.
+    ${/pkg/source/rtems:/directory:relpath %(*:/directory)}.  This is used to
+    generate change logs for the specification modifications from one package
+    version to another for the ${/pkg/component:/cite-group:icd},
+    ${/pkg/component:/cite-group:srs}, and ${/pkg/component:/cite-group:svs}.
+    There are a lot of changes between package version 5 and 6, since the
+    specification tree verification and presentation was significantly improved
+    by the corresponding ESA project.
 
     With respect to the generated documents, the update is more progressive.
     The tools to build the package were completely replaced.  The tools are
@@ -365,7 +364,7 @@ change-list:
         isl                    0.26                                     keep as is
         mpc                    1.3.1                                    keep as is
         mpfr                   4.2.0                                    4.2.2
-        Doxygen                1.9.7                                    1.15.0 with patches
+        Doxygen                1.9.7                                    1.17.0
         Test reports           SVR - Annex A                            move to test report document
         Source review v5..v6   SVR - Annex B                            move to SVR - Annex D
         Spec review v5..v6     SVR - Annex C                            move to SVR - Annex E

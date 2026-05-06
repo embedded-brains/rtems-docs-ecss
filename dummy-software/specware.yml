@@ -1,0 +1,49 @@
+# SPDX-License-Identifier: BSD-2-Clause
+# Copyright (C) 2026 embedded brains GmbH & Co. KG
+spec:
+  cache-directory: cache
+  paths:
+  - spec
+  resolve-proxies: true
+  spec-type-root-uid: /spec/root
+automatically-generated-warning: |
+  This file was automatically generated.
+glossary:
+  project-groups:
+  - /glossary/group
+  project-header: Glossary
+  project-target: docs/glossary.rst
+  documents: []
+appl-config:
+  doxygen-target: doxygen/appl-config.h
+  enabled-source: []
+  enabled-documentation: []
+  groups: []
+validation:
+  base-directory-map: []
+interface:
+  enabled: []
+  item-level-interfaces: []
+  domains:
+    /if/domain: .
+interface-documentation:
+  enabled: []
+  groups: []
+  types:
+    domains: []
+    groups: []
+    target: docs/data-types.rst
+spec-verification:
+  root-type: /spec/root
+spec-documentation:
+  target: docs/items.rst
+  hierarchy-subsection-name: Specification Item Hierarchy
+  hierarchy-text: |
+    The specification item types have the following hierarchy:
+  ignore: '^$'
+  item-types-subsection-name: Specification Item Types
+  label-prefix: SpecType
+  root-type-uid: /spec/root
+  section-label-prefix: ReqEng
+  section-name: Specification Items
+  value-types-subsection-name: Specification Attribute Sets and Value Types

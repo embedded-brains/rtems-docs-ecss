@@ -5,10 +5,15 @@ copyrights:
 component-type: generic
 enabled-by: true
 enabled-set: []
+enabled-set-actions: []
+enabled-set-feedback-mapping: {}
 links:
+- role: use-package-component-template
+  uid: /pkg/template/arch/component
 - hash: null
   name: component
   role: input
   uid: ../component
-pkg-type: component
+pkg-type: workspace
 type: pkg
+workspace-type: component

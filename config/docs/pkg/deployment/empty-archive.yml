@@ -10,10 +10,17 @@ enabled-by: true
 files: []
 hash: null
 links:
+- path: .yml
+  resource-key: item-files
+  role: resource
+  uid: ../component
 - hash: null
   name: component
   role: input
   uid: ../component
+- name: spec-export
+  role: output
+  uid: spec
 - name: verify-script
   role: output
   uid: verify-package

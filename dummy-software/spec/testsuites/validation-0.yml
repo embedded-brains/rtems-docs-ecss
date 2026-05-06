@@ -1,0 +1,81 @@
+SPDX-License-Identifier: CC-BY-SA-4.0 OR BSD-2-Clause
+copyrights:
+- Copyright (C) 2026 embedded brains GmbH & Co. KG
+enabled-by: true
+links:
+- role: requirement-refinement
+  uid: validation
+test-brief: |
+  This general purpose validation test suite provides enough resources to run
+  basic tests for all specified managers and functions.
+test-code: |
+  const char rtems_test_name[] = "${.:/test-suite-name}";
+
+  static char buffer[ 512 ];
+
+  static void OutputChar( char c )
+  {
+    putchar( (char)c );
+  }
+
+  BSP_output_char_function_type BSP_output_char = OutputChar;
+
+  void rtems_putc( char c )
+  {
+    BSP_output_char_function_type output_char;
+
+    output_char = BSP_output_char;
+
+    ( *output_char )( c );
+  }
+
+  void rtems_put_char( int c, void *arg )
+  {
+    (void) arg;
+    rtems_putc( (char) c );
+  }
+
+  static const T_action actions[] = {
+    T_report_hash_sha256_output_char
+  };
+
+  static const T_config config = {
+    .name = rtems_test_name,
+    .buf = buffer,
+    .buf_size = sizeof( buffer ),
+    .putchar = rtems_put_char,
+    .verbosity = T_NORMAL,
+    .now = T_now_clock,
+    .allocate = malloc,
+    .deallocate = free,
+    .action_count = T_ARRAY_SIZE( actions ),
+    .actions = actions
+  };
+
+  int main(void)
+  {
+    rtems_test_begin( rtems_test_name, RTEMS_TEST_STATE_PASS );
+    T_register();
+
+    int exit_code = T_main( &config );
+
+    if (exit_code == 0) {
+      rtems_test_end( rtems_test_name );
+    }
+
+  #ifdef RTEMS_GCOV_COVERAGE
+    rtems_test_gcov_dump_info();
+  #endif
+
+    return exit_code;
+  }
+test-description: null
+test-includes:
+- dummy/options.h
+- rtems/bspIo.h
+- rtems/test-info.h
+- stdio.h
+- stdlib.h
+test-local-includes: []
+test-target: tests/ts-validation-0.c
+type: test-suite

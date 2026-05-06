@@ -16,9 +16,7 @@ attributes:
     uid: build-ddf-sdd-doxyfile
   - role: directory-state-exclude
     uid: doc-ddf-sdd-tagfile-early
-  patterns:
-  - exclude: []
-    include: '**/*'
+  patterns: '**/*'
   pkg-type: directory-state
   type: pkg
 copyrights:

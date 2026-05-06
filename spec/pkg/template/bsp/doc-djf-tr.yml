@@ -5,6 +5,9 @@ attribute-actions:
   path: /links
   value:
   - citation-group-key: tr
+    label: Introduction
+    name: Introduction
+    path: /introduction.html
     role: citation-group-member
     uid: /pkg/component
   - hash: null
@@ -23,10 +26,6 @@ attribute-actions:
     name: images
     role: input
     uid: perf-images
-  - hash: null
-    name: images
-    role: input
-    uid: rtems-tests-images
   - hash: null
     name: source
     role: input
