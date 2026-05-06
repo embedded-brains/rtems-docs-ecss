@@ -3,6 +3,7 @@ copyrights:
 - Copyright (C) 2020, 2026 embedded brains GmbH & Co. KG
 copyrights-by-license: {}
 destination-directory: ${.:/component/deployment-directory}/src/doc/package-manual
+directory: ${.:/component/workspace-directory}/${.:/component/rtems-docs-ecss-directory}
 enabled-by: true
 file-mappings:
 - pattern: ^common/
@@ -15,12 +16,9 @@ links:
   role: input
   uid: ../component
 patterns:
-- exclude: []
-  include:
-  - common/**/*
-  - package-manual/*.rst
-  - package-manual/waivers/*.pdf
+- common/**/*
+- package-manual/*.rst
+- package-manual/waivers/*.pdf
 pkg-type: workspace
-directory: ${.:/component/workspace-directory}/${.:/component/rtems-docs-ecss-directory}
 type: pkg
 workspace-type: directory

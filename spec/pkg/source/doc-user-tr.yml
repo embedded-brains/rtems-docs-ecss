@@ -3,6 +3,8 @@ copyrights:
 - Copyright (C) 2026 embedded brains GmbH & Co. KG
 copyrights-by-license: {}
 destination-directory: ${.:/component/deployment-directory}/src/doc/user/tr
+directory: ${.:/component/workspace-directory}/${.:/component/rtems-docs-ecss-directory}
+directory-state-load-before-use: true
 enabled-by: true
 file-mappings:
 - pattern: ^common/
@@ -21,16 +23,12 @@ links:
   role: input-to
   uid: ../deployment/archive
 patterns:
-- exclude: []
-  include:
-  - common/build/latex/blue-dots.pdf
-  - common/include/abbreviations.rst
-  - common/include/ref-docs.rst
-  - common/source/**/*
-  - djf/tr/*.rst
-  - user/tr/build/**/*
+- common/build/latex/blue-dots.pdf
+- common/include/abbreviations.rst
+- common/include/ref-docs.rst
+- common/source/**/*
+- djf/tr/*.rst
+- user/tr/build/**/*
 pkg-type: workspace
-directory: ${.:/component/workspace-directory}/${.:/component/rtems-docs-ecss-directory}
-directory-state-load-before-use: true
 type: pkg
 workspace-type: directory
