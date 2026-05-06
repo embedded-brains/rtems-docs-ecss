@@ -1155,7 +1155,7 @@ requires-dist = [
     { name = "jsonschema", specifier = ">=4.26.0" },
     { name = "metrixpp", specifier = ">=1.8.1" },
     { name = "pykwalify", specifier = ">=1.8.0" },
-    { name = "specmake", specifier = ">=1.3.1" },
+    { name = "specmake", specifier = ">=1.3.2" },
     { name = "sphinx-better-subsection", specifier = ">=0.2" },
     { name = "sphinx-book-theme", specifier = ">=1.1.4" },
     { name = "sphinx-copybutton", specifier = ">=0.5.2" },
@@ -1673,7 +1673,7 @@ wheels = [
 
 [[package]]
 name = "specmake"
-version = "1.3.1"
+version = "1.3.2"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "gcovr" },
@@ -1695,9 +1695,9 @@ dependencies = [
     { name = "sphinxcontrib-serializinghtml" },
     { name = "yapf" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/cd/d8/058a01e63f664fb7065eaf49d62fc92e69c35b7e454648c0ab59f9bd61e5/specmake-1.3.1.tar.gz", hash = "sha256:bf03efc288f786f8c0de359ae4760f28e8b1a5260a678d11d4b09fb9e8e27ba0", size = 165443, upload-time = "2026-05-05T11:52:39.834Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/dc/f6/910e8099e8fb23cafbed5cfe1637c5cc5171fe07930c322e704a4bbc5eca/specmake-1.3.2.tar.gz", hash = "sha256:59fb26ea54e917b6a3a0260c813a4945cb8efa718d108b64dd816875353f0d92", size = 165504, upload-time = "2026-05-06T08:33:50.263Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/8f/76/bbe8f3edb93852bb978b51311b0c14b0a576ee1bcdc4c636c25e223f5e11/specmake-1.3.1-py3-none-any.whl", hash = "sha256:e781236dd9fe4d107dfaf58d650fdb27b74927cf25af84c284c269a6f53d8a63", size = 219979, upload-time = "2026-05-05T11:52:41.167Z" },
+    { url = "https://files.pythonhosted.org/packages/0f/94/ea0918fd71d6e46c0b35b9383ae4b6b98086be897e8bc1d68fe34e578788/specmake-1.3.2-py3-none-any.whl", hash = "sha256:65c4cfa45fcc6d1083012226858a81724065cdb7853349ac03a15509f304e6a8", size = 220035, upload-time = "2026-05-06T08:33:48.912Z" },
 ]
 
 [[package]]
