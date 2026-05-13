@@ -53,6 +53,10 @@ attribute-actions:
     name: member
     role: input-to
     uid: /pkg/deployment/archive
+  - hash: null
+    name: test-report
+    role: input-to
+    uid: /pkg/deployment/doc-package-summary
 copyrights:
 - Copyright (C) 2023 embedded brains GmbH & Co. KG
 enabled-by: true
