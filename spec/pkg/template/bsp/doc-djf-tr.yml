@@ -29,7 +29,7 @@ attribute-actions:
   - hash: null
     name: source
     role: input
-    uid: ../../../source/doc-rtems-djf-tr
+    uid: /pkg/source/doc-rtems-djf-tr
   - hash: null
     key: compiler-version
     name: test-property
@@ -44,15 +44,19 @@ attribute-actions:
     property-name: RTEMS Git Commit
     role: input
     type: rtems-version
-    expected: $${../../../source/rtems:/commit}
-    uid: ../../../source/rtems
+    expected: $${/pkg/source/rtems:/commit}
+    uid: /pkg/source/rtems
   - name: build
     role: output
     uid: build-djf-tr
   - hash: null
     name: member
     role: input-to
-    uid: ../../../deployment/archive
+    uid: /pkg/deployment/archive
+  - hash: null
+    name: test-report
+    role: input-to
+    uid: /pkg/deployment/doc-package-summary
 copyrights:
 - Copyright (C) 2023 embedded brains GmbH & Co. KG
 enabled-by: true

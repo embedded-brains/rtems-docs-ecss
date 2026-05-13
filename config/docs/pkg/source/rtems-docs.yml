@@ -1,23 +1,16 @@
 SPDX-License-Identifier: CC-BY-SA-4.0 OR BSD-2-Clause
-branch: pkg
-commit: 01234567890abcdef01234567890abcdef012345
 copyrights:
-- Copyright (C) 2025 embedded brains GmbH & Co. KG
+- Copyright (C) 2026 embedded brains GmbH & Co. KG
 copyrights-by-license: {}
-description: Description.
-directory: ${.:/component/deployment-directory}/src/rtems
-directory-state-type: repository
+destination-directory: ${.:/component/deployment-directory}/src/rtems-docs
 enabled-by: true
-files: []
-hash: null
 links:
 - hash: null
   name: component
   role: input
-  uid: /pkg/component
-origin-branch: main
-origin-commit: 01234567890abcdef01234567890abcdef012345
-origin-commit-url: https://www.foobar.org
-origin-url: https://www.foobar.org
-pkg-type: directory-state
+  uid: ../component
+patterns: '**/*'
+pkg-type: workspace
+directory: ${.:/component/workspace-directory}/test-logs
 type: pkg
+workspace-type: directory-repository

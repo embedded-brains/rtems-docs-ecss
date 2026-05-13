@@ -19,19 +19,11 @@ attributes:
   - hash: null
     name: build-spec
     role: input
-    uid: ../../../source/rtems
+    uid: /pkg/source/rtems
   - hash: null
     name: tools
     role: input
-    uid: ../../gcc
-  - hash: null
-    name: tools
-    role: input
-    uid: ../../../deployment/rtems-tools
-  - hash: null
-    name: tools
-    role: input
-    uid: ../../../deployment/rtems-tool-suite
+    uid: ../../tools
   - hash: null
     name: config
     role: input
@@ -45,7 +37,7 @@ attributes:
     params:
       configure-options: []
     role: make
-    uid: ../../../make/bsp
+    uid: /pkg/make/bsp
   - name: build
     role: output
     uid: build-qual-only

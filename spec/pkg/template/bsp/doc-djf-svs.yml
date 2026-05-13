@@ -34,14 +34,14 @@ attribute-actions:
   - hash: null
     name: source
     role: input
-    uid: ../../../source/doc-rtems-djf-svs
+    uid: /pkg/source/doc-rtems-djf-svs
   - name: build
     role: output
     uid: build-djf-svs
   - hash: null
     name: member
     role: input-to
-    uid: ../../../deployment/archive
+    uid: /pkg/deployment/archive
 copyrights:
 - Copyright (C) 2023 embedded brains GmbH & Co. KG
 enabled-by: true

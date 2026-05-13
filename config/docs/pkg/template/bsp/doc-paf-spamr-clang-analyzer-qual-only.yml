@@ -19,15 +19,11 @@ attributes:
   - hash: null
     name: build-spec
     role: input
-    uid: ../../../source/rtems
+    uid: /pkg/source/rtems
   - hash: null
     name: tools
     role: input
-    uid: ../../gcc
-  - hash: null
-    name: tools
-    role: input
-    uid: ../../../deployment/rtems-tool-suite
+    uid: ../../tools
   - hash: null
     name: config
     role: input
@@ -36,7 +32,7 @@ attributes:
     output-name: deployment
     params: {}
     role: make
-    uid: ../../../make/clang-analyzer
+    uid: /pkg/make/clang-analyzer
   - hash: null
     name: member
     role: input-to
