@@ -54,9 +54,13 @@ jobs:
           git config --global user.email "you@example.com"
           git config --global user.name "Your Name"
           git config --global --add safe.directory $PWD
-          make GIT_OPTIONS=--do-not-use-git > log.txt 2>&1
+          make GIT_OPTIONS=--do-not-use-git >log.txt 2>&1
           make documentation-move-artifacts
-      - name: Logs
+      - name: Log tail
+        if: always()
+        run: |
+          tail -n 1000 log.txt
+      - name: Log artifact
         uses: actions/upload-artifact@v7
         if: always()
         with:
