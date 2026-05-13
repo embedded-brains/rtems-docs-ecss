@@ -18,18 +18,18 @@ attribute-actions:
   - hash: null
     name: package-changes
     role: input
-    uid: ../../../package-changes
+    uid: /pkg/package-changes
   - hash: null
     name: source
     role: input
-    uid: ../../../source/doc-rtems-ddf-sreld
+    uid: /pkg/source/doc-rtems-ddf-sreld
   - name: build
     role: output
     uid: build-ddf-sreld
   - hash: null
     name: member
     role: input-to
-    uid: ../../../deployment/archive
+    uid: /pkg/deployment/archive
 copyrights:
 - Copyright (C) 2023 embedded brains GmbH & Co. KG
 enabled-by: true
