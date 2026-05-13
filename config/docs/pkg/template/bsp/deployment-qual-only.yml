@@ -29,10 +29,6 @@ attributes:
     role: input
     uid: /pkg/deployment/rtems-tools
   - hash: null
-    name: tools
-    role: input
-    uid: /pkg/deployment/rtems-tool-suite
-  - hash: null
     name: config
     role: input
     uid: config-qual-only

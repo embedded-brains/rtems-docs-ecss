@@ -25,10 +25,6 @@ attributes:
     role: input
     uid: ../../gcc
   - hash: null
-    name: tools
-    role: input
-    uid: /pkg/deployment/rtems-tool-suite
-  - hash: null
     name: config
     role: input
     uid: config-qual-only-analyzer
