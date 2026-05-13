@@ -23,7 +23,7 @@ attributes:
   - hash: null
     name: tools
     role: input
-    uid: ../../gcc
+    uid: ../../tools
   - hash: null
     name: config
     role: input
