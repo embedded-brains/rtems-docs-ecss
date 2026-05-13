@@ -27,7 +27,7 @@ attributes:
   - hash: null
     name: tools
     role: input
-    uid: ../../../deployment/rtems-tool-suite
+    uid: /pkg/deployment/rtems-tool-suite
   - hash: null
     name: log
     role: input

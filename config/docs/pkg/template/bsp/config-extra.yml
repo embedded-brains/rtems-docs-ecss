@@ -39,7 +39,7 @@ attributes:
       name: ${.:/component/arch}/${.:/component/bsp}${.:/component/config:dash}${.:/component/bsp-extra:dash}
     target: null
   copyrights-by-license: {}
-  directory: $${../../../source/rtems:/directory}
+  directory: $${/pkg/source/rtems:/directory}
   directory-state-type: explicit
   enabled-by: true
   files:
@@ -54,7 +54,7 @@ attributes:
   - hash: null
     name: source
     role: input
-    uid: ../../../source/rtems
+    uid: /pkg/source/rtems
   - hash: null
     name: source
     role: input
@@ -62,7 +62,7 @@ attributes:
   - hash: null
     name: member
     role: input-to
-    uid: ../../../deployment/archive
+    uid: /pkg/deployment/archive
   params: {}
   pkg-type: directory-state
   type: pkg
