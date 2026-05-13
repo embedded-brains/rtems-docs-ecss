@@ -30,7 +30,7 @@ attribute-actions:
   - hash: null
     name: source
     role: input
-    uid: ../../../source/doc-rtems-djf-suitp
+    uid: /pkg/source/doc-rtems-djf-suitp
   - hash: null
     name: tagfile
     role: input
@@ -41,7 +41,7 @@ attribute-actions:
   - hash: null
     name: member
     role: input-to
-    uid: ../../../deployment/archive
+    uid: /pkg/deployment/archive
 copyrights:
 - Copyright (C) 2023 embedded brains GmbH & Co. KG
 enabled-by: true

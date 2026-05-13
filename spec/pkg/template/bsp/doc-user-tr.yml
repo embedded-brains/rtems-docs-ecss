@@ -23,7 +23,7 @@ attribute-actions:
   - hash: null
     name: source
     role: input
-    uid: ../../../source/doc-user-tr
+    uid: /pkg/source/doc-user-tr
   - hash: null
     key: compiler-version
     name: test-property
@@ -38,8 +38,8 @@ attribute-actions:
     property-name: RTEMS Git Commit
     role: input
     type: rtems-version
-    expected: $${../../../source/rtems:/commit}
-    uid: ../../../source/rtems
+    expected: $${/pkg/source/rtems:/commit}
+    uid: /pkg/source/rtems
   - name: build
     role: output
     uid: build-user-tr
