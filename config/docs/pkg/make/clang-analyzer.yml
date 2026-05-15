@@ -1,5 +1,8 @@
 SPDX-License-Identifier: CC-BY-SA-4.0 OR BSD-2-Clause
 actions:
+- action: directory-state-discard-and-clear
+  enabled-by: true
+  output-name: deployment
 - action: remove-tree
   enabled-by: true
   missing-ok: true
@@ -55,7 +58,7 @@ actions:
   remove-tree: true
 copyrights:
 - Copyright (C) 2020 EDISOFT
-- Copyright (C) 2023 embedded brains GmbH & Co. KG
+- Copyright (C) 2023, 2026 embedded brains GmbH & Co. KG
 enabled-by: true
 links: []
 params:
