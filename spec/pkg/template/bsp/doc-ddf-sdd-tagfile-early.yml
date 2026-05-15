@@ -27,7 +27,7 @@ attributes:
     params: {}
     role: make
     uid: /pkg/make/doxygen-tagfile
-  - name: destination
+  - name: build
     role: output
     uid: build-ddf-sdd
   - hash: null
@@ -37,7 +37,7 @@ attributes:
   pkg-type: directory-state
   type: pkg
 copyrights:
-- Copyright (C) 2022 embedded brains GmbH & Co. KG
+- Copyright (C) 2022, 2026 embedded brains GmbH & Co. KG
 enabled-by: true
 links:
 - role: add-package-template
