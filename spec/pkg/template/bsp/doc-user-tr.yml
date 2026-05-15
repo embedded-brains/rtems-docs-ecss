@@ -38,7 +38,7 @@ attribute-actions:
     property-name: RTEMS Git Commit
     role: input
     type: rtems-version
-    expected: $${/pkg/source/rtems:/commit}
+    expected: $$$${/pkg/source/rtems:/commit}
     uid: /pkg/source/rtems
   - name: build
     role: output

@@ -33,7 +33,7 @@ attributes:
     role: input
     uid: doc-ddf-sdd-doxyfile
   - hash: null
-    output-name: destination
+    output-name: deployment
     params: {}
     role: make
     uid: /pkg/make/doc-ddf-sdd
@@ -48,7 +48,7 @@ attributes:
   pkg-type: directory-state
   type: pkg
 copyrights:
-- Copyright (C) 2023 embedded brains GmbH & Co. KG
+- Copyright (C) 2023, 2026 embedded brains GmbH & Co. KG
 enabled-by: true
 links:
 - role: add-package-template
