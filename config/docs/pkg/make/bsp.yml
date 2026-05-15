@@ -4,10 +4,6 @@ actions:
   enabled-by:
     has-output: build
   output-name: build
-- action: directory-state-discard-and-clear
-  enabled-by:
-    has-output: deployment
-  output-name: deployment
 - action: remove-tree
   enabled-by: true
   missing-ok: true
