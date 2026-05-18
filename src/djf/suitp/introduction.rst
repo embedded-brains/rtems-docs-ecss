@@ -19,7 +19,7 @@ ${/ref/rtems/c-user:/cite-long}.
 
 The specification of RTEMS is done using so-called specification items.  For an
 overview of the specification approach see the
-`Software Requirements Engineering <${.:/component/deployment-directory}/doc/rtems/eng/req/index.html>`_
+`Software Requirements Engineering <${.:/component/deployment-directory:relpath %(*:/directory)}/doc/rtems/eng/req/index.html>`_
 chapter in the ${/ref/rtems/eng:/cite-long}.  The test suites and test cases
 presented in this document are specified using specification items.  The items
 contain source code fragments which are used to generate source files for test
@@ -52,9 +52,9 @@ is not needed by an API is superfluous and should be removed or deactivated.
 The spirit of the RTEMS test suite is to do unit tests of internal functions
 through API level calls.  This is also the benchmark for the validation tests
 developed by this activity.  The
-`Action Requirement Item Type <${.:/component/deployment-directory}/doc/rtems/eng/req/items.html#spectypeactionrequirementitemtype>`_
+`Action Requirement Item Type <${.:/component/deployment-directory:relpath %(*:/directory)}/doc/rtems/eng/req/items.html#spectypeactionrequirementitemtype>`_
 specification items allow a very detailed specification of functions.  See also
-`How-To - Action Requirements <${.:/component/deployment-directory}/doc/rtems/eng/req/howto.html#action-requirements>`_.
+`How-To - Action Requirements <${.:/component/deployment-directory:relpath %(*:/directory)}/doc/rtems/eng/req/howto.html#action-requirements>`_.
 For directives, not only the function parameters are considered, but also
 states of the system relevant to the directive call.  Examples are the state of
 threads which are affected by the directive, the execution context and mode of
@@ -62,7 +62,7 @@ the caller, interrupts which happen during the directive call, activity on
 other processors during the directive call, and the state of the object
 accessed by the directive.  The RTEMS Test Framework which was developed for
 this activity provides support for
-`Interrupt Tests <${.:/component/deployment-directory}/doc/rtems/eng/test-framework.html#interrupt-tests>`_.
+`Interrupt Tests <${.:/component/deployment-directory:relpath %(*:/directory)}/doc/rtems/eng/test-framework.html#interrupt-tests>`_.
 
 The goal of this activity is to reach 100% statement and branch coverage
 through validation tests.  Once this is achieved, this will show that
@@ -91,7 +91,7 @@ validation tests are difficult to carry out or insufficient.  For example, unit
 tests may be done for the chain and red-black tree data structures.
 
 The systematic specification and validation approach through
-`Action Requirement Item Type <${.:/component/deployment-directory}/doc/rtems/eng/req/items.html#spectypeactionrequirementitemtype>`_
+`Action Requirement Item Type <${.:/component/deployment-directory:relpath %(*:/directory)}/doc/rtems/eng/req/items.html#spectypeactionrequirementitemtype>`_
 specification items has proven by example that it is capable to find
 shortcomings in the RTEMS code base which were not surfaced by the existing
 RTEMS test suite, for example:

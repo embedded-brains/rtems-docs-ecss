@@ -23,10 +23,10 @@ one.
 
 For an overview of the package archive content, see :ref:`Overview`.  The
 package archive contains the package verification script
-:file:`${.:/input/verify-package/file}` which has an SHA512 digest of
-``${.:/input/verify-package/sha512}``.  This script may be used to verify the
-files of the package after unpacking the archive.  It may also be used to list
-the files of the package or to list the files of the package with an SHA512
-hash value of each file content.
+:file:`${.:/input/verify-package/file:relpath %(/pkg/component:/prefix-directory)}`
+which has an SHA512 digest of ``${.:/input/verify-package/sha512}``.  This
+script may be used to verify the files of the package after unpacking the
+archive.  It may also be used to list the files of the package or to list the
+files of the package with an SHA512 hash value of each file content.
 
 ${.:/subprocess:args=./%(.:/input/verify-package/file:basename) --help,cwd=%(.:/input/verify-package/file:dirname)}
