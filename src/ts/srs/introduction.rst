@@ -19,7 +19,7 @@ ${/ref/rtems/c-user:/cite-long}.
 
 The specification of RTEMS is done using so called specification items.  For an
 overview of the specification approach see the
-`Software Requirements Engineering <${.:/component/deployment-directory}/doc/rtems/eng/req/index.html>`_
+`Software Requirements Engineering <${.:/component/deployment-directory:relpath %(*:/directory)}/doc/rtems/eng/req/index.html>`_
 chapter in the ${/ref/rtems/eng:/cite-long}.  It is recommended to read this
 chapter.  The constraints and requirements presented in the current document
 are specified using specification items.

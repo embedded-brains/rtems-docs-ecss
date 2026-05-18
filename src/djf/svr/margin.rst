@@ -101,7 +101,7 @@ scenarios are executed in different ${/glossary/target:/term} system
 environments to estimate best case and worst case timings.  The execution
 environments and the runtime performance measurement approach are described in
 the
-`Code Runtime Measurements <${.:/component/deployment-directory}/doc/rtems/eng/test-framework.html#code-runtime-measurements>`_
+`Code Runtime Measurements <${.:/component/deployment-directory:relpath %(*:/directory)}/doc/rtems/eng/test-framework.html#code-runtime-measurements>`_
 section of the |RSE| manual ${/ref/rtems/eng:/cite}.  The table below lists
 all runtime performance requirements.  For each requirement, target- and
 configuration-specific margins are specified for measured timing values such as

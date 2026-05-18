@@ -32,7 +32,7 @@ Tasks and items under test
 The task is to test ${/glossary/softwareunit:/plural} and integrations of
 software units.  The tests are specified and implemented in specification items
 such as
-`Test Case Item Type <${.:/component/deployment-directory}/doc/rtems/eng/req/items.html#spectypetestcaseitemtype>`_.
+`Test Case Item Type <${.:/component/deployment-directory:relpath %(*:/directory)}/doc/rtems/eng/req/items.html#spectypetestcaseitemtype>`_.
 
 Features to be tested
 =====================
@@ -55,7 +55,7 @@ Test pass - fail criteria
 =========================
 
 In general, the unit and validation tests use the
-`RTEMS Test Framework <${.:/component/deployment-directory}/doc/rtems/eng/test-framework.html#the-rtems-test-framework>`_.
+`RTEMS Test Framework <${.:/component/deployment-directory:relpath %(*:/directory)}/doc/rtems/eng/test-framework.html#the-rtems-test-framework>`_.
 
 A test suite is a collection of test cases.  A test case consists of individual
 test actions and checks.  A test check determines if the outcome of a test

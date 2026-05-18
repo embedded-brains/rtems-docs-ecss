@@ -163,7 +163,7 @@ commands:
 .. code-block:: none
     :linenos:
 
-    $$ cd ${.:/component/deployment-directory}
+    $$ cd ${.:/component/deployment-directory:relpath %(/pkg/component:/prefix-directory)}
     $$ git init
     $$ git add -f .
     $$ git commit -m "Initial import"
@@ -178,7 +178,7 @@ directory, and active the virtual Python environment:
 .. code-block:: none
     :linenos:
 
-    $$ cd ${.:/component/deployment-directory}
+    $$ cd ${.:/component/deployment-directory:relpath %(/pkg/component:/prefix-directory)}
     $$ source .venv/bin/activate
 
 The following commands are only required if the virtual Python environment is
@@ -190,7 +190,7 @@ by running ``uv sync``.
 .. code-block:: none
     :linenos:
 
-    $$ cd ${.:/component/deployment-directory}
+    $$ cd ${.:/component/deployment-directory:relpath %(/pkg/component:/prefix-directory)}
     $$ rm -rf .venv
     $$ uv sync
     $$ source .venv/bin/activate
