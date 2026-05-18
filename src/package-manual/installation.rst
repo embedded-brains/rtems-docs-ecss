@@ -161,11 +161,11 @@ Docker container presented below allows you to
 
 When the package is used directly on the host computer, it is recommended to
 unpack the package archive into the intended prefix directory
-:file:`${.:/component/prefix-directory}`.  In our Docker scenario here, the
-package is mounted at the prefix directory inside the Docker container.
-However, on your host computer it can be in any location.  Let the absolute
-path to the package location on your host be ``$${workspace}`` throughout this
-section.
+:file:`${.:/component/prefix-directory}` denoted as ``$${prefix}`` in this
+section.  In our Docker scenario here, the package is mounted at the prefix
+directory inside the Docker container.  However, on your host computer it can
+be in any location.  Let the absolute path to the package location on your host
+be ``$${workspace}`` throughout this section.
 
 .. topic:: User IDs inside and outside of a container
 
@@ -256,15 +256,16 @@ Follow these steps:
 
 4. Start the container through the following command, mounting the package
    content in your ``$${workspace}`` directory on the host to the
-   :file:`${.:/component/deployment-directory}` directory inside the container.
-   If you use ``podman``, simply replace ``docker`` by ``podman``:
+   :file:`$${prefix}/${.:/component/deployment-directory:relpath %(/pkg/component:/prefix-directory)}`
+   directory inside the container.  If you use ``podman``, simply replace
+   ``docker`` by ``podman``:
 
    .. code-block:: none
        :linenos:
 
        # On the host/outside the container:
        $$ docker run -it --rm \
-           --volume=$${workspace}/${.:/component/package-directory:basename}:${.:/component/deployment-directory} \
+           --volume=$${workspace}/${.:/component/package-directory:basename}:$${prefix}/${.:/component/deployment-directory:relpath %(/pkg/component:/prefix-directory)} \
            package-tag bash
 
 5. Check the user IDs inside and outside the container by creating a file
@@ -275,8 +276,8 @@ Follow these steps:
        :linenos:
 
        # In the container
-       $$ ls -la ${.:/component/deployment-directory}
-       $$ touch ${.:/component/deployment-directory}/test-file
+       $$ ls -la $${prefix}/${.:/component/deployment-directory:relpath %(/pkg/component:/prefix-directory)}
+       $$ touch $${prefix}/${.:/component/deployment-directory:relpath %(/pkg/component:/prefix-directory)}/test-file
 
        # On the host/outside the container:
        $$ ls -la $${workspace}/${.:/component/package-directory:basename}

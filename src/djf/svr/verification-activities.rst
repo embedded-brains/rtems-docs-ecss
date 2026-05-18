@@ -612,7 +612,7 @@ Software Unit Test to Requirements, Design
 
 A traceability from software unit tests to requirements and the software design
 is not provided.  For a justification see the
-`Introduction <${.:/component/documentation-directory}/djf/suitp/introduction.html>`_
+`Introduction <${.:/component/documentation-directory:relpath %(/pkg/component:/prefix-directory)}/djf/suitp/introduction.html>`__
 of the |SUITP| ${doc-djf-suitp:/cite} and the *On Demand Unit and Integration
 Testing* section of the ${/ref/tn/qt-109-r6:/cite-long}.
 
@@ -1404,7 +1404,7 @@ defined by the QDP configuration and it is immutable for a deployed RTEMS.
 
 Secondly, the deployed RTEMS can be configured according to application
 requirements by various
-`application configuration options <${.:/component/deployment-directory}/doc/rtems/c-user/config/index.html>`_.
+`application configuration options <${.:/component/deployment-directory:relpath %(*:/directory)}/doc/rtems/c-user/config/index.html>`_.
 The application-specific configuration is contained in an application-provided
 object file which is linked into the application executable.  The application
 link process shall ensure that the application-specific configuration is used
