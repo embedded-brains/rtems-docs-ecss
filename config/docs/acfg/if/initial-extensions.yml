@@ -1,0 +1,14 @@
+SPDX-License-Identifier: CC-BY-SA-4.0 OR BSD-2-Clause
+appl-config-option-type: initializer
+copyrights:
+- Copyright (C) 2026 embedded brains GmbH & Co. KG
+default-value: |
+  The default value is the empty list.
+description: null
+enabled-by: true
+index-entries: []
+interface-type: appl-config-option
+links: []
+name: CONFIGURE_INITIAL_EXTENSIONS
+notes: null
+type: interface

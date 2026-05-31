@@ -717,6 +717,61 @@ Errata may get reported after the creation of the package.  It is recommended
 to consult the documentation provided by the hardware vendor with respect to
 hardware errata workarounds and limitations.
 
+Exception handling
+------------------
+
+The exception handling support of RTEMS evolved over time.  Functions
+installing exception handlers like ``set_vector()``,
+``rtems_interrupt_catch()``, and ``_CPU_ISR_install_raw_handler()`` are
+deprecated and should not be used by applications.  They may not be available
+in your RTEMS version at all.
+
+Exception entry or trap tables should be considered as read-only.
+${/glossary/bsp:/plural} may statically initialize the exception entry table
+and protect it from write access.  Unexpected exceptions can be handled in an
+application-specific fatal extension (see fatal source
+${/score/interr/if/source-exception:/name} and
+${/acfg/if/initial-extensions:/name}).  For example:
+
+.. code-block:: c
+
+    #include <rtems.h>
+
+    static void FatalExtension(
+      rtems_fatal_source source,
+      bool               always_set_to_false,
+      rtems_fatal_code   code
+    )
+    {
+      (void) always_set_to_false;
+
+      if ( source == RTEMS_FATAL_SOURCE_EXCEPTION ) {
+        CPU_Exception_frame *frame;
+
+        /*
+         * The exception frame contains the full register set of the context
+         * which triggered the exception.
+         */
+        frame = (CPU_Exception_frame *) code;
+        HandleUnexpectedExceptionAndDoNotReturn( frame );
+      }
+    }
+
+    #define CONFIGURE_INITIAL_EXTENSIONS { .fatal = FatalExtension }
+
+Unexpected exceptions may happen early during system initialization.  The fatal
+extension may run in a very restricted context and a partially initialized
+system.  The following execution environment is usually available:
+
+- a valid stack pointer and enough stack space
+
+- valid code memory
+
+- valid read-only data
+
+A fatal extension should not return.  It should be installed through
+``CONFIGURE_INITIAL_EXTENSIONS``.
+
 .. _PreQualifiedInterfaces:
 
 Pre-qualified interfaces
