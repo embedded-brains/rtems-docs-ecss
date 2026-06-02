@@ -1,0 +1,24 @@
+SPDX-License-Identifier: CC-BY-SA-4.0 OR BSD-2-Clause
+copyrights:
+- Copyright (C) 2020, 2026 embedded brains GmbH & Co. KG
+copyrights-by-license: {}
+destination-directory: ${.:/component/deployment-directory}/src/doc/sdh
+directory: ${.:/component/workspace-directory}/${.:/component/rtems-docs-ecss-directory}
+enabled-by: true
+file-mappings:
+- pattern: ^common/
+  replacement: ''
+- pattern: ^sdh/
+  replacement: source/
+links:
+- hash: null
+  name: component
+  role: input
+  uid: ../component
+patterns:
+- common/**/*
+- sdh/*.md
+- sdh/*.rst
+pkg-type: workspace
+type: pkg
+workspace-type: directory
