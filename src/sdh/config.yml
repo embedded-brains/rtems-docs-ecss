@@ -1,0 +1,96 @@
+SPDX-License-Identifier: CC-BY-SA-4.0 OR BSD-2-Clause
+copyrights:
+- Copyright (C) 2026 embedded brains GmbH & Co. KG
+copyrights-by-license: {}
+directory: ${.:/component/deployment-directory}
+directory-state-type: sphinx
+document-base-path: ${.:/directory}
+document-copyrights:
+- Copyright (C) 2026 embedded brains GmbH & Co. KG
+document-title: ${.:/component/document-package-title}\breakSoftware Development\breakHandbook\break[${.:/component/document-variant}]
+document-toctree-maxdepth: 4
+document-html-help-base-name: SDH
+document-html-footer: ${.:/component/document-html-footer}
+document-key: sdh
+document-latex-footer-right: ${.:/component/document-latex-footer-right}
+document-latex-geometry: ${.:/component/document-latex-geometry}
+document-latex-header-left: ${.:/component/document-latex-header-left}
+document-latex-sphinxsetup: ${.:/component/document-latex-sphinxsetup}
+document-latex-theme: manual
+document-license: CC-BY-SA-4.0
+document-license-map:
+  CC-BY-SA-4.0 OR BSD-2-Clause: BSD-2-Clause
+  CC-BY-SA-4.0 OR MIT: MIT
+document-releases:
+- date: ${.:/component/document-date}
+  status: Draft
+  changes: |
+    This is a draft.
+document-components:
+- action: copy-and-substitute
+  add-to-index: false
+  file:
+  - source/conf.py
+  - source/_templates/footer.html
+  - include/ref-docs.rst
+- action: copy-and-substitute
+  add-to-index: true
+  file:
+  - source/zero.rst
+  - source/introduction.md
+  - source/appl-ref-docs.rst
+- action: add-to-index
+  add-to-index: true
+  file: source/glossary.rst
+- action: copy-and-substitute
+  add-to-index: true
+  file:
+  - source/specification-how-to.md
+  - source/spec-types.md
+- action: copy
+  add-to-index: true
+  file: source/zreferences.rst
+- action: copy-and-substitute
+  add-to-index: false
+  file: source/index.rst
+- action: glossary
+  add-to-index: false
+  file: source/glossary.rst
+  glossary-groups:
+  - /glossary/group
+- action: copy-and-substitute
+  add-to-index: false
+  file: source/refs.bib
+document-contributors:
+- action: Written by
+  contributors:
+  - first-name: Sebastian
+    last-name: Huber
+    organization: embedded brains GmbH & Co. KG
+  - first-name: Frank
+    last-name: Kühndel
+    organization: embedded brains GmbH & Co. KG
+document-type: package-manual
+enabled-by: true
+files: []
+hash: null
+links:
+- path: spec-types.html
+  resource-key: spec-types
+  role: resource
+  uid: .
+- hash: null
+  name: component
+  role: input
+  uid: ../component
+- hash: null
+  name: source
+  role: input
+  uid: ../source/doc-sdh
+- name: build
+  role: output
+  uid: ../build/doc-sdh
+output-html: null
+output-pdf: sdh.pdf
+pkg-type: directory-state
+type: pkg
