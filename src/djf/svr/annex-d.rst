@@ -16,7 +16,7 @@ build and use :file:`start.o`, :file:`librtemsbsp.a`, and
 comparison.  The changes between the versions are presented in categories.
 Each substantial change is reviewed.
 
-${.:/compare-sources:0:v5v6}
+${.:/compare-sources:0:v5..v6}
 ${.:/pop-enabled-by}
 
 ${.:/push-enabled-by:not: compare-sources}
