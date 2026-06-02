@@ -1,5 +1,29 @@
 SPDX-License-Identifier: CC-BY-SA-4.0 OR BSD-2-Clause
-attribute-actions: []
+attribute-actions:
+- action: extend
+  enabled-by: RTEMS_QUAL
+  path: /links
+  value:
+  - path: .
+    resource-key: icd
+    role: resource
+    uid: doc-ts-icd
+  - path: .
+    resource-key: srs
+    role: resource
+    uid: doc-ts-srs
+  - path: .
+    resource-key: suitp
+    role: resource
+    uid: doc-djf-suitp
+  - path: .
+    resource-key: svr
+    role: resource
+    uid: doc-djf-svr
+  - path: .
+    resource-key: svs
+    role: resource
+    uid: doc-djf-svs
 attributes:
   enabled-by: true
   links:
@@ -18,10 +42,6 @@ attributes:
     role: input
     uid: doc-ddf-sdd-tagfile-early
   - path: .
-    resource-key: icd
-    role: resource
-    uid: doc-ts-icd
-  - path: .
     resource-key: sdd
     role: resource
     uid: doc-ddf-sdd
@@ -29,22 +49,6 @@ attributes:
     resource-key: source
     role: resource
     uid: rtems-qual-only
-  - path: .
-    resource-key: srs
-    role: resource
-    uid: doc-ts-srs
-  - path: .
-    resource-key: suitp
-    role: resource
-    uid: doc-djf-suitp
-  - path: .
-    resource-key: svr
-    role: resource
-    uid: doc-djf-svr
-  - path: .
-    resource-key: svs
-    role: resource
-    uid: doc-djf-svs
   pkg-type: link-hub
   type: pkg
 copyrights:

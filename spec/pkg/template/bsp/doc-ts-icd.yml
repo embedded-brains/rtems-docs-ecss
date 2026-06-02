@@ -44,7 +44,7 @@ attribute-actions:
     uid: /pkg/deployment/archive
 copyrights:
 - Copyright (C) 2023 embedded brains GmbH & Co. KG
-enabled-by: true
+enabled-by: RTEMS_QUAL
 file: ${.:/component/workspace-directory}/${.:/component/rtems-docs-ecss-directory}/ts/icd/config.yml
 links:
 - role: add-package-template
