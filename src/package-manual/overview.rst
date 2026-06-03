@@ -729,9 +729,8 @@ in your RTEMS version at all.
 Exception entry or trap tables should be considered as read-only.
 ${/glossary/bsp:/plural} may statically initialize the exception entry table
 and protect it from write access.  Unexpected exceptions can be handled in an
-application-specific fatal extension (see fatal source
-${/score/interr/if/source-exception:/name} and
-${/acfg/if/initial-extensions:/name}).  For example:
+application-specific fatal extension indicated by the
+``RTEMS_FATAL_SOURCE_EXCEPTION`` fatal source.  For example:
 
 .. code-block:: c
 
@@ -769,8 +768,8 @@ system.  The following execution environment is usually available:
 
 - valid read-only data
 
-A fatal extension should not return.  It should be installed through
-``CONFIGURE_INITIAL_EXTENSIONS``.
+A fatal extension should not return.  It should be installed through the
+application configuration option ${/acfg/if/initial-extensions:/name}.
 
 .. _PreQualifiedInterfaces:
 
