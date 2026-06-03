@@ -13,6 +13,7 @@ ${/pkg/deployment/doc-package-manual:/cite-long}.  For using
 ${/glossary/rtems:/term} in general, please refer to the
 ${/ref/rtems/user:/cite-long} and the ${/ref/rtems/c-user:/cite-long}.
 
+${.:/push-enabled-by:pkg.feature.qual}
 The Software Integration Test Report, Software Unit Test Report, and Software
 Validation Report with Respect to ${/glossary/ts:/term} are parts of the
 Design Justification File (DJF) as required by ${/ref/ecss/e-st-40c:/cite-long}
@@ -21,6 +22,7 @@ ${/glossary/ecss:/term} standards, this document contains all test reports
 specified by the ${doc-djf-suitp:/cite-long} and the ${doc-djf-svs:/cite-long}.
 In addition, the results of the baseline RTEMS test suites and examples are
 included.
+${.:/pop-enabled-by}
 
 For each target, the test results are presented grouped by the
 ${/glossary/bsp:/term} configurations.

@@ -8,12 +8,6 @@ Applicable and reference documents
 Applicable documents
 ====================
 
-The following are ${/glossary/applicable-document:plural}:
-
-* ${/ref/rtems/eng:/cite-long}
-
-* ${doc-ts-icd:/cite-long}
-
-* ${doc-ts-srs:/cite-long}
+There are no ${/glossary/applicable-document:plural}.
 
 .. include:: ../include/ref-docs.rst
