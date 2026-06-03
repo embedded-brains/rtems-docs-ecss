@@ -2,8 +2,6 @@
 
 .. Copyright (C) 2021 embedded brains GmbH & Co. KG
 
-.. include:: ../include/abbreviations.rst
-
 Applicable and reference documents
 **********************************
 
