@@ -59,11 +59,11 @@ Steps:
    - The appropriate branch is the default one (`esa/<something>`)
    - Create the fork.
 
-   After completion, GitHub will create a copy of the repository
-   under your account:
+   Let `$${your_github_user}` be the name of your GitHub user. After
+   completion, GitHub will create a copy of the repository under your account:
 
    ```text
-   https://github.com/<your-github-user>/rtems
+   https://github.com/$${your_github_user}/rtems
    ```
 
 1. **Clone Your Fork**
@@ -71,13 +71,13 @@ Steps:
    Open a terminal on your Linux machine and clone your fork:
 
    ```bash
-   git clone git@github.com:<your-github-user>/rtems.git
+   git clone git@github.com:$${your_github_user}/rtems.git
    ```
 
    Alternatively, if you prefer HTTPS:
 
    ```bash
-   git clone https://github.com/<your-github-user>/rtems.git
+   git clone https://github.com/$${your_github_user}/rtems.git
    ```
 
 1. **Enter the Repository Directory**
@@ -107,8 +107,8 @@ Steps:
    The output should be similar to:
 
    ```text
-   origin    git@github.com:<your-github-user>/rtems.git (fetch)
-   origin    git@github.com:<your-github-user>/rtems.git (push)
+   origin    git@github.com:$${your_github_user}/rtems.git (fetch)
+   origin    git@github.com:$${your_github_user}/rtems.git (push)
    upstream  https://github.com/embedded-brains/rtems.git (fetch)
    upstream  https://github.com/embedded-brains/rtems.git (push)
    ```

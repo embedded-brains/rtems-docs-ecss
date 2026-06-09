@@ -140,10 +140,10 @@ and that your current directory is the package directory.
 
 The following instructions use the placeholders:
 
-- ``<arch-component>``: It shall be one of the package
+- ``$${arch_component}``: It shall be one of the package
   ${/glossary/target-arch:/term} component names: ${.:/subcomponent-list:1}.
 
-- ``<bsp-component>``: It shall be one of the package ${/glossary/bsp:/term}
+- ``$${bsp_component}``: It shall be one of the package ${/glossary/bsp:/term}
   component names: ${.:/subcomponent-list:2}.
 
 In case of any problems, please have a look at :ref:`Service`.
@@ -296,7 +296,7 @@ report with this dummy command to make sure the document generation works.  Run
 .. code-block:: none
     :linenos:
 
-    $$ specmake --use-git /pkg/<arch-component>/<bsp-component>/doc-user-tr
+    $$ specmake --use-git /pkg/$${arch_component}/$${bsp_component}/doc-user-tr
 
 To get the UIDs of available user test reports, see step 5.  Remove the
 ``spec`` prefix and the ``.yml`` extension to get an UID from an item file
@@ -363,7 +363,7 @@ Run ``specmake`` to build the user test report with the updated test runner:
 .. code-block:: none
     :linenos:
 
-    $$ specmake --use-git /pkg/<arch-component>/<bsp-component>/doc-user-tr
+    $$ specmake --use-git /pkg/$${arch_component}/$${bsp_component}/doc-user-tr
 
 To get the UIDs of available user test reports, see step 5.  Remove the
 ``spec`` prefix and the ``.yml`` extension to get an UID from an item file
@@ -373,7 +373,7 @@ Step 10: Review the user test report
 ------------------------------------
 
 Review the generated test report located at
-``doc/<arch-component>/<bsp-component>/user/tr/tr.pdf``.  Start with the
+``doc/$${arch_component}/$${bsp_component}/user/tr/tr.pdf``.  Start with the
 *List of unexpected test failures* chapter.
 
 If some tests time out, then check if this is an actual issue with the test or
