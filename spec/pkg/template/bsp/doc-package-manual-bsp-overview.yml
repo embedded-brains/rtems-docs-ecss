@@ -14,11 +14,11 @@ attributes:
     .. code-block:: none
         :linenos:
 
-        $$$$ cd $${/pkg/source/rtems:/directory}
-        $$$$ rm -rf build
-        $$$$ ./waf configure --prefix=$${.:/component/deployment-directory} --rtems-config=$${config-extra:/file}
-        $$$$ ./waf build
-        $$$$ ./waf install
+        $ cd $${/pkg/source/rtems:/directory}
+        $ rm -rf build
+        $ ./waf configure --prefix=$${.:/component/deployment-directory} --rtems-config=$${config-extra:/file}
+        $ ./waf build
+        $ ./waf install
 
     $${.:/pop-enabled-by}
 
@@ -47,11 +47,11 @@ attributes:
     .. code-block:: none
         :linenos:
 
-        $$$$ cd $${rtems-qual-only:/directory}
-        $$$$ rm -rf build
-        $$$$ ./waf configure --prefix=$${.:/component/deployment-directory} --rtems-config=$${config-qual-only:/file} --rtems-specs=$${/pkg/source/rtems:/directory}/spec/build
-        $$$$ ./waf build
-        $$$$ ./waf install
+        $ cd $${rtems-qual-only:/directory}
+        $ rm -rf build
+        $ ./waf configure --prefix=$${.:/component/deployment-directory} --rtems-config=$${config-qual-only:/file} --rtems-specs=$${/pkg/source/rtems:/directory}/spec/build
+        $ ./waf build
+        $ ./waf install
 
     You can configure, build, and install the BSP with the full RTEMS feature set
     (except POSIX signals) through the following commands:
@@ -59,11 +59,11 @@ attributes:
     .. code-block:: none
         :linenos:
 
-        $$$$ cd $${/pkg/source/rtems:/directory}
-        $$$$ rm -rf build
-        $$$$ ./waf configure --prefix=$${.:/component/deployment-directory} --rtems-config=$${config-extra:/file}
-        $$$$ ./waf build
-        $$$$ ./waf install
+        $ cd $${/pkg/source/rtems:/directory}
+        $ rm -rf build
+        $ ./waf configure --prefix=$${.:/component/deployment-directory} --rtems-config=$${config-extra:/file}
+        $ ./waf build
+        $ ./waf install
 
     $${.:/pop-enabled-by}
 
