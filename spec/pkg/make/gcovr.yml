@@ -18,6 +18,8 @@ actions:
   - gcovr
   - --include-internal-functions
   - --gcov-ignore-parse-errors
+  - --gcov-suspicious-hits-threshold
+  - '1000000000000'
   - --json
   - ${.:/output/json/file}
   - --json-pretty

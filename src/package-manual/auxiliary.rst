@@ -140,10 +140,10 @@ and that your current directory is the package directory.
 
 The following instructions use the placeholders:
 
-- ``$${arch-component}``: It shall be one of the package
+- ``$${arch_component}``: It shall be one of the package
   ${/glossary/target-arch:/term} component names: ${.:/subcomponent-list:1}.
 
-- ``$${bsp-component}``: It shall be one of the package ${/glossary/bsp:/term}
+- ``$${bsp_component}``: It shall be one of the package ${/glossary/bsp:/term}
   component names: ${.:/subcomponent-list:2}.
 
 In case of any problems, please have a look at :ref:`Service`.
@@ -163,10 +163,10 @@ commands:
 .. code-block:: none
     :linenos:
 
-    $$ cd ${.:/component/deployment-directory:relpath %(/pkg/component:/prefix-directory)}
-    $$ git init
-    $$ git add -f .
-    $$ git commit -m "Initial import"
+    $ cd ${.:/component/deployment-directory:relpath %(/pkg/component:/prefix-directory)}
+    $ git init
+    $ git add -f .
+    $ git commit -m "Initial import"
 
 Step 2: Activate the virtual Python environment
 -----------------------------------------------
@@ -178,8 +178,8 @@ directory, and active the virtual Python environment:
 .. code-block:: none
     :linenos:
 
-    $$ cd ${.:/component/deployment-directory:relpath %(/pkg/component:/prefix-directory)}
-    $$ source .venv/bin/activate
+    $ cd ${.:/component/deployment-directory:relpath %(/pkg/component:/prefix-directory)}
+    $ source .venv/bin/activate
 
 The following commands are only required if the virtual Python environment is
 not operational on your host system.  You can reinstall the virtual Python
@@ -190,10 +190,10 @@ by running ``uv sync``.
 .. code-block:: none
     :linenos:
 
-    $$ cd ${.:/component/deployment-directory:relpath %(/pkg/component:/prefix-directory)}
-    $$ rm -rf .venv
-    $$ uv sync
-    $$ source .venv/bin/activate
+    $ cd ${.:/component/deployment-directory:relpath %(/pkg/component:/prefix-directory)}
+    $ rm -rf .venv
+    $ uv sync
+    $ source .venv/bin/activate
 
 Step 3: Check that the ``specmake`` tool works
 ----------------------------------------------
@@ -232,7 +232,7 @@ Commit your changes to Git.  The Git status should report a clean working tree:
 .. code-block:: none
     :linenos:
 
-    $$ git status
+    $ git status
     On branch main
     nothing to commit, working tree clean
 
@@ -296,7 +296,7 @@ report with this dummy command to make sure the document generation works.  Run
 .. code-block:: none
     :linenos:
 
-    $$ specmake --use-git /pkg/$${arch-component}/$${bsp-component}/doc-user-tr
+    $ specmake --use-git /pkg/$${arch_component}/$${bsp_component}/doc-user-tr
 
 To get the UIDs of available user test reports, see step 5.  Remove the
 ``spec`` prefix and the ``.yml`` extension to get an UID from an item file
@@ -363,7 +363,7 @@ Run ``specmake`` to build the user test report with the updated test runner:
 .. code-block:: none
     :linenos:
 
-    $$ specmake --use-git /pkg/$${arch-component}/$${bsp-component}/doc-user-tr
+    $ specmake --use-git /pkg/$${arch_component}/$${bsp_component}/doc-user-tr
 
 To get the UIDs of available user test reports, see step 5.  Remove the
 ``spec`` prefix and the ``.yml`` extension to get an UID from an item file
@@ -373,7 +373,7 @@ Step 10: Review the user test report
 ------------------------------------
 
 Review the generated test report located at
-``doc/$${arch-component}/$${bsp-component}/user/tr/tr.pdf``.  Start with the
+``doc/$${arch_component}/$${bsp_component}/user/tr/tr.pdf``.  Start with the
 *List of unexpected test failures* chapter.
 
 If some tests time out, then check if this is an actual issue with the test or

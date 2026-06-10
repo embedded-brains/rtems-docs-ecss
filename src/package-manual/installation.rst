@@ -47,7 +47,7 @@ For normal use of the package, install the following packages:
 .. code-block:: none
     :linenos:
 
-    $$ apt-get install libncurses6 make pkg-config python3 python3-dateutil python3-pykwalify python3-yaml
+    $ apt-get install libncurses6 make pkg-config python3 python3-dateutil python3-pykwalify python3-yaml
 
 If you want to build :ref:`UserTestReports`, install the following additional
 packages:
@@ -55,7 +55,7 @@ packages:
 .. code-block:: none
     :linenos:
 
-    $$ apt-get install git latexmk pipx texlive texlive-fonts-extra texlive-latex-extra
+    $ apt-get install git latexmk pipx texlive texlive-fonts-extra texlive-latex-extra
 
 openSUSE
 --------
@@ -104,7 +104,7 @@ one.
 .. code-block:: none
     :linenos:
 
-    $$ sha512sum ${.:/input/archive/file:basename}
+    $ sha512sum ${.:/input/archive/file:basename}
     ${.:/input/archive/sha512}
 
 Unpack the package archive
@@ -128,10 +128,10 @@ archive and place the current document into the intended location:
 .. code-block:: none
     :linenos:
 
-    $$ sudo mkdir -p ${.:/component/prefix-directory}
-    $$ cd ${.:/component/prefix-directory}
-    $$ sudo tar xf ~/Downloads/${.:/input/archive/file:basename}
-    $$ sudo cp ~/Downloads/${.:/output-pdf:basename} ${.:/component/package-directory:basename}
+    $ sudo mkdir -p ${.:/component/prefix-directory}
+    $ cd ${.:/component/prefix-directory}
+    $ sudo tar xf ~/Downloads/${.:/input/archive/file:basename}
+    $ sudo cp ~/Downloads/${.:/output-pdf:basename} ${.:/component/package-directory:basename}
 
 .. _Examples:
 
@@ -221,7 +221,7 @@ Follow these steps:
            if [ -n "$${userid}" ] ; then \
                groupadd --gid "$${groupid}" "$${groupname}" ; \
                useradd --comment "Package User" --gid "$${groupname}" \
-                   --uid "$${userid}" --no-user-group --shell "$$(which bash)" \
+                   --uid "$${userid}" --no-user-group --shell "$(which bash)" \
                    --home-dir "/home/$${username}" --create-home "$${username}" ; \
            fi
        USER $${userid:-0}
@@ -237,22 +237,22 @@ Follow these steps:
        :linenos:
 
        # With root user in the container:
-       $$ podman build --file Dockerfile --tag package-tag .
+       $ podman build --file Dockerfile --tag package-tag .
 
        # With non-root user in the container:
-       $$ docker build --file Dockerfile --tag package-tag \
-           --build-arg userid="$$(id -u)" --build-arg groupid="$$(id -g)" .
+       $ docker build --file Dockerfile --tag package-tag \
+           --build-arg userid="$(id -u)" --build-arg groupid="$(id -g)" .
 
 3. Extract the package archive as non-root user
-   to any location of your choice.   Let `$${workspace}` be the absolute
+   to any location of your choice.   Let ``$${workspace}`` be the absolute
    path to the directory where you want to unpack the archive:
 
    .. code-block:: none
        :linenos:
 
        # On the host/outside the container:
-       $$ cd $${workspace}
-       $$ tar xf ${.:/input/archive/file:basename}
+       $ cd $${workspace}
+       $ tar xf ${.:/input/archive/file:basename}
 
 4. Start the container through the following command, mounting the package
    content in your ``$${workspace}`` directory on the host to the
@@ -264,7 +264,7 @@ Follow these steps:
        :linenos:
 
        # On the host/outside the container:
-       $$ docker run -it --rm \
+       $ docker run -it --rm \
            --volume=$${workspace}/${.:/component/package-directory:basename}:$${prefix}/${.:/component/deployment-directory:relpath %(/pkg/component:/prefix-directory)} \
            package-tag bash
 
@@ -276,11 +276,11 @@ Follow these steps:
        :linenos:
 
        # In the container
-       $$ ls -la $${prefix}/${.:/component/deployment-directory:relpath %(/pkg/component:/prefix-directory)}
-       $$ touch $${prefix}/${.:/component/deployment-directory:relpath %(/pkg/component:/prefix-directory)}/test-file
+       $ ls -la $${prefix}/${.:/component/deployment-directory:relpath %(/pkg/component:/prefix-directory)}
+       $ touch $${prefix}/${.:/component/deployment-directory:relpath %(/pkg/component:/prefix-directory)}/test-file
 
        # On the host/outside the container:
-       $$ ls -la $${workspace}/${.:/component/package-directory:basename}
+       $ ls -la $${workspace}/${.:/component/package-directory:basename}
 
 6. Compile and execute the example as described in the previous sections.  If
    everything runs as expected, the Docker setup is correct.
