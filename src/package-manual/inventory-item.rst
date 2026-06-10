@@ -18,7 +18,7 @@ one.
 
 .. code-block:: none
 
-    $$ sha512sum ${.:/input/archive/file:basename}
+    $ sha512sum ${.:/input/archive/file:basename}
     ${.:/input/archive/sha512}
 
 For an overview of the package archive content, see :ref:`Overview`.  The
