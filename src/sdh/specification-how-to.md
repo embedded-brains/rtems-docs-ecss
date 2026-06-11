@@ -10,8 +10,7 @@ You should have a Linux computer with these packages installed:
 
 - a working C, C++ and Python development environment -- see section
   [POSIX Hosts](https://docs.rtems.org/docs/main/user/hosts/posix.html#posix-hosts)
-  in the
-  [RTEMS User Manual](https://docs.rtems.org/docs/main/user/)
+  in the [RTEMS User Manual](https://docs.rtems.org/docs/main/user/)
 - the [uv](https://docs.astral.sh/uv/) Python package and project manager
 - `git` -- there is usually a system package
 
@@ -21,13 +20,12 @@ architecture.
 
 ## How to create a local working tree
 
-This project uses the GitHub fork-and-pull-request workflow. Before
-making any changes to the pre-qualified RTEMS, create a personal fork of the
-[embedded brains RTEMS repository](https://github.com/embedded-brains/rtems)
-on GitHub and clone it to your local development machine. This
-how-to guide walks you through the process of creating a working tree
-on your machine. The workflow to create a pull request is described
-in another how-to.
+This project uses the GitHub fork-and-pull-request workflow. Before making any
+changes to the pre-qualified RTEMS, create a personal fork of the
+[embedded brains RTEMS repository](https://github.com/embedded-brains/rtems) on
+GitHub and clone it to your local development machine. This how-to guide walks
+you through the process of creating a working tree on your machine. The
+workflow to create a pull request is described in another how-to.
 
 Aim:
 
@@ -45,7 +43,7 @@ Steps:
 
    Open your web browser and sign in to your GitHub account.
 
-1. **Create a Fork**
+2. **Create a Fork**
 
    Navigate to the RTEMS repository:
 
@@ -66,7 +64,7 @@ Steps:
    https://github.com/$${your_github_user}/rtems
    ```
 
-1. **Clone Your Fork**
+3. **Clone Your Fork**
 
    Open a terminal on your Linux machine and clone your fork:
 
@@ -80,23 +78,23 @@ Steps:
    git clone https://github.com/$${your_github_user}/rtems.git
    ```
 
-1. **Enter the Repository Directory**
+4. **Enter the Repository Directory**
 
    ```bash
    cd rtems
    ```
 
-1. **Add the Original Repository as an Upstream Remote**
+5. **Add the Original Repository as an Upstream Remote**
 
-   Configure the original embedded brains repository as an additional
-   remote. This allows you to synchronize your fork with the latest
-   changes from the main project.
+   Configure the original embedded brains repository as an additional remote.
+   This allows you to synchronize your fork with the latest changes from the
+   main project.
 
    ```bash
    git remote add upstream https://github.com/embedded-brains/rtems.git
    ```
 
-1. **Verify the Remote Configuration**
+6. **Verify the Remote Configuration**
 
    Verify that both remotes are configured correctly:
 
@@ -113,10 +111,10 @@ Steps:
    upstream  https://github.com/embedded-brains/rtems.git (push)
    ```
 
-1. **Synchronize with the Upstream Repository**
+7. **Synchronize with the Upstream Repository**
 
-   Before starting development, fetch the latest changes from the
-   upstream repository:
+   Before starting development, fetch the latest changes from the upstream
+   repository:
 
    ```bash
    git fetch upstream
@@ -129,9 +127,9 @@ Steps:
    git pull --rebase upstream esa/<something>
    ```
 
-   **Alternatively**, you can visit the web page of your fork and press
-   the **Sync Fork** button on the top right and then fetch the latest
-   changes from your fork repository:
+   **Alternatively**, you can visit the web page of your fork and press the
+   **Sync Fork** button on the top right and then fetch the latest changes from
+   your fork repository:
 
    ```bash
    git fetch origin
@@ -152,7 +150,8 @@ As a result, you now have:
 - A fork of the embedded brains RTEMS repository in your GitHub account.
 - A local clone on your Linux development machine.
 - An `origin` remote pointing to your fork.
-- An `upstream` remote pointing to the upstream embedded brains RTEMS repository.
+- An `upstream` remote pointing to the upstream embedded brains RTEMS
+  repository.
 
-You are ready to create feature branches, implement changes, and
-submit pull requests.
+You are ready to create feature branches, implement changes, and submit pull
+requests.
