@@ -11,6 +11,11 @@ requires-python = ">=3.11"
 dependencies = [
     "distro>=1.9.0",
     "jsonschema>=4.26.0",
+    "mdformat-deflist>=0.1.3",
+    "mdformat-footnote>=0.1.3",
+    "mdformat-front-matters>=2.0.0",
+    "mdformat-myst>=0.3.0",
+    "mdformat-tables>=1.0.0",
     "metrixpp>=1.8.1",
     "myst-parser>=4.0.1",
     "pykwalify>=1.8.0",
