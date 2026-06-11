@@ -2,4 +2,4 @@
 
 % Copyright (C) 2026 embedded brains GmbH & Co. KG
 
-${.:/specdoc:0:specmake,ignore=^spec}
+${.:/specdoc:0:specmake,ignore=^spec,section-name=Specification item reference}

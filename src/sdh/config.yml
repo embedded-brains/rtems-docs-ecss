@@ -45,6 +45,8 @@ document-components:
 - action: copy-and-substitute
   add-to-index: true
   file:
+  - source/spec-items.md
+  - source/documentation.md
   - source/specification-how-to.md
   - source/spec-types.md
 - action: copy
