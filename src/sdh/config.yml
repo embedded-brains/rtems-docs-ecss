@@ -46,6 +46,7 @@ document-components:
   add-to-index: true
   file:
   - source/specification-how-to.md
+  - source/qual-eng.md
   - source/spec-types.md
 - action: copy
   add-to-index: true
