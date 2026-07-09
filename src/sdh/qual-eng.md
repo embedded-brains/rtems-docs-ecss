@@ -29,7 +29,8 @@ detail later):
 5. Write or generate interface specifications. The result is a YAML file for
    each publicly visible API function or macro describing the function, its
    parameters and the result. These YAML files can often be generated from the
-   existing Doxygen information found in the C header files.
+   existing Doxygen information found in the C header files. See
+   {ref}`InterfaceItems`.
 
 6. For each API function or macro:
 
@@ -45,7 +46,8 @@ detail later):
 
    - **Action Requirements** These consist of pre- and post-conditions and a
      table relating the conditions to each other. The whole and often extensive
-     test logic is automatically generated for you.
+     test logic is automatically generated for you. See
+     {ref}`ActionRequirements`.
 
    6.3 Generate C- and doc-files from the YAML files written above. You must
    add the generated tests to an existing test suite or create a new test suite
@@ -75,7 +77,8 @@ simple requirements and simple validation tests.
   YAML files created for pre-qualification
 
 * `spec/rtems/basedefs/if/array-size.yml` – interface specification of
-  the `RTEMS_ARRAY_SIZE` macro
+  the `RTEMS_ARRAY_SIZE` macro, see {ref}`InterfaceItems` for how to write
+  such a file
 
 * `spec/rtems/basedefs/req/array-size-0.yml` – requirement of the
   `RTEMS_ARRAY_SIZE` macro, note that some macros require several
@@ -119,7 +122,8 @@ for action requirements.
   YAML files created for pre-qualification
 
 * `spec/rtems/ratemon/req/create.yml` – one of its action requirement
-  YAML files
+  YAML files; {ref}`ActionRequirements` builds the closely analogous
+  `spec/rtems/timer/req/create.yml` from scratch as a worked example
 
 * `testsuites/validation/tc-ratemon-create.c` – the corresponding
   generated validation test file
@@ -129,9 +133,13 @@ for action requirements.
   This is the same as the one of the Base Definitions example above.
 ```
 
-## How to create a feature branch?
+## Create a feature branch
 
 A feature branch to accumulate all your changes is typically created like this:
+
+```{raw} latex
+\begin{footnotesize}
+```
 
 ```{code-block} none
 ---
@@ -140,19 +148,23 @@ linenos:
 $ git checkout -b $${my-new-branch-name} eb/next
 ```
 
-## How to add Doxygen groups?
+```{raw} latex
+\end{footnotesize}
+```
+
+## Add Doxygen groups
 
 We will prepare this for you.
 
 TODO
 
-## How to add a function to the pre-qualified subset?
+## Add a function to the pre-qualified subset
 
 We will prepare this for you.
 
 TODO
 
-## How to create a specification directory tree?
+## Create a specification directory tree
 
 We will prepare this for you.
 
@@ -163,13 +175,12 @@ TODO
 TODO
 ```
 
-## How to create interface specifications?
+## Create interface specifications
 
-We will prepare this for you.
+See {ref}`InterfaceItems`, which walks through writing an interface
+specification item from scratch.
 
-TODO
-
-## How to write requirements?
+## Write requirements
 
 See the
 [*RTEMS Software Engineering Manual* chapter *Software Requirements Engineering*](https://docs.rtems.org/docs/main/eng/req/index.html#software-requirements-engineering).
@@ -180,22 +191,28 @@ to express requirements. This is fine for simple requirements. Yet, because
 action requirements are broken into pre-conditions and post-conditions, the
 requirement texts are also broken apart. The *when*, *while*, *if*, *where*
 parts appear in the pre-conditions while the *\<system name> shall \<system
-response>* parts appear in the post-conditions.
+response>* parts appear in the post-conditions. See {ref}`ActionRequirements`
+for the concrete YAML mechanics behind this split.
+
+(QualEngWhereTextAppears)=
 
 ```{admonition} Where does the text written in those YAML files appear?
 
 The texts from the interface specifications appear in the generated
 RTEMS header files, in the *RTEMS Classic API Guide* or the *RTEMS POSIX
 API Guide*, as well as in the *RTEMS Doxygen*. In a package, they also appear
-in the *Interface Control Document (ICD)*.
+in the *Interface Control Document (ICD)*. {ref}`InterfaceItems` covers how to
+write these YAML files.
 
 The texts from the requirements and the description of the tests are part
 of *Test Reports (TR), Software Requirements Specification (SRS), Software
 Unit and Integration Test Plan (SUITP), Software Validation Specification
 (SVS)*. They also appear as comments in the generated C files.
+{ref}`ActionRequirements` covers how to write the requirement YAML files for
+the action requirement case.
 ```
 
-## How to write simple validation tests?
+## Write simple validation tests
 
 Follow the examples. Each test has an *action* part which contains the C code
 to exercise the function or macro and a *check* part which should check for the
@@ -231,16 +248,21 @@ In some cases tests manipulate RTEMS internal data structures to stimulate
 tests.
 ```
 
-## How to write action requirements?
+## Write action requirements
 
-TODO
+See {ref}`ActionRequirements`, which walks through writing an action
+requirement from scratch, including the pre-condition/post-condition/
+transition-map mechanics only summarized above.
 
-## How to generate C code from the YAML files?
+(QualEngGenerateCCode)=
+
+## Generate C code from the YAML files
 
 See the description of the `Makefile.work` in chapter
-[*Set up the qualification engineering environment*](specification-how-to.md#set-up-the-qualification-engineering-environment).
+{ref}`QualEngEnvironment`. Building the workspace application with `make`
+invokes the `specwareexport` tool internally, see {ref}`ToolSpecwareexport`.
 
-## How to add test cases to test suites?
+## Add test cases to test suites
 
 TODO
 
@@ -252,31 +274,27 @@ may require no clock to "manually" trigger the clock tick as part of the test
 execution, others may need exactly one CPU, others at least three.
 ```
 
-## How to create a test suite?
+## Create a test suite
 
 TODO
 
-## How to compile and run the tests?
+## Compile and run the tests
 
-See section
-[*How to set up a workspace application*](specification-how-to.md#how-to-set-up-a-workspace-application).
+See section {ref}`CreateWorkspace`.
 
-## How to run a test suite?
+## Run a test suite
 
-See section
-[*How to run the workspace application*](specification-how-to.md#how-to-run-the-workspace-application).
+See section {ref}`RunWorkspaceApplication`.
 
-## How to debug tests?
+## Debug tests
 
-See section
-[*How to debug the workspace application*](specification-how-to.md#how-to-debug-the-workspace-application).
+See section {ref}`DebugWorkspaceApplication`.
 
-## How to generate and view code coverage?
+## Generate and view code coverage
 
-See section
-[*How to create a coverage report*](specification-how-to.md#how-to-create-a-coverage-report).
+See section {ref}`CreateCoverageReport`.
 
-## How to create a pull request?
+## Create a pull request
 
 Make sure everything compiles and links, the tests are running without
 reporting failures and the code coverage goals are reached. Moreover, make sure
@@ -287,11 +305,19 @@ you have committed all your changes.
    Push your feature branch to your personal fork of the embedded brains RTEMS
    repository:
 
+   ```{raw} latex
+   \begin{footnotesize}
+   ```
+
    ```{code-block} none
    ---
    linenos:
    ---
    $ git push -u origin $${my-new-branch-name}
+   ```
+
+   ```{raw} latex
+   \end{footnotesize}
    ```
 
    This will create a copy of your feature branch at your personal repository
@@ -329,11 +355,19 @@ you have committed all your changes.
    them, push your fixes again to your local fork of the repository. This will
    automatically update the pull request:
 
+   ```{raw} latex
+   \begin{footnotesize}
+   ```
+
    ```{code-block} none
    ---
    linenos:
    ---
    $ git push
+   ```
+
+   ```{raw} latex
+   \end{footnotesize}
    ```
 
    If needed, use the `--force` option.

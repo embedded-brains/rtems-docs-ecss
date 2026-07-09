@@ -1,0 +1,20 @@
+' SPDX-License-Identifier: CC-BY-SA-4.0
+
+' Copyright (C) 2026 embedded brains GmbH & Co. KG
+
+@startmindmap
+* Action requirement
+left side
+** ""pre-conditions""
+** ""post-conditions""
+** ""test-action""
+** ""transition-map""
+right side
+** Scaffold the requirement
+** Read the implementation
+** Derive the pre-conditions
+** Derive the post-conditions, and keep them separate
+** Write the trigger action
+** Write the transition-map
+** Render, format, and validate
+@endmindmap

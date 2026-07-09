@@ -49,6 +49,9 @@ document-components:
   - source/documentation.md
   - source/specification-how-to.md
   - source/qual-eng.md
+  - source/interface-items.md
+  - source/action-requirements.md
+  - source/tools.md
   - source/spec-types.md
 - action: copy
   add-to-index: true
