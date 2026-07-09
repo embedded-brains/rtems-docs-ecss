@@ -8,6 +8,8 @@ enabled-by: true
 file-mappings:
 - pattern: ^common/
   replacement: ''
+- pattern: ^sdh/images
+  replacement: images/
 - pattern: ^sdh/
   replacement: source/
 links:
@@ -19,6 +21,8 @@ patterns:
 - common/**/*
 - sdh/*.md
 - sdh/*.rst
+- sdh/images/*.pdf
+- sdh/images/*.png
 pkg-type: workspace
 type: pkg
 workspace-type: directory

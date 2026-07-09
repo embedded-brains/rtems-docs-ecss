@@ -51,6 +51,13 @@ software, documentation, and package building provided by
 - package everything as an archive file
 - produce a Software Configuration File (SCF) describing the package
 
+```{figure} ../images/traceability.*
+---
+alt: Traceability graph between the ICD, SDD, SRS, SUITP, SVS, and Test Report
+---
+Document traceability
+```
+
 ## Specification items as files
 
 Specification items can be stored in files in any file format which supports
@@ -76,11 +83,19 @@ MyST text, the `@@{<variable-pattern>}` style is preferred to avoid formatting
 issues with the `mdformat` tool. The `<variable-pattern>` is defined by the
 following Python regular expression:
 
+```{raw} latex
+\begin{footnotesize}
+```
+
 ```{code-block} none
 ---
 linenos:
 ---
 ^\$\{([a-zA-Z0-9._/-]+|\*)(:[\[\]a-zA-Z0-9._/-]+)(:[^$${}]*)?\}$
+```
+
+```{raw} latex
+\end{footnotesize}
 ```
 
 The variable substitution pattern contains three groups:
@@ -97,6 +112,10 @@ The variable substitution pattern contains three groups:
 
 For example, consider the specification item with UID `/u`:
 
+```{raw} latex
+\begin{footnotesize}
+```
+
 ```{code-block} yaml
 ---
 linenos:
@@ -108,7 +127,15 @@ d:
   - f
 ```
 
+```{raw} latex
+\end{footnotesize}
+```
+
 In addition, the specification item with UID `/v`:
+
+```{raw} latex
+\begin{footnotesize}
+```
 
 ```{code-block} yaml
 ---
@@ -121,4 +148,8 @@ j: $${/u:/a/b}
 # the value of $${/u:/a/b} is provided by item /u and substitutes to: c
 k: $${/u:/d[1]}
 # the value of $${/u:/d[1]} is provided by item /u and substitutes to: f
+```
+
+```{raw} latex
+\end{footnotesize}
 ```

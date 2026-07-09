@@ -1,0 +1,23 @@
+' SPDX-License-Identifier: CC-BY-SA-4.0
+
+' Copyright (C) 2026 embedded brains GmbH & Co. KG
+
+@startmindmap
+* Interface item
+left side
+** ""interface-type""
+** ""brief""
+** ""params""
+** ""return""
+** ""notes""
+** ""errno""
+right side
+** Check whether the item already exists
+** Pick the file location and the interface kind
+** Write the brief
+** Document the parameters and their direction
+** Document the return value
+** Cross-reference notes
+** Document errno conditions
+** Format and validate
+@endmindmap

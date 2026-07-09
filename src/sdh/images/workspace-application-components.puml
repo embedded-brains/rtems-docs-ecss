@@ -1,0 +1,44 @@
+' SPDX-License-Identifier: CC-BY-SA-4.0
+
+' Copyright (C) 2026 embedded brains GmbH & Co. KG
+
+@startuml
+
+[Makefile] as makefile
+
+package "Sources & spec" {
+  package "spec" {
+    [spec/build] as spec_build
+    [spec/rtems\nspec/...] as spec_rtems
+  }
+  [bsps] as bsps
+  [cpukit] as cpukit
+  [testsuites] as testsuites
+  [src/work-template] as template
+}
+
+package "Generated workspace" {
+  [work-tools] as work_tools
+  [work-rtems] as work_rtems
+  [work\nMakefile.work] as work
+}
+
+template --> makefile : provides\ntemplates
+makefile --> work_tools : builds
+makefile --> work_rtems : builds
+makefile --> work : creates\nfrom\ntemplate
+
+spec_build --> bsps : defines\nbuild
+spec_build --> cpukit : defines\nbuild
+spec_build --> testsuites : defines\nbuild
+
+bsps --> work_rtems : compiled\ninto
+cpukit --> work_rtems : compiled\ninto
+testsuites --> work_rtems : compiled\ninto
+
+work_tools --> work_rtems : cross-compiles\nwith
+work_tools --> work : cross-compiles\nwith
+work_rtems --> work : provides\nheaders\nlibraries
+spec_rtems --> work : provides\nspec
+
+@enduml
