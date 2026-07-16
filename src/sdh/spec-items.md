@@ -77,11 +77,29 @@ then the UID is `/a/b/c`. UIDs can be absolute or relative to an item.
 
 ## Using content defined by specification items
 
-A flexible `@@{<variable-pattern>}` or `$${<variable-pattern>}` variable
+A flexible `$${<variable-pattern>}` or variable `` @@`<variable-pattern>` ``
 substitution is used to provide data associated with specification items. For
-MyST text, the `@@{<variable-pattern>}` style is preferred to avoid formatting
-issues with the `mdformat` tool. The `<variable-pattern>` is defined by the
-following Python regular expression:
+MyST text, the `` @@`<variable-pattern>` `` style is preferred to avoid
+formatting issues with the `mdformat` tool. All of the following patterns are
+subject to a variable substitution:
+
+- `$${<variable-pattern>}`
+
+- `` $${<variable-pattern>` ``
+
+- `` $$`<variable-pattern>} ``
+
+- `` $$`<variable-pattern>` ``
+
+- `@@{<variable-pattern>}`
+
+- `` @@{<variable-pattern>` ``
+
+- `` @@`<variable-pattern>} ``
+
+- `` @@`<variable-pattern>` ``
+
+The `<variable-pattern>` is defined by the following Python regular expression:
 
 ```{raw} latex
 \begin{footnotesize}
@@ -91,12 +109,16 @@ following Python regular expression:
 ---
 linenos:
 ---
-^\$\{([a-zA-Z0-9._/-]+|\*)(:[\[\]a-zA-Z0-9._/-]+)(:[^$${}]*)?\}$
+^[$@][{`]([a-zA-Z0-9._/-]+|\*):([\[\]a-zA-Z0-9._/-]+)(:[^$$`{}]*)?[}`]$
 ```
 
 ```{raw} latex
 \end{footnotesize}
 ```
+
+You have to escape `$${`, `` $$` ``, `@@{`, and `` @@` `` sequences using
+`$$$${`, `` $$$$` ``, `@@@@{`, and `` @@@@` `` respectively. There is no need
+to escape a stray `$$` or `@@`.
 
 The variable substitution pattern contains three groups:
 
@@ -106,9 +128,44 @@ The variable substitution pattern contains three groups:
    `*` denotes the item of the mapper object used to perform the substitution.
 
 2. The second group defines the attribute path. The attribute path may
-   reference the item data directly or invoke a software-defined method.
+   reference the item data directly or invoke a software-defined method
+   registered through `ItemMapper.add_get_value()`. Such methods compute a
+   value on the fly instead of reading it from the item's stored data, so not
+   every attribute path corresponds to a literal key in the item's data file.
+   For example, `/cite`, `/cite-group`, and `/document-releases` are computed
+   attributes, not stored data.
 
-3. The optional third group defines arguments or value transformers.
+3. The optional third group defines arguments or a value transformer name. The
+   built-in value transformers are:
+
+   - `basename`: the last path component of the value.
+   - `dirname`: the value with its last path component removed.
+   - `dash`: the value prefixed with a dash (`-`), or the empty string if the
+     value is empty.
+   - `join`: joins a list value's enabled elements with a separator (comma by
+     default, or the value of the `separator` keyword argument).
+   - `relpath`: the value expressed relative to the path given as argument.
+   - `slash`: the value prefixed with a slash (`/`), or the empty string if the
+     value is empty.
+
+   Arguments passed may be comma-separated and may go through their own
+   character escaping since they may need to contain characters such as `','`,
+   `' '`, or a nested substitution:
+
+   - `'%'`, `'('`, `')'` escape to `'$'`, `'{'`, `'}'` respectively, which
+     allows a nested substitution to be passed as an argument. For example,
+     `'%(*:/directory)'` unpacks to `'$${*:/directory}'`, meaning "the
+     `/directory` attribute of the item associated with the item mapper
+     performing the substitution" (`*` denotes the item of the mapper object
+     used to perform the substitution).
+
+   - `'\,'` escapes to a literal comma, and `'\s'` escapes to a literal space,
+     since those characters would otherwise separate arguments or the
+     transformer name from its arguments.
+
+   - `'\g'` escapes to a literal backtick.
+
+   - `'\\'` escapes to a literal backslash.
 
 For example, consider the specification item with UID `/u`:
 
