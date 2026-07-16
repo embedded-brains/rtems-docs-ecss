@@ -205,7 +205,15 @@ Ensure the decorator line is exactly the same length as the heading text.
 
 - Use spaces only. Do not use tab characters.
 
-- Use 2 spaces for one indentation level.
+- **MyST (Markdown)**: Do not hand-format indentation in `*.md` files. Run
+  `mdformat` and let it decide the exact spacing; it does not always use 2
+  spaces per level (for example, list continuation lines are aligned to the
+  width of the list marker).
+
+- **reStructuredText (reST)**: Use 4 spaces for one indentation level in
+  `*.rst` files, since there is no automatic formatter enforcing indentation
+  for this format. List continuation lines shall be aligned to the width of the
+  list marker.
 
 - Avoid trailing whitespace at the end of lines.
 
@@ -241,11 +249,12 @@ MyST format.
 In general, for documentation variables and placeholders use the
 `<my-placeholder>` notation.
 
-For command-line examples, use the `$${my_placeholder}` notation. Please note
-that a `$${` sequence is subject to the variable substitution by the
-documentation build system. For documentation variables and placeholders, you
-have to escape the `$$`. For example, in the documentation sources write
-`$$$${my_placeholder}` so that it gets displayed as `$${my_placeholder}`.
+For command-line examples, use the `$${MY_PLACEHOLDER}` notation (upper case,
+like a shell variable). Please note that a `$${` sequence is subject to the
+variable substitution by the documentation build system. For documentation
+variables and placeholders, you have to escape the `$$`. For example, in the
+documentation sources write `$$$${MY_PLACEHOLDER}` so that it gets displayed as
+`$${MY_PLACEHOLDER}`.
 
 ### Section cross-references
 
@@ -353,21 +362,22 @@ To cite other documents:
 
 - Short citation (reference code):
 
-  `$${/pkg/<doc-id>:/cite-short}` or
+  `$${/pkg/<doc-id>:/cite}` or
 
-  `$${<doc-id>:/cite-short}`
+  `$${<doc-id>:/cite}`
 
 - Group citations:
 
   `$${/pkg/component:/cite-group:<citation-group-key>}`
 
-  The `<citation-group-key>` is defined by the
-  {ref}`SpecTypeCitationGroupMemberLinkRole` links used to populate a citation
-  group. Group citations may be presented as a list by setting the `flat=0`
-  option, for example
-  `$${/pkg/component:/cite-group:<citation-group-key>,flat=0}`. Group citations
-  to {ref}`SpecTypeSphinxDocumentItemType` support `label`, `name`, and `path`
-  options.
+  A citation group is a set of citations gathered from all links with the
+  ${/spec/citation-member-role:/spec-name} that share the same
+  `<citation-group-key>` value in their `citation-group-key` attribute. Group
+  citations targeting a ${/spec/pkg-sphinx-document:/spec-name} item may
+  optionally target a specific area of the cited document through its `label`,
+  `name`, and `path` attributes. Group citations may be presented as a list by
+  setting the `flat=0` option, for example:
+  `$${/pkg/component:/cite-group:<citation-group-key>,flat=0}`.
 
 Examples:
 
@@ -385,7 +395,9 @@ To resolve build-time paths or inputs, use the relative component syntax:
 - Path relative to the target directory of the document currently generated:
   `$${.:/component/documentation-directory:relpath %(*:/directory)}`
 
-- Archive name: `$${.:/input/archive/file:basename}`
+- Archive name: `$${.:/input/archive/file:basename}`. This is the standard
+  idiom for referencing the built package archive's filename, used for example
+  in the package manual introduction and inventory chapters.
 
 ### Conditional blocks
 
@@ -469,9 +481,9 @@ For commands executed in a shell:
 - Prefix command lines with `$$` to distinguish them from the command output.
 
 - For documentation variables or placeholders used in command-line examples,
-  use the `$${my_placeholder}` notation. In case copy and paste is blindly
-  used, this still gives a valid shell syntax with hopefully undefined
-  variables.
+  use the `$${MY_PLACEHOLDER}` notation (upper case, like a shell variable). In
+  case copy and paste is blindly used, this still gives a valid shell syntax
+  with hopefully undefined variables.
 
 Example in MyST:
 
