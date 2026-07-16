@@ -35,12 +35,12 @@ information.
 
 ### gdb
 
-@{/glossary/gdb:/term} is the GNU debugger. It lets you start a program under
+@`/glossary/gdb:/term` is the GNU debugger. It lets you start a program under
 its control, or attach to an already running program, and then inspect and
 control its execution, for example by setting breakpoints, stepping through
 code, and examining variables.
 
-In this project, `make gdb` starts a @{/glossary/gdb:/term} client and connects
+In this project, `make gdb` starts a @`/glossary/gdb:/term` client and connects
 it to the workspace application started by `make debug`, see
 {ref}`DebugWorkspaceApplication`.
 
@@ -101,7 +101,7 @@ $ uv run specverify spec
 See {ref}`interface-items-step-8` and {ref}`ActionRequirementsStep7` for this
 workflow in context.
 
-@{.:/subprocess:args=specverify --help,cwd=%(.:/component/deployment-directory),hide-cwd=1,font-size=-2}
+@`.:/subprocess:args=specverify --help,cwd=%(.:/component/deployment-directory),hide-cwd=1,font-size=-2`
 
 (ToolSpecwareview)=
 
@@ -134,7 +134,7 @@ $ uv run specwareview --filter=action-compact-table --format=myst /rtems/timer/r
 Running `specwareview` without arguments also validates the whole specification
 tree, complementary to `specverify`.
 
-@{.:/subprocess:args=specwareview --help,cwd=%(.:/component/deployment-directory),hide-cwd=1,font-size=-2}
+@`.:/subprocess:args=specwareview --help,cwd=%(.:/component/deployment-directory),hide-cwd=1,font-size=-2`
 
 (ToolSpecwareexport)=
 
@@ -164,4 +164,4 @@ $ uv run specwareexport --no-application-configuration-code --no-documentation
 \end{footnotesize}
 ```
 
-@{.:/subprocess:args=specwareexport --help,cwd=%(.:/component/deployment-directory),hide-cwd=1,font-size=-2}
+@`.:/subprocess:args=specwareexport --help,cwd=%(.:/component/deployment-directory),hide-cwd=1,font-size=-2`
