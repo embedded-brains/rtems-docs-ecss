@@ -38,6 +38,11 @@ chapters or sections relevant to your work:
 : If you want to write or edit a document such as this SDH, read the
   documentation style guidelines first.
 
+{ref}`CodingGuidelines`
+: If you want to write source code, read this chapter first. It covers the
+  coding standards, the formatting tools and the static analysis tools for
+  Python and for C and C++.
+
 {ref}`QualEngEnvironment`
 : If you want to modify pre-qualified RTEMS source code, start by learning
   how to set up the qualification engineering environment.

@@ -47,6 +47,7 @@ document-components:
   file:
   - source/spec-items.md
   - source/documentation.md
+  - source/coding.md
   - source/specification-how-to.md
   - source/qual-eng.md
   - source/interface-items.md

@@ -3,6 +3,12 @@ copyrights:
 - Copyright (C) 2026 embedded brains GmbH & Co. KG
 enabled-by: true
 links:
+- citation-group-key: sdh-coding
+  label: CodingGuidelines
+  name: Coding guidelines
+  path: /coding.html
+  role: citation-group-member
+  uid: /pkg/component
 - hash: null
   name: index-member
   path: null
