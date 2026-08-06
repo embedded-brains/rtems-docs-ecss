@@ -42,6 +42,12 @@ myst_enable_extensions = [
     'deflist',
 ]
 
+# Substitutions such as the ECSS clause citations produce links to other
+# documents of the package.  Without this setting, MyST resolves a relative
+# link as an internal cross reference and the link is dead in the HTML and in
+# the PDF output.  All links in the Markdown sources are external.
+myst_all_links_external = True
+
 # Add bibtex bibfiles
 bibtex_bibfiles = ['refs.bib']
 bibtex_default_style = 'plain'
