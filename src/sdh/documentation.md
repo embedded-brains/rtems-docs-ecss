@@ -495,9 +495,11 @@ To resolve build-time paths or inputs, use the relative component syntax:
 ### Conditional blocks
 
 You can conditionally include documentation blocks using the
-push/pop-enabled-by syntax:
+push/pop-enabled-by syntax. The markers are recognized only in the brace form
+and only when a marker is alone on its line, so conditional blocks are
+available in reST sources and not in Markdown sources:
 
-Example in MyST:
+Example in reST:
 
 ```{raw} latex
 \begin{footnotesize}
@@ -507,9 +509,9 @@ Example in MyST:
 ---
 linenos:
 ---
-@@{.:/push-enabled-by:pkg.feature.qual}
+$${.:/push-enabled-by:pkg.feature.qual}
 This text is only included if qualification features are enabled.
-@@{.:/pop-enabled-by}
+$${.:/pop-enabled-by}
 ```
 
 ```{raw} latex
