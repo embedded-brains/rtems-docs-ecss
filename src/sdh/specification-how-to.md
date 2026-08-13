@@ -320,9 +320,9 @@ requests.
 For pre-qualification engineering tasks, the `eb/next` branch of RTEMS contains
 a recommended working environment consisting of:
 
-- An RTEMS tools installation for a @{/glossary/target-arch:/term}
+- An RTEMS tools installation for a @`/glossary/target-arch:/term`
 
-- An installed reference @{/glossary/bsp:/term}
+- An installed reference @`/glossary/bsp:/term`
 
 - A `Makefile`-based workspace application
 
@@ -472,7 +472,7 @@ $ make run
 
 Make sure you performed the steps to set up the workspace application outlined
 in {ref}`CreateWorkspace`. To debug the workspace application using
-@{/glossary/gdb:/term} you need two terminals, see {ref}`ToolGdb` for an
+@`/glossary/gdb:/term` you need two terminals, see {ref}`ToolGdb` for an
 overview of the tool. In one terminal, run `make debug`:
 
 ```{raw} latex
