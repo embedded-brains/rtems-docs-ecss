@@ -13,7 +13,7 @@ components, and the package building is defined by specification items.
 Specification items may contain dictionaries, lists, integers, floating-point
 numbers, and strings. The format of these items is extensible, human readable,
 machine readable, Git friendly, and can be customized according to
-domain-specific needs. Each item is identified by an @{/glossary/uid:/term}.
+domain-specific needs. Each item is identified by an @`/glossary/uid:/term`.
 The items are connected through {ref}`links <SpecTypeLink>` which may contain
 role-specific extra information. This enables different views to a
 specification item graph depending on the use case. All items are refinements
@@ -33,7 +33,7 @@ software, documentation, and package building provided by
 - gather, evaluate and present code and branch coverage information
 - gather, evaluate and present software performance measurements
 - produce a Technical Specification (TS) as defined by
-  @{/ref/ecss/e-st-40c-r1:/cite-long} and @{/ref/ecss/q-st-80c-r2:/cite-long}
+  @`/ref/ecss/e-st-40c-r1:/cite-long` and @`/ref/ecss/q-st-80c-r2:/cite-long`
   consisting of:
   - Interface Control Document (ICD)
   - Software Requirements Specification (SRS)
@@ -62,8 +62,8 @@ Document traceability
 
 Specification items can be stored in files in any file format which supports
 dictionaries, lists, integers, floating-point numbers, and strings. The
-*specthings* tooling supports the @{/glossary/yaml:/term},
-@{/glossary/json:/term}, and Python
+*specthings* tooling supports the @`/glossary/yaml:/term`,
+@`/glossary/json:/term`, and Python
 [pickle](https://docs.python.org/3/library/pickle.html) formats.
 
 The developer-facing items are stored in YAML format since this format is human
