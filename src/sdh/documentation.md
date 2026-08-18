@@ -244,6 +244,15 @@ specification item format before specification items are used to build
 documents. Specification items may contain text values in reStructuredText or
 MyST format.
 
+Each documentation source file belongs to a document item. This item is the
+current item of the variable substitution in the file. The identifier `.` in a
+substitution denotes it. The item UID of a package-level document is
+`/pkg/deployment/<document>`.
+
+This section writes a substitution in the `$${<uid>:<attribute-path>}` form. In
+MyST text, prefer the `` @@`<uid>:<attribute-path>` `` form, see
+{ref}`SpecificationItems`.
+
 ### Documentation variables and placeholders
 
 In general, for documentation variables and placeholders use the
@@ -386,43 +395,89 @@ items:
    strictly require. For a QDP build, the RTEMS sources normally provide these
    definitions. A QDP build does not use this set.
 
+(DocumentCitations)=
+
 ### Document citations
 
-To cite other documents:
+A short citation prints the reference code of a document. A long citation
+prints the full title and the reference code. Both add the document to the
+bibliography of the citing document. You can cite @`/spec/reference:/spec-name`
+and @`/spec/pkg-sphinx-document:/spec-name` items.
 
-- Long citation (full title and reference):
+Use the following syntax:
 
-  `$${/pkg/<doc-id>:/cite-long}` or
+- Short citation: `$${<uid>:/cite}`
 
-  `$${<doc-id>:/cite-long}`
+- Long citation: `$${<uid>:/cite-long}`
 
-- Short citation (reference code):
-
-  `$${/pkg/<doc-id>:/cite}` or
-
-  `$${<doc-id>:/cite}`
-
-- Group citations:
-
-  `$${/pkg/component:/cite-group:<citation-group-key>}`
-
-  A citation group is a set of citations gathered from all links with the
-  ${/spec/citation-member-role:/spec-name} that share the same
-  `<citation-group-key>` value in their `citation-group-key` attribute. Group
-  citations targeting a ${/spec/pkg-sphinx-document:/spec-name} item may
-  optionally target a specific area of the cited document through its `label`,
-  `name`, and `path` attributes. Group citations may be presented as a list by
-  setting the `flat=0` option, for example:
-  `$${/pkg/component:/cite-group:<citation-group-key>,flat=0}`.
+The `<uid>` is an absolute or a relative item UID. A relative UID resolves
+against the directory of the document item. The package-level documents are
+siblings in `/pkg/deployment/`, so a document of this level cites another one
+by its name alone.
 
 Examples:
 
-- `... as defined in the $${/ref/ecss/e-st-40c:/cite-long}.`
+- `... see the $${/pkg/deployment/doc-package-manual:/cite-long}.`
 
-- `... in the $${/pkg/component:/cite-group:svr}.`
+- `... see the $${doc-package-manual:/cite}.`
 
-{ref}`SpecTypeReference` and {ref}`SpecTypeSphinxDocumentItemType` items can be
-cited.
+- `... as defined in the $${/ref/ecss/e-st-40c-r1:/cite-long}.`
+
+Some documents exist for each component of the package. The item UID of such a
+component-specific document depends on its component. A package-level document
+therefore has no single UID to cite. Cite component-specific documents through
+a citation group, which yields one citation for each component.
+
+A citation group collects the citations of the items which link to
+`/pkg/component` with the @`/spec/citation-member-role:/spec-name`. The
+`citation-group-key` attribute of the link gives the key of the group. The
+specification items in `spec/pkg/template/<component>/` define the available
+keys. Use the following syntax:
+
+- Flat citation group: `$${/pkg/component:/cite-group:<citation-group-key>}`
+
+- Citation group as a list:
+  `$${/pkg/component:/cite-group:<citation-group-key>,flat=0}`
+
+A citation group which targets a @`/spec/pkg-sphinx-document:/spec-name` item
+may address a specific area of the cited document. The `label`, `name`, and
+`path` attributes of the link define this area.
+
+Example:
+
+- `... in the $${/pkg/component:/cite-group:<citation-group-key>}.`
+
+A citation with an unknown item UID fails the build. The error names the item
+UID and the document item it resolved against. A citation group with an unknown
+key prints nothing. The build logs a warning and succeeds, so this mistake is
+easy to miss.
+
+### Reference documents
+
+A reference item is the bibliographic record of a work. Use it to cite a work
+which has no @`/spec/pkg-sphinx-document:/spec-name` item. Examples are a
+standard, a research paper, and a document which the package builds with
+another tool.
+
+The item UID starts with `/ref/`. The rest of the path groups the works, for
+example by standards body, by project, or by kind. Most reference items are in
+the specification item directory `spec/ref/`.
+
+The @`/spec/reference:/spec-name` item type defines these attributes:
+
+- `title`: the title of the work. It may contain a variable substitution.
+
+- `reference-type`: the kind of the reference, for example `manual` or
+  `article`. It selects the refinement which defines the remaining attributes,
+  for example @`/spec/reference-manual:/spec-name`.
+
+- `work-url`: the location of the work. It may point to a document of the
+  package or to a public location.
+
+- `work-hash`: the SHA256 hash value of the work, or `null`.
+
+To add a reference, create an item file in the group which fits the work. Cite
+it as described in {ref}`DocumentCitations`.
 
 ### Component paths and inputs
 
