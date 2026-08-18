@@ -70,7 +70,37 @@
     \end{flushleft}
   \end{titlepage}
 }
-\addtolength{\headheight}{\baselineskip}
+% Fit the header and footer boxes to their content.  Measure with a large head
+% height and foot skip so that fancyhdr neither clips the boxes nor warns about
+% them; this yields the natural height without relying on package internals,
+% which differ between fancyhdr releases.  The page style is set by the
+% document class before this file redefines it, so activate it locally first.
+% Move the difference out of the text height to keep the paper margins fixed.
+\newlength{\pkgheadheight}
+\newlength{\pkgfootskip}
+\AtBeginDocument{%
+  \begingroup
+    \pagestyle{normal}%
+    \setlength{\headheight}{100mm}%
+    \setlength{\footskip}{100mm}%
+    \setbox\@tempboxa\hbox{\@oddhead}%
+    \global\pkgheadheight\ht\@tempboxa
+    \setbox\@tempboxa\hbox{\@oddfoot}%
+    \global\pkgfootskip\ht\@tempboxa
+  \endgroup
+  % Use fixed sizes if a box did not measure plausibly
+  \ifdim\pkgheadheight>50mm\setlength{\pkgheadheight}{20mm}\fi
+  \ifdim\pkgfootskip>50mm\setlength{\pkgfootskip}{6mm}\fi
+  % Clear the deepest possible last line and mirror the header gap
+  \addtolength{\pkgfootskip}{\maxdepth}%
+  \addtolength{\pkgfootskip}{\headsep}%
+  \addtolength{\textheight}{\headheight}%
+  \addtolength{\textheight}{\footskip}%
+  \setlength{\headheight}{\pkgheadheight}%
+  \setlength{\footskip}{\pkgfootskip}%
+  \addtolength{\textheight}{-\headheight}%
+  \addtolength{\textheight}{-\footskip}%
+}
 \fancypagestyle{normal}{
   \fancyhf{}
   \fancyhead[L]{
