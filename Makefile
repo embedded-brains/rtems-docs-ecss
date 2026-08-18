@@ -28,7 +28,7 @@ documentation-move-artifacts: | prepare
 	mv $(BUILD)/*-scf.pdf $$(find $(BUILD)/doc -name '*.pdf' -a -not -path '*/_images/*' -a -not -path '*/user/*') $(ARTIFACTS_PREFIX)/delivery
 
 documentation-clean: | prepare
-	if test -d $(BUILD) ; then cd $(BUILD) && git clean -xdf . && git co . ; fi
+	if test -d $(BUILD) ; then cd $(BUILD) && git clean -xdf . && git checkout . ; fi
 
 documentation-remove: | prepare
 	rm -rf $(BUILD)
