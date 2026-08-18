@@ -331,7 +331,17 @@ section cross-reference instead, since it resolves the anchor at build time and
 fails the build if the target no longer exists, rather than producing a
 silently dead link.
 
-### Glossary references
+### Glossary references and terms
+
+A glossary term reference has two effects. First, it adds the term to the
+glossary of the document. The document-specific glossary therefore lists
+exactly the terms which the document references. Second, it prints the term
+with a link to the term definition in the glossary.
+
+The link highlights the term visually. This effect competes with the emphasize
+and strongly emphasize text roles. Use a glossary term reference at most once
+per section. Reference a commonly known term only once per chapter or even once
+per document.
 
 To reference a glossary term, use the following syntax:
 
@@ -339,16 +349,42 @@ To reference a glossary term, use the following syntax:
 
 - Plural term: `$${/glossary/<term-id>:/plural}`
 
-Examples:
+MyST examples:
+
+- `` ... using the @@`/glossary/rtems:/term` operating system. ``
+
+- `` ... for various @@`/glossary/api:/plural`. ``
+
+reST examples:
 
 - `... using the $${/glossary/rtems:/term} operating system.`
 
 - `... for various $${/glossary/api:/plural}.`
 
-Glossary terms are defined by {ref}`SpecTypeGlossaryTermItemType` items.
-Glossary terms shall be a member of a {ref}`SpecTypeGlossaryGroupItemType` item
-through a {ref}`SpecTypeGlossaryMembershipLinkRole` link. The general glossary
-of terms is represented by the `/glossary/group` item.
+Glossary terms are defined by @`/spec/glossary-term:/spec-name` items. Glossary
+terms shall be a member of a @`/spec/glossary-group:/spec-name` item through a
+@`/spec/glossary-member:/spec-name` link. The general glossary of terms is
+represented by the `/glossary/group` item.
+
+The RTEMS ECSS documentation set has three main locations for glossary term
+items:
+
+1. The specification set within the RTEMS sources: `rtems/spec/glossary/`. The
+   RTEMS specification has to be self-contained, since the RTEMS documentation
+   sources come from it. A @`/glossary/qdp:/term` build has both the RTEMS and
+   the RTEMS ECSS documentation sources.
+
+2. The specification set within the RTEMS ECSS documentation sources:
+   `rtems-ecss-docs/spec/glossary/`. The glossary terms defined here shall not
+   overlap with the glossary terms of the RTEMS sources. A QDP build should
+   have exactly one glossary item for each term.
+
+3. The dummy software specification set within the RTEMS ECSS documentation
+   sources: `rtems-ecss-docs/dummy-software/spec/glossary/`. This set makes it
+   possible to build the RTEMS ECSS documentation set without a full QDP build.
+   It shall only contain the glossary term definitions which the documents
+   strictly require. For a QDP build, the RTEMS sources normally provide these
+   definitions. A QDP build does not use this set.
 
 ### Document citations
 
