@@ -1,5 +1,12 @@
 SPDX-License-Identifier: CC-BY-SA-4.0 OR BSD-2-Clause
-attribute-actions: []
+attribute-actions:
+- action: extend
+  enabled-by: RTEMS_QUAL
+  path: /links
+  value:
+  - citation-group-key: sdd
+    role: citation-group-member
+    uid: /pkg/component
 attributes:
   author: The RTEMS Project contributors
   enabled-by: true
