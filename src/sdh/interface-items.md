@@ -539,7 +539,9 @@ in this step, see {ref}`ToolsSpecification`.
 ---
 linenos:
 ---
-$ uv run specverify --format-items --do-not-indent-lists spec/rtems/timer/if/create.yml
+$ uv run specverify --format-items --do-not-indent-lists \
+    --clang-format-style=default:file:_clang-format \
+    spec/rtems/timer/if/create.yml
 ```
 
 ```{raw} latex
@@ -551,6 +553,11 @@ items align with their parent key rather than being indented under it. Omitting
 the flag produces a large, unrelated reformatting diff. Pass only the exact
 files you touched -- passing a whole directory can raise spurious errors about
 unrelated files that link elsewhere.
+
+`--clang-format-style` binds the style name of the specification types to the
+style file of the RTEMS working tree, see {ref}`ToolSpecverify`. An interface
+item holds no C language source code, so the option changes nothing here. Use
+the same command everywhere, because an action requirement needs it.
 
 Then validate the whole specification tree, to catch broken UID references,
 missing mandatory attributes, or accidental cycles:
@@ -662,8 +669,8 @@ Used for structure types.
 
 In every case, after editing or creating the item, repeat
 {ref}`Step 8 <interface-items-step-8>` above: format with
-`specverify --format-items --do-not-indent-lists`, then validate with
-`specverify spec` and `specwareview`.
+`specverify --format-items ...`, then validate with `specverify spec` and
+`specwareview`.
 
 ## Checklist
 
@@ -682,8 +689,8 @@ Before you consider an interface item finished:
   confirmed, by searching first, to need a new one.
 - [ ] Every `errno` condition is a `role: errno` link with a substituted,
   79-character-wrapped description.
-- [ ] `specverify --format-items --do-not-indent-lists`, `specverify spec`, and
-  `specwareview` all ran clean on your changed files.
+- [ ] The format command of {ref}`Step 8 <interface-items-step-8>`,
+  `specverify spec`, and `specwareview` all ran clean on your changed files.
 
 Once the interface item is in good shape, move on to {ref}`ActionRequirements`
 to specify *how* the function behaves for every combination of inputs.
