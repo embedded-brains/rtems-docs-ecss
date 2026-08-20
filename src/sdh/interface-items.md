@@ -559,6 +559,10 @@ style file of the RTEMS working tree, see {ref}`ToolSpecverify`. An interface
 item holds no C language source code, so the option changes nothing here. Use
 the same command everywhere, because an action requirement needs it.
 
+The formatter also rewraps the prose of an item. Not every item in the tree
+matches the current wrap. The diff of such an item is much larger than your
+edit. Review it, then keep the rewrap in your commit.
+
 Then validate the whole specification tree, to catch broken UID references,
 missing mandatory attributes, or accidental cycles:
 
