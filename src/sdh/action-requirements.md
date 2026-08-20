@@ -661,7 +661,9 @@ Now format and validate, exactly as for an interface item:
 ---
 linenos:
 ---
-$ uv run specverify --format-items --do-not-indent-lists spec/rtems/timer/req/create.yml
+$ uv run specverify --format-items --do-not-indent-lists \
+    --clang-format-style=default:file:_clang-format \
+    spec/rtems/timer/req/create.yml
 $ uv run specverify spec
 $ uv run specwareview
 ```
@@ -688,7 +690,9 @@ linenos:
 ---
 $ uv run specwareview --filter action-compact-table /rtems/timer/req/create > /tmp/before.txt
 # ... edit the transition-map ...
-$ uv run specverify --format-items --do-not-indent-lists spec/rtems/timer/req/create.yml
+$ uv run specverify --format-items --do-not-indent-lists \
+    --clang-format-style=default:file:_clang-format \
+    spec/rtems/timer/req/create.yml
 $ uv run specwareview --filter action-compact-table /rtems/timer/req/create > /tmp/after.txt
 $ diff /tmp/before.txt /tmp/after.txt
 ```
@@ -967,8 +971,8 @@ Before you consider an action requirement finished:
   reason for logically impossible pre-condition combinations.
 - [ ] `specwareview --filter action-compact-table` was captured before and
   after any transition-map rewrite, and the diff is empty.
-- [ ] `specverify --format-items --do-not-indent-lists`, `specverify spec`, and
-  `specwareview` all ran clean.
+- [ ] The format command of {ref}`Step 7 <ActionRequirementsStep7>`,
+  `specverify spec`, and `specwareview` all ran clean.
 
 With both the interface item and its action requirement in place, linked
 together and validated, you have produced the complete functional specification

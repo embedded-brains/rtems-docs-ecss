@@ -66,8 +66,10 @@ information.
 
 The specification tools operate on the specification items in the `spec`
 directory, see {ref}`SpecificationItems`. They are installed together with
-`specmake` into the Python virtual environment of the deployment directory, see
-{ref}`CreateWorkingTree`.
+`specmake` into the Python virtual environment of the RTEMS working tree, see
+{ref}`CreateWorkingTree`. `uv` manages this environment from the
+`pyproject.toml` of that tree. Run every tool through `uv run`, so that you get
+the pinned version of each tool.
 
 (ToolSpecverify)=
 
@@ -90,13 +92,32 @@ tree:
 ---
 linenos:
 ---
-$ uv run specverify --format-items --do-not-indent-lists spec/rtems/timer/req/create.yml
+$ uv run specverify --format-items --do-not-indent-lists \
+    --clang-format-style=default:file:_clang-format \
+    spec/rtems/timer/req/create.yml
 $ uv run specverify spec
 ```
 
 ```{raw} latex
 \end{footnotesize}
 ```
+
+Some specification attributes hold C language source code, for example the
+pre-condition states and the test actions of an action requirement.
+`specverify` formats them with the `clang-format` tool. Without the
+`--clang-format-style` option, it fails on every such item.
+
+The specification types name the style `default`. The `--clang-format-style`
+option binds that name to a style file. The RTEMS working tree provides the
+style file `_clang-format` in its root directory. The `file:` prefix is
+mandatory, because `clang-format` reads a bare value as a style name.
+
+The style file requires `clang-format` 22 or later. An older version rejects it
+with the message `unknown enumerated scalar`. The virtual environment of the
+RTEMS working tree pins a suitable version, which `uv run` selects.
+
+The CI job runs this command on the changed items. It rejects the branch when
+the command changes an item.
 
 See {ref}`interface-items-step-8` and {ref}`ActionRequirementsStep7` for this
 workflow in context.
