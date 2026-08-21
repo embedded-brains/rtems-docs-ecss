@@ -74,3 +74,40 @@ jobs:
           path: |
             artifacts/delivery/*.pdf
           overwrite: true
+      - name: Site archive
+        uses: actions/upload-artifact@v7
+        with:
+          name: Site
+          path: build/build/documents.tar.xz
+          overwrite: true
+          retention-days: 14
+  deploy:
+    needs: build
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    concurrency:
+      group: pages
+      cancel-in-progress: false
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Download the site archive
+        uses: actions/download-artifact@v8
+        with:
+          name: Site
+          path: archive
+      - name: Unpack the site archive
+        run: |
+          mkdir _site
+          tar -xf archive/documents.tar.xz -C _site
+      - name: Upload the site
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: _site
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v5

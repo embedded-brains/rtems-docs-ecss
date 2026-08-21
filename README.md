@@ -14,6 +14,11 @@ The documentation is built using
 [specmake](https://github.com/specthings/specmake)
 tools.
 
+A demonstration build of the documentation set is published at
+<https://embedded-brains.github.io/rtems-docs-ecss/>.  It uses the dummy
+project of this repository, so the documents carry placeholder names and the
+links to the RTEMS documentation do not resolve.
+
 The following documents are provided:
 
 - [Software Configuration File (SCF, Package Manual)](src/package-manual/config.yml)
