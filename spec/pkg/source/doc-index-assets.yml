@@ -1,0 +1,23 @@
+SPDX-License-Identifier: CC-BY-SA-4.0 OR BSD-2-Clause
+copyrights:
+- Copyright (C) 2026 embedded brains GmbH & Co. KG
+copyrights-by-license: {}
+destination-directory: ${.:/component/deployment-directory}/src/doc/index-assets
+directory: ${.:/component/workspace-directory}/${.:/component/rtems-docs-ecss-directory:dirname}
+enabled-by: true
+file-mappings:
+- pattern: ^src/index/
+  replacement: ''
+links:
+- hash: null
+  name: component
+  role: input
+  uid: ../component
+patterns:
+- src/index/style.css
+- src/index/fonts/*.woff2
+- LICENSES/Apache-2.0.txt
+- LICENSES/OFL-1.1.txt
+pkg-type: workspace
+type: pkg
+workspace-type: directory
