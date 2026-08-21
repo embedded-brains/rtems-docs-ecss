@@ -13,13 +13,13 @@ attributes:
   links: []
   organization: embedded brains GmbH & Co. KG
   reference-type: manual
-  title: RTEMS Qualification Software Design Document [${.:/ident}], Git Commit $${/pkg/source/rtems:/commit}
+  title: $${.:/component/document-package-title} Software Design Document [${.:/ident}]
   type: reference
   work-hash: null
   work-url: $${.:/component/documentation-directory:relpath %(*:/directory)}/sdd/index.html
-  year: '2025'
+  year: '2026'
 copyrights:
-- Copyright (C) 2025 embedded brains GmbH & Co. KG
+- Copyright (C) 2025, 2026 embedded brains GmbH & Co. KG
 enabled-by: true
 links:
 - role: add-package-template
