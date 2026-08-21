@@ -29,7 +29,7 @@ attributes:
     path: index.html
     role: input-to
     sort-key: 20
-    title: Software Design Document
+    title: $${.:/component/document-package-title} Software Design Document [$${.:/component/ident}]
     uid: index-group
   - hash: null
     name: source
