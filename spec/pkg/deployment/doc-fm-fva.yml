@@ -14,7 +14,7 @@ links:
 - hash: null
   name: member
   role: input-to
-  uid: ../deployment/archive
+  uid: archive
 pkg-type: workspace
 source-file: FV2-201.pdf
 type: pkg
