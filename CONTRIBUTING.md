@@ -75,7 +75,7 @@ interpreter.
 ## Documentation rules
 
 The
-[Software Development Handbook](https://embedded-brains.github.io/rtems-docs-ecss/doc/technical-notes/sdh.pdf)
+[Software Development Handbook](https://embedded-brains.github.io/rtems-docs-ecss/doc/technical-notes/sdh/index.html)
 describes how to write and format the documentation sources.  Its sources are
 in [src/sdh](src/sdh).  Format every changed file in [src](src) with `mdformat`
 before you submit it.

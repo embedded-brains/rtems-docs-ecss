@@ -2,7 +2,7 @@ SPDX-License-Identifier: CC-BY-SA-4.0 OR BSD-2-Clause
 copyrights:
 - Copyright (C) 2026 embedded brains GmbH & Co. KG
 copyrights-by-license: {}
-directory: ${.:/component/documentation-directory}/technical-notes
+directory: ${.:/component/documentation-directory}/technical-notes/sdh
 directory-state-type: sphinx
 document-base-path: ${.:/directory}
 document-copyrights:
@@ -96,7 +96,7 @@ links:
 - name: build
   role: output
   uid: ../build/doc-sdh
-output-html: null
+output-html: .
 output-pdf: sdh.pdf
 pkg-type: directory-state
 type: pkg

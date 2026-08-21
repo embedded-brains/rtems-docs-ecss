@@ -20,7 +20,7 @@ project of this repository, so the documents carry placeholder names and the
 links to the RTEMS documentation do not resolve.
 
 That build includes the
-[Software Development Handbook (SDH)](https://embedded-brains.github.io/rtems-docs-ecss/doc/technical-notes/sdh.pdf).
+[Software Development Handbook (SDH)](https://embedded-brains.github.io/rtems-docs-ecss/doc/technical-notes/sdh/index.html).
 It describes the specification items, the documentation rules and the tools of
 the pre-qualification.
 
