@@ -54,6 +54,13 @@ attribute-actions:
     role: input-to
     uid: /pkg/deployment/archive
   - hash: null
+    name: index-member
+    path: null
+    role: input-to
+    sort-key: 60
+    title: null
+    uid: index-group
+  - hash: null
     name: test-report
     role: input-to
     uid: /pkg/deployment/doc-package-summary

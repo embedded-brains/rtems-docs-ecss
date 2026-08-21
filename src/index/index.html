@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<!--
+SPDX-License-Identifier: CC-BY-SA-4.0 OR BSD-2-Clause
+
+Copyright (C) 2026 embedded brains GmbH & Co. KG
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>${.:/component/document-package-title}</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+<div class="site-wrap">
+<h1 class="site-title">${.:/component/document-package-title}</h1>
+<p class="site-meta"><span>${.:/component/document-variant}</span><span>${.:/component/document-date}</span></p>
+</div>
+</header>
+<main class="site-wrap">
+${.:/index-body}
+</main>
+<footer class="site-footer">
+<div class="site-wrap">
+<p>${.:/component/document-html-footer}</p>
+<p>This site uses the Lato and Font Awesome fonts under
+<a href="LICENSES/OFL-1.1.txt">OFL-1.1</a> and the Roboto Slab font under
+<a href="LICENSES/Apache-2.0.txt">Apache-2.0</a>.</p>
+</div>
+</footer>
+</body>
+</html>

@@ -8,6 +8,13 @@ directory: ${.:/component/workspace-directory}/${.:/component/rtems-docs-ecss-di
 enabled-by: true
 links:
 - hash: null
+  name: index-member
+  path: QT-109.pdf
+  role: input-to
+  sort-key: 10
+  title: 'QT-109 Technical Note: RTEMS SMP Qualification Target, Release 6'
+  uid: index-group-tn
+- hash: null
   name: component
   role: input
   uid: ../component

@@ -1,0 +1,219 @@
+/*
+ * SPDX-License-Identifier: CC-BY-SA-4.0 OR BSD-2-Clause
+ *
+ * Copyright (C) 2026 embedded brains GmbH & Co. KG
+ */
+
+@font-face {
+  font-family: Lato;
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/lato-normal.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: Lato;
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("fonts/lato-bold.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Roboto Slab";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/Roboto-Slab-Regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Roboto Slab";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("fonts/Roboto-Slab-Bold.woff2") format("woff2");
+}
+
+:root {
+  --pkg-page: #ffffff;
+  --pkg-rule: #cfdcea;
+  --pkg-muted: #3a739d;
+  --pkg-text: #0b3659;
+  --pkg-hover: #3a739d;
+  --pkg-brand: #16507e;
+  --pkg-dark: #0b3659;
+  --pkg-body: Lato, "Helvetica Neue", Arial, sans-serif;
+  --pkg-head: "Roboto Slab", Georgia, Arial, serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--pkg-page);
+  color: var(--pkg-text);
+  font-family: var(--pkg-body);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.site-wrap {
+  margin: 0 auto;
+  max-width: 100rem;
+  padding: 0 1.5rem;
+}
+
+.site-header {
+  background: var(--pkg-dark);
+  color: var(--pkg-page);
+  padding: 1.5rem 0 1.25rem;
+}
+
+.site-title {
+  font-family: var(--pkg-head);
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: 0.025rem;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.site-meta {
+  color: var(--pkg-page);
+  column-gap: 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 0.9375rem;
+  margin: 0.25rem 0 0;
+  opacity: 0.75;
+}
+
+main.site-wrap {
+  padding-bottom: 2.5rem;
+  padding-top: 1.5rem;
+}
+
+.index-level-2 + .index-level-2 {
+  margin-top: 1.5rem;
+}
+
+.index-group .index-group {
+  border-left: 1px solid var(--pkg-rule);
+  padding-left: 0.75rem;
+}
+
+.index-group-title {
+  color: var(--pkg-brand);
+  font-family: var(--pkg-head);
+  font-weight: 700;
+  margin: 0 0 0.625rem;
+}
+
+.index-level-2 > .index-group-title {
+  border-bottom: 1px solid var(--pkg-rule);
+  font-size: 1.125rem;
+  padding-bottom: 0.3125rem;
+}
+
+.index-level-3 > .index-group-title,
+.index-level-4 > .index-group-title,
+.index-level-5 > .index-group-title,
+.index-level-6 > .index-group-title {
+  color: var(--pkg-muted);
+  font-family: var(--pkg-body);
+  font-size: 0.8125rem;
+  letter-spacing: 0.06em;
+  margin: 0.75rem 0 0.375rem;
+  text-transform: uppercase;
+}
+
+.index-level-2 > .index-group-title + .index-group > .index-group-title {
+  margin-top: 0;
+}
+
+.index-cards {
+  display: grid;
+  gap: 0.375rem 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(min(27rem, 100%), 1fr));
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.index-card {
+  align-items: center;
+  background: var(--pkg-page);
+  border: 1px solid var(--pkg-rule);
+  border-left: 3px solid var(--pkg-brand);
+  column-gap: 0.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0.375rem 0.625rem;
+}
+
+.index-title {
+  font-family: var(--pkg-head);
+  flex: 1 1 14rem;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  line-height: 1.3;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.index-key {
+  background: var(--pkg-rule);
+  border-radius: 2px;
+  color: var(--pkg-brand);
+  font-family: var(--pkg-body);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  margin-left: 0.5rem;
+  padding: 0.125rem 0.375rem;
+  text-transform: uppercase;
+  vertical-align: 0.15em;
+}
+
+.index-targets {
+  display: flex;
+  gap: 0.375rem;
+  margin: 0;
+}
+
+.index-target {
+  border: 1px solid var(--pkg-brand);
+  color: var(--pkg-brand);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 0.125rem 0.5rem;
+  text-decoration: none;
+}
+
+.index-target:hover,
+.index-target:focus {
+  background: var(--pkg-hover);
+  border-color: var(--pkg-hover);
+  color: var(--pkg-page);
+}
+
+.index-target:focus-visible {
+  outline: 2px solid var(--pkg-dark);
+  outline-offset: 2px;
+}
+
+.site-footer {
+  border-top: 1px solid var(--pkg-rule);
+  color: var(--pkg-muted);
+  font-size: 0.875rem;
+  padding: 1rem 0 1.5rem;
+}
+
+.site-footer p {
+  margin: 0;
+}

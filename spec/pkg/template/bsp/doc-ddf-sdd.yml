@@ -25,6 +25,13 @@ attributes:
     role: input
     uid: /pkg/deployment/doxygen
   - hash: null
+    name: index-member
+    path: index.html
+    role: input-to
+    sort-key: 20
+    title: Software Design Document
+    uid: index-group
+  - hash: null
     name: source
     role: input
     uid: doc-ddf-sdd-spec-links

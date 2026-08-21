@@ -8,6 +8,13 @@ directory: ${.:/component/workspace-directory}/${.:/component/rtems-docs-ecss-di
 enabled-by: true
 links:
 - hash: null
+  name: index-member
+  path: tn-space-profile.pdf
+  role: input-to
+  sort-key: 20
+  title: 'Technical Note: Space Profile, Release 6'
+  uid: index-group-tn
+- hash: null
   name: component
   role: input
   uid: ../component

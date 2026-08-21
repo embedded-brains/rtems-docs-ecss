@@ -8,6 +8,13 @@ directory: ${.:/component/workspace-directory}/${.:/component/rtems-docs-ecss-di
 enabled-by: true
 links:
 - hash: null
+  name: index-member
+  path: FV1-200.pdf
+  role: input-to
+  sort-key: 0
+  title: Formal Verification Plan
+  uid: index-group-fm
+- hash: null
   name: component
   role: input
   uid: ../component
