@@ -42,6 +42,58 @@
 \sphinxDUC{03BC}{$\upmu$}
 \sphinxDUC{FFFD}{$\blacksquare$}
 
+% A break inside an identifier leaves no trace.  The mark shows the break at
+% the end of the line.
+\let\pkgbreakmark\textbackslash
+
+% Sphinx escapes the underscore to \_, which is an ordinary character.  A long
+% identifier in a table cell has no break point and runs into the margin.
+\let\pkgtextunderscore\_
+\protected\def\_{\pkgtextunderscore\discretionary{\pkgbreakmark}{}{}}
+\pdfstringdefDisableCommands{\let\_\pkgtextunderscore}
+
+% The inline literal uses a monospace font, which gives no break after a
+% hyphen.  The \kern prevents the en-dash ligature.
+\protected\def\pkgsphinxhyphenbreak#1{-\kern\z@\discretionary{\pkgbreakmark}{}{}}
+\renewcommand*{\sphinxhyphenininlineliteral}{\pkgsphinxhyphenbreak}
+
+% TeX does not hyphenate a monospace font, so an inline literal such as
+% abcDefGhi has no break point.  A break comes before an upper case letter
+% which a lower case letter follows.  A token such as ABC_DEF_GHI keeps its
+% letters together.  The activation makes every upper case letter an active
+% character, so a lower case letter is the only letter left in the text.
+\def\pkgupperchar#1{\def\pkgupperheld{#1}\futurelet\pkgnexttoken\pkgemitupper}
+\def\pkgemitupper{%
+  \ifcat\noexpand\pkgnexttoken a\discretionary{\pkgbreakmark}{}{}\fi
+  \pkgupperheld}
+\def\pkgdoupper#1{%
+  \lccode`\~`#1\relax
+  \lowercase{\def~}{\pkgupperchar{#1}}%
+  \catcode`#1\active}
+\def\pkgactivateupper{%
+  \pkgdoupper A\pkgdoupper B\pkgdoupper C\pkgdoupper D\pkgdoupper E%
+  \pkgdoupper F\pkgdoupper G\pkgdoupper H\pkgdoupper I\pkgdoupper J%
+  \pkgdoupper K\pkgdoupper L\pkgdoupper M\pkgdoupper N\pkgdoupper O%
+  \pkgdoupper P\pkgdoupper Q\pkgdoupper R\pkgdoupper S\pkgdoupper T%
+  \pkgdoupper U\pkgdoupper V\pkgdoupper W\pkgdoupper X\pkgdoupper Y%
+  \pkgdoupper Z%
+  \lccode`\~`\~}
+
+% The activation stays local to \sphinxcode.  A code block reads its Pygments
+% style keys under the catcodes of \sphinxbreaksviaactive.
+%
+% LaTeX reads a file such as a font definition when it first needs the file.
+% An active upper case letter cuts the \ProvidesFile line of that file short.
+% The probe sets the literal with the normal catcodes.  It reads every file
+% which the literal needs.
+\newbox\pkgprobebox
+\let\pkgsphinxcode\sphinxcode
+\protected\def\sphinxcode#1{{%
+  \setbox\pkgprobebox\hbox{\pkgsphinxcode{#1}}%
+  \let\pkgbreaksviaactive\sphinxbreaksviaactive
+  \def\sphinxbreaksviaactive{\pkgbreaksviaactive\pkgactivateupper}%
+  \pkgsphinxcode{#1}}}
+
 \protected\def\sphinxstyletheadfamily{\py@HeaderFamily \py@TitleColor}
 
 \renewcommand{\sphinxmaketitle}{
