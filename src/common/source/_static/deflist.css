@@ -1,0 +1,98 @@
+/*
+ * SPDX-License-Identifier: CC-BY-SA-4.0
+ *
+ * Copyright (C) 2026 embedded brains GmbH & Co. KG
+ */
+
+/*
+ * The HTML follows the PDF.  Every definition list shows a label column and
+ * a body column.
+ *
+ * The documents hold three shapes of definition list, dl.simple, dl.glossary
+ * and a dl with no class.  A domain object list of the theme carries a class
+ * of its own, such as dl.py, and keeps the layout of the theme.
+ */
+.rst-content dl.simple,
+.rst-content dl.glossary,
+.rst-content dl:not([class]) {
+  --pkg-deflist-label: 0.20;
+  display: grid;
+  grid-template-columns: calc(var(--pkg-deflist-label) * 100%) 1fr;
+  column-gap: 1em;
+  row-gap: 0;
+  margin: 0.8em 0;
+}
+.rst-content dl.simple > dt,
+.rst-content dl.glossary > dt,
+.rst-content dl:not([class]) > dt {
+  grid-column: 1;
+  position: relative;
+  font-weight: bold;
+  font-size: 90%;
+  margin: 0;
+  padding: 0.35em 0;
+  background: none;
+  color: inherit;
+}
+.rst-content dl.simple > dd,
+.rst-content dl.glossary > dd,
+.rst-content dl:not([class]) > dd {
+  grid-column: 2;
+  margin: 0;
+  padding: 0.35em 0;
+}
+.rst-content dl.simple > dd > :first-child,
+.rst-content dl.glossary > dd > :first-child,
+.rst-content dl:not([class]) > dd > :first-child { margin-top: 0; }
+.rst-content dl.simple > dd > :last-child,
+.rst-content dl.glossary > dd > :last-child,
+.rst-content dl:not([class]) > dd > :last-child { margin-bottom: 0; }
+
+/*
+ * Sphinx emits several dt for one dd where terms share a definition.  The
+ * first dt of the group draws one rule across both columns.
+ */
+.rst-content dl.simple > dt::before,
+.rst-content dl.glossary > dt::before,
+.rst-content dl:not([class]) > dt::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: calc(100% / var(--pkg-deflist-label));
+  border-top: 1px solid #d8d8d8;
+}
+.rst-content dl.simple > dt + dt::before,
+.rst-content dl.glossary > dt + dt::before,
+.rst-content dl:not([class]) > dt + dt::before { content: none; }
+.rst-content dl.simple > dt + dt,
+.rst-content dl.glossary > dt + dt,
+.rst-content dl:not([class]) > dt + dt { padding-top: 0; }
+
+/*
+ * A definition list inside a definition keeps the layout of the theme.  This
+ * matches the depth guard of deflist.sty.
+ */
+.rst-content dd dl.simple,
+.rst-content dd dl.glossary,
+.rst-content dd dl:not([class]) {
+  display: block;
+  margin: 0.4em 0;
+}
+.rst-content dd dl.simple > dt,
+.rst-content dd dl.glossary > dt,
+.rst-content dd dl:not([class]) > dt,
+.rst-content dd dl.simple > dd,
+.rst-content dd dl.glossary > dd,
+.rst-content dd dl:not([class]) > dd {
+  grid-column: auto;
+  position: static;
+  padding: 0;
+  font-size: 100%;
+}
+.rst-content dd dl.simple > dt::before,
+.rst-content dd dl.glossary > dt::before,
+.rst-content dd dl:not([class]) > dt::before { content: none; }
+.rst-content dd dl.simple > dd,
+.rst-content dd dl.glossary > dd,
+.rst-content dd dl:not([class]) > dd { margin-left: 24px; }

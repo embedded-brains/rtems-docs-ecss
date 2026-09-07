@@ -1,0 +1,172 @@
+% SPDX-License-Identifier: CC-BY-SA-4.0
+%
+% Copyright (C) 2026 embedded brains GmbH & Co. KG
+
+% Every definition list shows a label column and a body column.  A definition
+% list breaks across a page, so an entry holds a list of any length.
+
+% Width of the label column of an entry.
+\newcommand{\pkgdeflistlabelwidth}{0.20\linewidth}
+
+% Space between two entries.
+\newcommand{\pkgdeflistsep}{5pt}
+
+% Number of terms which share the definition of the current entry.
+\newcount\pkgdeflistnterms
+
+% Width of an entry, the label column and the body column together.
+\newcommand{\pkgdeflistrowwidth}{\dimexpr\labelwidth+\labelsep+\linewidth\relax}
+
+% The body of every entry starts at the same distance from the left margin.
+\newcommand{\pkgdeflistsetup}{%
+  \setlength\labelwidth{\pkgdeflistlabelwidth}%
+  \setlength\labelsep{1em}%
+  \setlength\leftmargin{\dimexpr\pkgdeflistlabelwidth+1em\relax}%
+  \setlength\rightmargin{\z@}%
+  \setlength\itemindent{\z@}%
+  \setlength\listparindent{\z@}%
+  \setlength\parsep{\z@}%
+  \setlength\partopsep{\z@}%
+  \setlength\topsep{5pt}%
+  \setlength\itemsep{\pkgdeflistsep}%
+  \pkgdeflistnterms\z@
+}
+
+% A rule of the width of an entry which occupies no vertical space.
+\newcommand{\pkgdeflistrule}{%
+  \smash{\raisebox{\dimexpr0.6\pkgdeflistsep+\ht\strutbox\relax}[\z@][\z@]{%
+    \makebox[\z@][l]{\textcolor{black!35}{%
+      \rule{\pkgdeflistrowwidth}{0.4pt}}}}}%
+}
+
+% Font of a label.
+\newcommand{\pkgdeflistlabelfont}{\bfseries\small}
+
+% The label sits in the label column with a rule above it.  \@item sets a
+% label which is no wider than \labelwidth in a box of \labelwidth.  A wider
+% label keeps its natural width, and the body then starts after it on the
+% same line.
+%
+% The \hbox packs the label.  \@item unboxes the label into a box of
+% \labelwidth, and an unboxed interword space stretches across the column.
+\newcommand{\pkgdeflistlabel}[1]{%
+  \pkgdeflistrule
+  \hbox{\pkgdeflistlabelfont #1}}
+
+% The label takes the whole row and the body starts on the next line.  This
+% label serves a group of terms which share one definition, and a term which
+% leaves too little room for the first line of the body.  The \makebox keeps
+% the width of the label box at \labelwidth, so the row reports no overfull
+% box.
+\newcommand{\pkgdeflistwidelabel}[1]{%
+  \pkgdeflistrule
+  \makebox[\labelwidth][l]{%
+    \parbox[t]{\pkgdeflistrowwidth}{\raggedright\pkgdeflistlabelfont #1}}}
+
+% Room which the first line of the body needs beside a wide term.
+\newcommand{\pkgdeflistbodyroom}{4em}
+
+% True where the term leaves less than \pkgdeflistbodyroom for the body.
+\newif\ifpkgdeflisttoowide
+
+% True where the term fits the label column.  A wider term keeps its natural
+% width, and the body then starts after it on the same line.
+\newif\ifpkgdeflistincolumn
+
+% The measurement typesets the term a second time.  A term carries \index,
+% \label and \phantomsection, so the measurement makes those do nothing.
+%
+% It sets \ifpkgdeflisttoowide rather than expand to \ifdim.  TeX skips a
+% false branch without macro expansion, so a hidden \ifdim leaves the \else
+% and the \fi of the caller unmatched.  The group needs the global
+% assignment.
+\newcommand{\pkgdeflistmeasure}[1]{%
+  \begingroup
+    \let\index\@gobble
+    \let\label\@gobble
+    \let\phantomsection\relax
+    \setbox\z@\hbox{\pkgdeflistlabelfont #1}%
+    \ifdim\wd\z@>\dimexpr\pkgdeflistrowwidth-\pkgdeflistbodyroom\relax
+      \global\pkgdeflisttoowidetrue
+    \else
+      \global\pkgdeflisttoowidefalse
+    \fi
+    \ifdim\wd\z@>\labelwidth
+      \global\pkgdeflistincolumnfalse
+    \else
+      \global\pkgdeflistincolumntrue
+    \fi
+  \endgroup}
+
+% The label sits on a line of its own.  The definition starts beside the
+% label, whatever its first element is, so that line carries no height.  A
+% verbatim block and a table are vertical boxes which start below the label
+% otherwise.
+%
+% This applies only to a term which fits the label column.  A wider term
+% shares the line with the first line of the body, so the body must not move
+% up into it.
+\newcommand{\pkgdeflistjoinbody}{%
+  \par\vskip-\dimexpr\baselineskip+\parskip\relax}
+
+% Depth of the definition lists which enclose this point.
+\newcount\pkgdeflistdepth
+
+\let\pkgdeflistsvbegin\description
+\let\pkgdeflistsvend\enddescription
+\let\pkgdeflistsvlineitem\sphinxlineitem
+
+% \sphinxlineitem puts the term on a line of its own.  A top level entry puts
+% it into the label column.
+%
+% The second argument is the single token which follows the term.  It is
+% \sphinxlineitem itself where several terms share one definition, so
+% \spx@lineitemlabel collects the terms until the definition arrives.  The
+% argument runs after \fi, because a token which scans arguments takes the
+% \fi otherwise.
+\renewcommand\sphinxlineitem[2]{%
+  \ifnum\pkgdeflistdepth=\@ne
+    \def\pkgdeflistnext{%
+      \sphinx@gobto@sphinxlineitem#2\@gobbletwo\sphinxlineitem\unless
+      \iftrue
+        \advance\pkgdeflistnterms\@ne
+        \spx@lineitemlabel\expandafter{\the\spx@lineitemlabel\strut#1\\}%
+      \else
+        \advance\pkgdeflistnterms\@ne
+        \edef\pkgdeflistterms{%
+          \the\spx@lineitemlabel\noexpand\strut\unexpanded{#1}}%
+        \ifnum\pkgdeflistnterms>\@ne
+          \let\makelabel\pkgdeflistwidelabel
+          \item[\pkgdeflistterms]\leavevmode\newline
+        \else
+          \pkgdeflistmeasure{\pkgdeflistterms}%
+          \ifpkgdeflisttoowide
+            \let\makelabel\pkgdeflistwidelabel
+            \item[\pkgdeflistterms]\leavevmode\newline
+          \else
+            \let\makelabel\pkgdeflistlabel
+            \item[\pkgdeflistterms]\leavevmode
+            \ifpkgdeflistincolumn\pkgdeflistjoinbody\fi
+          \fi
+        \fi
+        \spx@lineitemlabel{}%
+        \pkgdeflistnterms\z@
+      \fi #2}%
+  \else
+    \def\pkgdeflistnext{\pkgdeflistsvlineitem{#1}{#2}}%
+  \fi
+  \pkgdeflistnext}
+
+% A definition list inside a definition keeps the Sphinx layout.
+\renewenvironment{description}%
+  {\advance\pkgdeflistdepth\@ne
+   \ifnum\pkgdeflistdepth=\@ne
+     \list{}{\pkgdeflistsetup\let\makelabel\pkgdeflistlabel}%
+   \else
+     \pkgdeflistsvbegin
+   \fi}%
+  {\ifnum\pkgdeflistdepth=\@ne
+     \endlist
+   \else
+     \pkgdeflistsvend
+   \fi}
