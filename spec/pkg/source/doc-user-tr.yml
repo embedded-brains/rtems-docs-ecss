@@ -24,6 +24,7 @@ links:
   uid: ../deployment/archive
 patterns:
 - common/build/latex/blue-dots.pdf
+- common/build/latex/deflist.sty
 - common/include/abbreviations.rst
 - common/include/ref-docs.rst
 - common/source/**/*
