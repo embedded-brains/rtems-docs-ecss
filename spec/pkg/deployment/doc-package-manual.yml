@@ -4,13 +4,6 @@ copyrights:
 enabled-by: true
 links:
 - hash: null
-  name: index-member
-  path: null
-  role: input-to
-  sort-key: 0
-  title: null
-  uid: index-group-package
-- hash: null
   name: component
   role: input
   uid: ../component
