@@ -43,13 +43,6 @@ attribute-actions:
   - name: build
     role: output
     uid: build-user-tr
-  - hash: null
-    name: index-member
-    path: null
-    role: input-to
-    sort-key: 80
-    title: null
-    uid: index-group
 - action: set
   enabled-by: true
   path: /document-title
