@@ -42,19 +42,15 @@
 \sphinxDUC{03BC}{$\upmu$}
 \sphinxDUC{FFFD}{$\blacksquare$}
 
-% A break inside an identifier leaves no trace.  The mark shows the break at
-% the end of the line.
-\let\pkgbreakmark\textbackslash
-
 % Sphinx escapes the underscore to \_, which is an ordinary character.  A long
 % identifier in a table cell has no break point and runs into the margin.
 \let\pkgtextunderscore\_
-\protected\def\_{\pkgtextunderscore\discretionary{\pkgbreakmark}{}{}}
+\protected\def\_{\pkgtextunderscore\discretionary{}{}{}}
 \pdfstringdefDisableCommands{\let\_\pkgtextunderscore}
 
 % The inline literal uses a monospace font, which gives no break after a
 % hyphen.  The \kern prevents the en-dash ligature.
-\protected\def\pkgsphinxhyphenbreak#1{-\kern\z@\discretionary{\pkgbreakmark}{}{}}
+\protected\def\pkgsphinxhyphenbreak#1{-\kern\z@\discretionary{}{}{}}
 \renewcommand*{\sphinxhyphenininlineliteral}{\pkgsphinxhyphenbreak}
 
 % TeX does not hyphenate a monospace font, so an inline literal such as
@@ -64,7 +60,7 @@
 % character, so a lower case letter is the only letter left in the text.
 \def\pkgupperchar#1{\def\pkgupperheld{#1}\futurelet\pkgnexttoken\pkgemitupper}
 \def\pkgemitupper{%
-  \ifcat\noexpand\pkgnexttoken a\discretionary{\pkgbreakmark}{}{}\fi
+  \ifcat\noexpand\pkgnexttoken a\discretionary{}{}{}\fi
   \pkgupperheld}
 \def\pkgdoupper#1{%
   \lccode`\~`#1\relax
