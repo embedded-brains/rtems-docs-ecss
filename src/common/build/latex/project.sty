@@ -35,6 +35,14 @@
 \newcolumntype{\Yr}[1]{>{\raggedleft\arraybackslash}\Y{#1}}
 \newcolumntype{\Yj}[1]{>{\centering\arraybackslash}\Y{#1}}
 
+% A table column is narrow.  Justification stretches the interword space of
+% a cell which wraps.  Set every table cell ragged right.  Sphinx owns these
+% column types, so their redefinition warns that they exist already.  A
+% width option of a table gives \X, a table without one gives T.
+\newcolumntype{\X}[2]{>{\raggedright\arraybackslash}p{\dimexpr
+      (\linewidth-\spx@arrayrulewidth)*#1/#2-\tw@\tabcolsep-\spx@arrayrulewidth\relax}}
+\newcolumntype{T}{L}
+
 % Fix number and title overlap in table of contents
 \renewcommand{\numberline}[1]{#1~}
 
