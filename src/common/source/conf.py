@@ -170,6 +170,6 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'document.tex', '${.:/document-latex-title}',
+    (master_doc, 'document.tex', r'${.:/document-latex-title}',
      '${.:/document-author}', '${.:/document-latex-theme}'),
 ]
