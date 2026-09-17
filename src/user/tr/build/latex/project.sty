@@ -24,7 +24,11 @@
 % a cell which wraps.  Set every table cell ragged right.  Sphinx owns these
 % column types, so their redefinition warns that they exist already.  A
 % width option of a table gives \X, a table without one gives T.
-\newcolumntype{\X}[2]{>{\raggedright\arraybackslash}p{\dimexpr
+%
+% TeX expands the \\ which ends a row inside the cell, so the prefix of the
+% column reaches it.  \raggedright makes \\ a line break.  The \let restores
+% the row terminator, which longtable needs for its page breaks.
+\newcolumntype{\X}[2]{>{\raggedright\let\\\tabularnewline}p{\dimexpr
       (\linewidth-\spx@arrayrulewidth)*#1/#2-\tw@\tabcolsep-\spx@arrayrulewidth\relax}}
 \newcolumntype{T}{L}
 
