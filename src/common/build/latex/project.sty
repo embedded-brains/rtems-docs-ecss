@@ -31,9 +31,9 @@
 \setlist[itemize,9]{label=\textbullet}
 
 % Example ".. tabularcolumns:: |\Yl{0.1}|\Yr{0.9}|"
-\newcolumntype{\Yl}[1]{>{\raggedright\arraybackslash}\Y{#1}}
-\newcolumntype{\Yr}[1]{>{\raggedleft\arraybackslash}\Y{#1}}
-\newcolumntype{\Yj}[1]{>{\centering\arraybackslash}\Y{#1}}
+\newcolumntype{\Yl}[1]{>{\raggedright\let\\\tabularnewline}\Y{#1}}
+\newcolumntype{\Yr}[1]{>{\raggedleft\let\\\tabularnewline}\Y{#1}}
+\newcolumntype{\Yj}[1]{>{\centering\let\\\tabularnewline}\Y{#1}}
 
 % A table column is narrow.  Justification stretches the interword space of
 % a cell which wraps.  Set every table cell ragged right.  Sphinx owns these
