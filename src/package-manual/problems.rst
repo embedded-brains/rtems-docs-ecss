@@ -25,7 +25,7 @@ While using the upcoming RTEMS SMP |QDP| release 5, one shall be aware
 of these known issues, and assess the risk they impose to the
 scope/mission/application on which the RTEMS SMP QDP is being used on.
 
-.. tabularcolumns:: |>{\centering\arraybackslash}m{0.18\textwidth}
+.. tabularcolumns:: |>{\centering\let\\\tabularnewline}m{0.18\textwidth}
                     |m{0.29\textwidth}
                     |m{0.45\textwidth}|
 
