@@ -9,7 +9,7 @@ attributes:
   build-spec-directories: []
   build-uids:
   - /build/grp
-  copyrights-by-license: {}
+  license-info: []
   directory: $${.:/component/deployment-directory}/src/rtems-${.:/component/arch}-${.:/bsp}${.:/config:dash}-qual-only
   directory-state-type: repository-subset
   enabled-by: RTEMS_QUAL

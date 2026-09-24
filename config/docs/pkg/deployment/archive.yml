@@ -3,7 +3,7 @@ archive-file: rtems-${.:/component/name}-${.:/component/package-version}.tar.xz
 archive-strip-prefix: ${.:/component/prefix-directory}/
 copyrights:
 - Copyright (C) 2020, 2025 embedded brains GmbH & Co. KG
-copyrights-by-license: {}
+license-info: []
 directory: ${.:/component/build-directory}
 directory-state-type: archive
 enabled-by: false

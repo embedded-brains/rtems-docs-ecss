@@ -1,7 +1,7 @@
 SPDX-License-Identifier: CC-BY-SA-4.0 OR BSD-2-Clause
 attribute-actions: []
 attributes:
-  copyrights-by-license: {}
+  license-info: []
   directory: ${.:/component/build-directory}/${.:/component/arch}-${.:/bsp}${.:/config:dash}-doc-djf-svs
   directory-state-type: patterns
   enabled-by: true

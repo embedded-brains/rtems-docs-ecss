@@ -38,7 +38,7 @@ attributes:
         value: 'False'
       name: ${.:/component/arch}/${.:/component/bsp}${.:/component/config:dash}${.:/component/bsp-extra:dash}
     target: null
-  copyrights-by-license: {}
+  license-info: []
   directory: $${/pkg/source/rtems:/directory}
   directory-state-type: explicit
   enabled-by: true

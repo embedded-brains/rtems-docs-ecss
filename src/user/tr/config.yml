@@ -1,7 +1,7 @@
 SPDX-License-Identifier: CC-BY-SA-4.0 OR BSD-2-Clause
 copyrights:
 - Copyright (C) 2026 embedded brains GmbH & Co. KG
-copyrights-by-license: {}
+license-info: []
 directory: ${.:/component/documentation-directory}/user/tr
 directory-state-type: sphinx
 document-base-path: $${.:/directory}
@@ -19,10 +19,9 @@ document-latex-header-left: |
   This document is provided by a ${.:/component/package-ident} package user.
 document-latex-sphinxsetup: ${.:/component/document-latex-sphinxsetup}
 document-latex-theme: manual
-document-license: CC-BY-SA-4.0
-document-license-map:
-  CC-BY-SA-4.0 OR BSD-2-Clause: BSD-2-Clause
-  CC-BY-SA-4.0 OR MIT: MIT
+document-accepted-licenses:
+- ${.:/component/accepted-licenses}
+document-license: ${.:/component/license}
 document-releases:
 - date: '9999-12-31'
   status: Release
