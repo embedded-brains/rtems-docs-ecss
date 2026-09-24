@@ -1,7 +1,7 @@
 SPDX-License-Identifier: CC-BY-SA-4.0 OR BSD-2-Clause
 copyrights:
 - Copyright (C) 2020, 2026 embedded brains GmbH & Co. KG
-copyrights-by-license: {}
+license-info: []
 destination-directory: ${.:/component/documentation-directory}/fm/fva
 destination-file: FV2-201.pdf
 directory: ${.:/component/workspace-directory}/${.:/component/rtems-docs-ecss-directory}/v6/FV2-201

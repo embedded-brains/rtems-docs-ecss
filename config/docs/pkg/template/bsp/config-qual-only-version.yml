@@ -13,7 +13,7 @@ attributes:
         value: $${/pkg/source/rtems:/commit}
       name: RTEMS_VERSION
     target: null
-  copyrights-by-license: {}
+  license-info: []
   directory: $${rtems-qual-only:/directory}
   directory-state-type: explicit
   enabled-by: RTEMS_QUAL

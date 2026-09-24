@@ -19,7 +19,7 @@ attributes:
         value: -O2 -g -ffunction-sections -fdata-sections -save-temps=obj
       name: ${.:/component/arch}/${.:/component/bsp}${.:/component/config:dash}-qual-only
     target: null
-  copyrights-by-license: {}
+  license-info: []
   directory: $${rtems-qual-only:/directory}
   directory-state-type: explicit
   enabled-by: RTEMS_QUAL

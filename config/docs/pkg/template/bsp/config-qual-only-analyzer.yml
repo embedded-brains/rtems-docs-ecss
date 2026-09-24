@@ -16,7 +16,7 @@ attributes:
         value: $${build-config-qual-only:/build-label}/analyzer
       name: ${.:/component/arch}/${.:/component/bsp}${.:/component/config:dash}-qual-only-analyzer
     target: null
-  copyrights-by-license: {}
+  license-info: []
   directory: $${rtems-qual-only:/directory}
   directory-state-type: explicit
   enabled-by: RTEMS_QUAL

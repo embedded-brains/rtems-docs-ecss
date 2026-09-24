@@ -16,7 +16,7 @@ archive-file: documents.tar.xz
 archive-strip-prefix: ${.:/component/deployment-directory}/
 copyrights:
 - Copyright (C) 2026 embedded brains GmbH & Co. KG
-copyrights-by-license: {}
+license-info: []
 directory: ${.:/component/deployment-directory}
 directory-state-type: index
 enabled-by: true

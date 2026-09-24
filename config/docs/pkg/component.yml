@@ -1,4 +1,10 @@
 SPDX-License-Identifier: CC-BY-SA-4.0 OR BSD-2-Clause
+accepted-licenses:
+- Apache-2.0
+- BSD-2-Clause
+- BSD-3-Clause
+- ISC
+- MIT
 arch: arch
 build-directory: ${.:/deployment-directory}/build
 copyrights:
@@ -21,6 +27,7 @@ enabled-set: []
 enabled-set-actions: []
 enabled-set-feedback-mapping: {}
 ident: Ident
+license: CC-BY-SA-4.0
 links:
 - role: use-package-component-template
   uid: /pkg/template/docs/component
