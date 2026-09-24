@@ -59,8 +59,8 @@ change-list:
     The fifth version of the |QDP| adds several corrections as a result of the
     |ISVV| activities as in the table below:
 
-    .. tabularcolumns:: |>{\centering\arraybackslash}m{0.19\textwidth}
-                        |>{\centering\arraybackslash}m{0.28\textwidth}
+    .. tabularcolumns:: |>{\centering\let\\\tabularnewline}m{0.19\textwidth}
+                        |>{\centering\let\\\tabularnewline}m{0.28\textwidth}
                         |m{0.45\textwidth}|
 
     .. _addressed-findings-table:
