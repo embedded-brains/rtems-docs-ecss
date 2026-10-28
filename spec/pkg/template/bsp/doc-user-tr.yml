@@ -24,22 +24,6 @@ attribute-actions:
     name: source
     role: input
     uid: /pkg/source/doc-user-tr
-  - hash: null
-    key: compiler-version
-    name: test-property
-    property-name: GCC Version
-    role: input
-    type: default
-    expected: $${../../component:/gcc-reported-version}
-    uid: ../../component
-  - hash: null
-    key: rtems-commit
-    name: test-property
-    property-name: RTEMS Git Commit
-    role: input
-    type: rtems-version
-    expected: $$$${/pkg/source/rtems:/commit}
-    uid: /pkg/source/rtems
   - name: build
     role: output
     uid: build-user-tr

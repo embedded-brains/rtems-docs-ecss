@@ -12,6 +12,22 @@ attributes:
     role: input
     uid: rtems-item-cache
   - hash: null
+    key: compiler-version
+    name: test-property
+    property-name: GCC Version
+    role: input
+    type: default
+    expected: ${../../component:/gcc-reported-version}
+    uid: ../../component
+  - hash: null
+    key: rtems-commit
+    name: test-property
+    property-name: RTEMS Git Commit
+    role: input
+    type: rtems-version
+    expected: $${/pkg/source/rtems:/commit}
+    uid: /pkg/source/rtems
+  - hash: null
     name: test-aggregation
     role: input-to
     uid: /pkg/deployment/doc-package-summary
@@ -19,7 +35,7 @@ attributes:
   report-file: $${doc-djf-tr:/directory}/reports.html
   type: pkg
 copyrights:
-- Copyright (C) 2022 embedded brains GmbH & Co. KG
+- Copyright (C) 2022, 2026 embedded brains GmbH & Co. KG
 enabled-by: true
 links:
 - role: add-package-template
