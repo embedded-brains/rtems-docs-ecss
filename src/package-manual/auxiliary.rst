@@ -930,9 +930,9 @@ QDP for a particular target the following items are required:
 
 * Related engineering and product assurance activities
 
-* Qualification toolchain to run the tests, generate the documents, and package
-  the artifacts; this includes a test runner to run the tests on the specific
-  target (this could be an ${/glossary/obc:/term})
+* ${/glossary/qualification-toolchain:/term} to run the tests, generate the
+  documents, and package the artifacts.  It includes a test runner which runs
+  the tests on the specific target, such as an ${/glossary/obc:/term}.
 
 * A QDP configuration so that the toolchain produces the desired results
 
@@ -952,11 +952,10 @@ target architecture and ${/glossary/system-on-chip:/term} is required.
 
 Once the specification and validation tasks are finished, a QDP configuration
 needs to be assembled and processed by the toolchain to generate the QDP for
-the target.  This configurability of the qualification toolchain was a design
-goal.  Unfortunately, the toolchain delivered to ESA does not meet this design
-goal.  embedded brains has an enhanced in-house version of the toolchain which
-allows an easy and flexible configuration to produce QDPs for any desired RTEMS
-target, see :ref:`Service`.
+the target.  The ${/glossary/qualification-toolchain:/term} allows a flexible
+configuration to produce QDPs for any RTEMS target.  Its tools are open source
+software of the `specthings project <https://github.com/specthings>`_.  For
+support with a QDP configuration, see :ref:`Service`.
 
 AMD Xilinx
 ----------
