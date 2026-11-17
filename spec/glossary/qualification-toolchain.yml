@@ -1,0 +1,27 @@
+SPDX-License-Identifier: CC-BY-SA-4.0
+copyrights:
+- Copyright (C) 2024, 2026 embedded brains GmbH & Co. KG
+enabled-by: true
+glossary-type: term
+links:
+- role: glossary-member
+  uid: group
+term: Qualification Toolchain
+text: |
+  This term defines the tools of the
+  [specthings project](https://github.com/specthings). The tools work on
+  specification items, which hold the requirements, the interfaces, the
+  validation tests and the build steps of a software product. They provide the
+  following functions:
+
+  - Verify the format and the content of the specification items.
+
+  - Generate the interface source code, the validation tests and the
+    documentation from the specification items.
+
+  - Run the tests on a target or a simulator and evaluate the test reports and
+    the code coverage.
+
+  - Build a ${/glossary/qdp:/term} from the sources. The build includes the
+    static analysis, the traceability, the metrics and a digest of each artifact.
+type: glossary
