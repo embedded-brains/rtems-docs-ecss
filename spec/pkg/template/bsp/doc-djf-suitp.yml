@@ -12,6 +12,10 @@ attribute-actions:
     role: input
     uid: component
   - hash: null
+    name: test-aggregation
+    role: input
+    uid: aggregate-test-results
+  - hash: null
     name: test-suites
     role: input
     uid: /testsuites/unit
