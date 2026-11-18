@@ -19,6 +19,7 @@ all: documentation-clean documentation
 documentation: | prepare
 	uv run specbuild $(GIT_OPTIONS) $(LOG_OPTIONS) \
 	  spec \
+	  spec-ecss \
 	  dummy-software/spec \
 	  config/dummy-project \
 	  config/docs
