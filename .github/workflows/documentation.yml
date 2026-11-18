@@ -12,6 +12,7 @@ on:
       - Makefile
       - config/**
       - spec/**
+      - spec-ecss/**
       - src/**
   pull_request:
     branches:
@@ -21,6 +22,7 @@ on:
       - Makefile
       - config/**
       - spec/**
+      - spec-ecss/**
       - src/**
   workflow_dispatch:
 concurrency:
