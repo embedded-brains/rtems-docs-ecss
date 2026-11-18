@@ -112,18 +112,18 @@ Software Requirements Verification
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The verification activities related to the ${/glossary/ts:/term} are mandated
-by clause 5.8.3.2 of |E40| ${/ref/ecss/q-st-40c-r1:/cite}:
+by ${/ecss/e/40/0860131:/standard-and-clause}:
 
 * **Reviewer:** Frank Kühndel (embedded brains)
 * **Review Date:** 2021-11-26, 2021-11-10,
   previous reviews 2021-01-12/13, 2021-10-28 opened `Issue #645`_.
 * **Input Items:**
 
-    * |E40| ${/ref/ecss/q-st-40c-r1:/cite}, clause 5.8.3.2
-    * |Q80| ${/ref/ecss/q-st-80c-r1:/cite}, clause 7.2.1.3
-    * |SRS| release 1 ${doc-ts-srs:/cite}
+    * ${/ecss/e/40/0860131:/standard-and-clause}
+    * ${/ecss/q/80/0720238:/standard-and-clause}
+    * Software Requirements Specification (SRS), release 1
       (for review 2021-11-26 the one found in `Issue #739`_)
-    * |ICD| release 1 ${doc-ts-icd:/cite}
+    * Interface Control Document (ICD), release 1
       (for review 2021-11-26 the one found in `Issue #739`_)
 
 1. Software requirements and interface are externally and internally
@@ -247,7 +247,7 @@ Verification of the Software Architectural and Interface Design
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The verification activities related to the software architectural design are
-mandated by clause 5.8.3.3.a of |E40| ${/ref/ecss/q-st-40c-r1:/cite}:
+mandated by ${/ecss/e/40/0860132:/standard-and-clause}:
 
 **Reviewer:** Frank Kühndel (embedded brains)
 
@@ -256,7 +256,7 @@ mandated by clause 5.8.3.3.a of |E40| ${/ref/ecss/q-st-40c-r1:/cite}:
 
 **Input Items:**
 
-* ${/ref/ecss/q-st-40c-r1:/cite-long}, clause 5.8.3.3a
+* ${/ecss/e/40/0860132:/standard-and-clause}
 
 * ${doc-ts-icd:/cite-long}
 
@@ -516,7 +516,7 @@ in `Issue #663`_)
 
 **Input Items:**
 
-  * |E40| ${/ref/ecss/q-st-40c-r1:/cite}, clause 5.8.3.3a
+  * ${/ecss/e/40/0860132:/standard-and-clause}
   * ${ref-ddf-sdd:/cite-long}
 
 **Compliant:** Yes
@@ -625,7 +625,7 @@ Software Detailed Design Verification
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The verification activities related to the software detailed design are
-mandated by clause 5.8.3.4.a of |E40| ${/ref/ecss/q-st-40c-r1:/cite}:
+mandated by ${/ecss/e/40/0860133:/standard-and-clause}:
 
 **Reviewer:** Frank Kühndel (embedded brains)
 
@@ -638,7 +638,7 @@ they where documented in the SDD or disappeared from RTEMS),
 
 **Input Item:**
 
-* ${/ref/ecss/q-st-40c-r1:/cite-long}, clause 5.8.3.4a
+* ${/ecss/e/40/0860133:/standard-and-clause}
 
 * ${doc-ts-icd:/cite-long}
 
@@ -698,8 +698,8 @@ they where documented in the SDD or disappeared from RTEMS),
     see :ref:`Traceability`.
 
 4.  The project defined the term :term:`software unit` to be a
-    :term:`software component`. Consequently, |E40|
-    clause 5.8.3.4a point 4 becomes a meaningless tautology.
+    :term:`software component`. Consequently, point 4 of
+    ${/ecss/e/40/0860133:/standard-and-clause} becomes a meaningless tautology.
 
     Yet, it should be pointed out that table *Code to design traceability*
     in section :ref:`Traceability` maps all
@@ -807,8 +807,8 @@ Computational Model* of the ${/ref/tn/qt-109-r6:/cite-long}.
 Software Code Verification
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The verification activities related to the software code are mandated by clause
-5.8.3.5.a of |E40| ${/ref/ecss/q-st-40c-r1:/cite}:
+The verification activities related to the software code are mandated by
+${/ecss/e/40/0860134:/standard-and-clause}:
 
 **Reviewer:** Frank Kühndel (embedded brains)
 
@@ -1169,7 +1169,8 @@ linker will even link such code.
 4. The project defined the term :term:`software unit` to be a
    C function or assembler code. Since in C any executable code
    is either inside of a C function or is assembler code, all code
-   is inside a unit. The case |E40| clause 5.8.3.5a point 4 addresses
+   is inside a unit. The case which point 4 of
+   ${/ecss/e/40/0860134:/standard-and-clause} addresses
    can therefore not occur in :term:`RTEMS` and hence there is no
    need to justify such code.
 
@@ -1435,7 +1436,7 @@ Source Code Robustness Verification
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This verification of source code robustness bases on
-|E40| ${/ref/ecss/q-st-40c-r1:/cite}, clause 5.8.3.5f.
+${/ecss/e/40/0860141:/standard-and-clause}.
 
 The project takes a number of measures to ensure the code does not contain
 flaws leading to catastrophic or unexpected behavior:
@@ -1506,7 +1507,7 @@ affect the outcome of the tests.
    qualified and this does not affect the outcome of the test."
 
 The verification activities related to the software unit testing are mandated
-by clause 5.8.3.6 of |E40| ${/ref/ecss/q-st-40c-r1:/cite}:
+by ${/ecss/e/40/0860142:/standard-and-clause}:
 
 1. Are unit tests consistent with detailed design and requirements?
 
@@ -1538,7 +1539,10 @@ by clause 5.8.3.6 of |E40| ${/ref/ecss/q-st-40c-r1:/cite}:
    utilities is in operation and maintenance since long time.
    Hence, this is certainly feasible.
 
-5. Have all activities defined in clause 5.5.3 been performed?
+5. Have all activities defined in clause 5.5.3
+   [${/ecss/e/40/0860086:/clause}, ${/ecss/e/40/0860087:/clause},
+   ${/ecss/e/40/0860088:/clause}, ${/ecss/e/40/0860089:/clause}] been
+   performed?
 
    **Reviewer:** Frank Kühndel (embedded brains)
 
@@ -1548,27 +1552,28 @@ by clause 5.8.3.6 of |E40| ${/ref/ecss/q-st-40c-r1:/cite}:
    **Input Items:**
 
       * ${ref-ddf-sdd:/cite-long}
-      * |RUM| ${/ref/rtems/user:/cite}
-      * |RCA| ${/ref/rtems/c-user:/cite}
+      * RTEMS User Manual
+      * RTEMS Classic API Guide
       * ${/ref/legacy/djf-suitp-r1:/cite-long}
-      * |SUITR| part of this :term:`SVR` in chapter :ref:`SoftwareTestReports`
-        and following
+      * ${/glossary/suitr:/term} part of this :term:`SVR` in chapter
+        :ref:`SoftwareTestReports` and following
 
    **Compliant:** Yes
 
-      * 5.5.3.1 a.1. Develop and document the coding of each software unit
+      * ${/ecss/e/40/0860086:/clause} point 1: Develop and document the coding
+        of each software unit
 
         :term:`RTEMS` is existing software. It has been implemented
         long time ago. Documentation of the the coding is not possible.
 
-      * 5.5.3.1 a.2.  Develop and document the build procedures to compile
-        and link software units
+      * ${/ecss/e/40/0860086:/clause} point 2: Develop and document the build
+        procedures to compile and link software units
 
         The instructions how to compile and link :term:`RTEMS` with all
-        its software units can be found in the |RUM| ${/ref/rtems/user:/cite}.
+        its software units can be found in the ${/ref/rtems/user:/cite-long}.
 
-      * 5.5.3.2 a. Develop and document the test procedures and data for
-        testing each software unit
+      * ${/ecss/e/40/0860087:/clause}: Develop and document the test procedures
+        and data for testing each software unit
 
         That each :term:`software unit` is tested is ensured by the
         100% code coverage goal.
@@ -1578,14 +1583,14 @@ by clause 5.8.3.6 of |E40| ${/ref/ecss/q-st-40c-r1:/cite}:
         of the test framework is also documented in section *8.113
         RTEMS Test Framework Implementation*.
 
-      * 5.5.3.2 b. Test each software unit ensuring that it satisfies its
-        requirements and document the test results.
+      * ${/ecss/e/40/0860088:/clause}: Test each software unit ensuring that it
+        satisfies its requirements and document the test results.
 
         Validation tests are traced to requirements in section
         :ref:`Verification_of_software_validation`.
         Test results are reported in the same section.
 
-      * 5.5.3.2 c.1. The unit test shall exercise
+      * ${/ecss/e/40/0860089:/clause} point 1: The unit test shall exercise
         code using boundaries at n‐1, n, n+1 including looping
         instructions, while, for and tests that use comparisons
 
@@ -1594,17 +1599,17 @@ by clause 5.8.3.6 of |E40| ${/ref/ecss/q-st-40c-r1:/cite}:
           + ``src/rtems-qual-only/testsuites/unit/tc-score-msgq.c`` and
           + ``src/rtems/testsuites/unit/tc-score-kern-tc.c``
 
-        from pre-:term:`QR`\#2 |QDP| build from commit
+        from pre-:term:`QR`\#2 ${/glossary/qdp:/term} build from commit
 
         ``9f6bee80d4b1f0729bc290c3d69e411f489b9386``
 
-        The source code under test contains no boundaries. All possible cases in
-        comparisons are tested. Exceptions are cases which cannot
-        be exercises by unit tests due to the lack of support for mocks
-        (such as involving variables ``ogen`` or ``gen``).
+        The source code under test contains no boundaries. All possible cases
+        in comparisons are tested. Exceptions are cases which cannot be
+        exercises by unit tests due to the lack of support for mocks (such as
+        involving variables ``ogen`` or ``gen``).
 
-      * 5.5.3.2 c.2. The unit test shall exercise all the messages and
-        error cases defined in the design document
+      * ${/ecss/e/40/0860089:/clause} point 2: The unit test shall exercise all
+        the messages and error cases defined in the design document
 
         :term:`RTEMS` is an operating system and as such does not output
         messages.
@@ -1614,10 +1619,10 @@ by clause 5.8.3.6 of |E40| ${/ref/ecss/q-st-40c-r1:/cite}:
 
         The validation tests call all interface functions with such
         arguments and in such states as to provoke all errors defined
-        in the |RCA| ${/ref/rtems/c-user:/cite}.
+        in the ${/ref/rtems/c-user:/cite-long}.
 
-      * 5.5.3.2 c.3. The unit test shall exercise the access of all
-        global variables as specified in the design document
+      * ${/ecss/e/40/0860089:/clause} point 3: The unit test shall exercise the
+        access of all global variables as specified in the design document
 
         The :term:`SDD` is generated by the Doxygen tool. It lists much
         more variables and details as would hand written design documents
@@ -1625,21 +1630,20 @@ by clause 5.8.3.6 of |E40| ${/ref/ecss/q-st-40c-r1:/cite}:
         :term:`API` manual are tested.
 
         The validation test exercise all manager states and system states
-        defined in the |RCA| ${/ref/rtems/c-user:/cite}.
+        defined in the ${/ref/rtems/c-user:/cite-long}.
 
-      * 5.5.3.2 c.4. The unit test shall exercise out of range values for
-        input data, including values that can cause erroneous results in
-        mathematical functions
+      * ${/ecss/e/40/0860089:/clause} point 4: The unit test shall exercise out
+        of range values for input data, including values that can cause
+        erroneous results in mathematical functions
 
-        The validation test call all interface functions with
-        arguments which provoke all errors defined in the |RCA|
-        ${/ref/rtems/c-user:/cite}. This document already considers all
-        possible out of range values for input data and defines
-        the expected results in such cases. As the points c.3. and
-        c.4. above state, these error cases are tested.
+        The validation test call all interface functions with arguments which
+        provoke all errors defined in the ${/ref/rtems/c-user:/cite-long}. This
+        document already considers all possible out of range values for input
+        data and defines the expected results in such cases. As the points c.3.
+        and c.4. above state, these error cases are tested.
 
-      * 5.5.3.2 c.5. The unit test shall exercise the software at
-        the limits of its requirements (stress testing).
+      * ${/ecss/e/40/0860089:/clause} point 5: The unit test shall exercise the
+        software at the limits of its requirements (stress testing).
 
         Not applicable because pre-qualified :term:`RTEMS` is no application
         and has no requirements baseline, see :ref:`NoRB`.
@@ -1694,7 +1698,7 @@ Verification of Software Integration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The verification activities related to the software integration are mandated by
-clause 5.8.3.7 of |E40| ${/ref/ecss/q-st-40c-r1:/cite}:
+${/ecss/e/40/0860143:/standard-and-clause}:
 
 1. There are no integration tests, so no traceability from integration tests to
    the software architectural design is present.  For a traceability from
@@ -1731,7 +1735,7 @@ ${/glossary/qr:/term}/1.  This section is outdated and superseded by
 :ref:`VerificationSwDocs_AR`.
 
 The verification activities related to the software architectural design are
-mandated by clause 5.8.3.10 of |E40| ${/ref/ecss/q-st-40c-r1:/cite}:
+mandated by ${/ecss/e/40/0860147:/standard-and-clause}:
 
 * **Reviewer:** Frank Kühndel (embedded brains)
 * **Review Date:** 2021-02-23/24, updated 2021-05-28
@@ -1832,7 +1836,7 @@ mandated by clause 5.8.3.10 of |E40| ${/ref/ecss/q-st-40c-r1:/cite}:
 2. Is documentation preparation is timely?
 
    **Outdated:** This section represents the state at :term:`CDR` and
-   :term:`QR`\#1 as required by |E40| ${/ref/ecss/q-st-40c-r1:/cite}, clause 5.8.3.10.
+   :term:`QR`\#1 as required by ${/ecss/e/40/0860147:/standard-and-clause}.
    This section is outdated and superseded by :ref:`VerificationSwDocs_AR`.
 
    As already stated above and elsewhere in this :term:`SVR`,
@@ -1843,7 +1847,7 @@ mandated by clause 5.8.3.10 of |E40| ${/ref/ecss/q-st-40c-r1:/cite}:
 3. Does configuration management of documents follows specified procedures?
 
    **Outdated:** This section represents the state at :term:`CDR` and
-   :term:`QR`\#1 as required by |E40| ${/ref/ecss/q-st-40c-r1:/cite}, clause 5.8.3.10.
+   :term:`QR`\#1 as required by ${/ecss/e/40/0860147:/standard-and-clause}.
    This section is outdated and superseded by :ref:`VerificationSwDocs_AR`.
 
    Configuration Management is defined in the |SCMP|
@@ -1924,8 +1928,8 @@ Verification of Software Documentation
 
 This section covers the state at ${/glossary/qr:/term}/2 and
 ${/glossary/ar:/term}.  The verification activities related to the software
-architectural design are mandated by clause 5.8.3.10 of |E40|
-${/ref/ecss/q-st-40c-r1:/cite}:
+architectural design are mandated by
+${/ecss/e/40/0860147:/standard-and-clause}:
 
 * **Reviewer:** Frank Kühndel (embedded brains)
 * **Review Date:** 2021-11-26, 2021-11-18, 2021-10-29
