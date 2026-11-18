@@ -230,6 +230,12 @@ Ensure the decorator line is exactly the same length as the heading text.
 Do not use the
 [reST substitutions](https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html#substitutions).
 In particular, do not add new items to `src/common/include/abbreviations.rst`.
+When you change an area which uses a substitution such as `|E40|` or `|SRS|`,
+replace it there. Use a glossary term, a document citation, or an ECSS clause
+reference instead. Replace a substitution followed by a short citation, such as
+`|RUM| $${/ref/rtems/user:/cite}`, by the long citation. A citation points to
+the document of the current package. Where the text names an older release,
+such as the input of a past review, write the name of the document by hand.
 
 ## Document generation and specification items
 
@@ -482,6 +488,76 @@ The @`/spec/reference:/spec-name` item type defines these attributes:
 
 To add a reference, create an item file in the group which fits the work. Cite
 it as described in {ref}`DocumentCitations`.
+
+(ECSSClauseReferences)=
+
+### Cite ECSS clauses
+
+Cite an ECSS clause through its clause item instead of a hand-written number.
+The build then checks the number and links it to the tailoring of the clause.
+
+The clause items are in `spec-ecss/`. The item UID ends with the requirement
+identifier which the ECSS Compliance Matrix (ECM) shows. For example, the
+clause `ECSS-E-ST-40_0860131` has the item UID `/ecss/e/40/0860131`. To find
+the item of a clause, search `spec-ecss/` for its section, for example
+`section: 5.8.3.2`.
+
+Use the following syntax:
+
+- Clause: `$${<uid>:/clause}`, for example `5.8.3.2a`
+
+- Clause section: `$${<uid>:/clause-section}`, for example `5.8.3.2`
+
+- Clause with title: `$${<uid>:/clause-long}`
+
+- Standard and clause: `$${<uid>:/standard-and-clause}`, for example
+  `ECSS-E-ST-40C Rev.1 - 5.8.3.2a`
+
+- Standard and clause with title: `$${<uid>:/standard-and-clause-long}`
+
+Use the forms with the standard where the context does not name it. They take
+the name and the revision of the standard from the clause item. Do not add a
+citation of the standard next to them.
+
+MyST examples:
+
+- `` ... are mandated by @@`/ecss/e/40/0860131:/standard-and-clause`. ``
+
+- `` ... point 4 of @@`/ecss/e/40/0860133:/clause` ... ``
+
+reST examples:
+
+- `... are mandated by $${/ecss/e/40/0860131:/standard-and-clause}.`
+
+- `... point 4 of $${/ecss/e/40/0860133:/clause} ...`
+
+A subclause such as 5.5.3 has no clause item of its own. Write its number and
+list its clauses in brackets, as the clause items do. For example, in MyST:
+
+```{raw} latex
+\begin{footnotesize}
+```
+
+```{code-block} none
+---
+linenos:
+---
+clause 5.5.3 [@@`/ecss/e/40/0860086:/clause`, @@`/ecss/e/40/0860087:/clause`]
+```
+
+```{raw} latex
+\end{footnotesize}
+```
+
+The ECSS licence does not permit the publication of the text of the standards.
+The `main` branch therefore holds the clause items without their titles and
+texts. Only the `esa` branches have the complete items and the ECM.
+
+A clause reference links to the clause in the ECM. A build without the ECM,
+such as the build of the `main` branch, renders the reference as plain text. It
+logs one warning per document. On `main`, a title reads "Text removed due to
+license issues", so use the forms with the title only in text of the `esa`
+branches.
 
 ### Component paths and inputs
 
