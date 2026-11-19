@@ -1,0 +1,22 @@
+SPDX-License-Identifier: CC-BY-SA-4.0 OR BSD-2-Clause
+aim: null
+annex-section: 8.2.1
+bullet: b
+copyrights:
+  - Copyright (C) 2026 embedded brains GmbH & Co. KG
+ecss-type: requirement
+enabled-by: true
+expected-output: null
+links:
+  - role: requirement-refinement
+    uid: drd-suitp
+name: Text removed due to license issues
+non-functional-type: ecss
+notes: []
+rationale: null
+references: []
+requirement-type: non-functional
+section: K.2.1
+text: |
+  Text removed due to license issues.
+type: requirement

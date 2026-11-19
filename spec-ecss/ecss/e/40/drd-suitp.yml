@@ -1,0 +1,17 @@
+SPDX-License-Identifier: CC-BY-SA-4.0 OR BSD-2-Clause
+annex: K
+copyrights:
+  - Copyright (C) 2026 embedded brains GmbH & Co. KG
+enabled-by: true
+links:
+  - role: requirement-refinement
+    uid: standard
+name: Text removed due to license issues
+non-functional-type: ecss-annex
+rationale: null
+references: []
+requirement-type: non-functional
+text: |
+  The ${/glossary/ecss:/term} standard ECSS-E-ST-40C Rev.1 shall contain the
+  annex K.
+type: requirement

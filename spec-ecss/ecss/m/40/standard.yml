@@ -1,0 +1,14 @@
+SPDX-License-Identifier: CC-BY-SA-4.0 OR BSD-2-Clause
+copyrights:
+  - Copyright (C) 2026 embedded brains GmbH & Co. KG
+enabled-by: true
+links: []
+name: ECSS-M-ST-40C Rev.1
+non-functional-type: standard
+rationale: null
+references: []
+requirement-type: non-functional
+text: |
+  The ${/glossary/ecss:/term} standard ECSS-M-ST-40C Rev.1 shall list
+  configuration and information management requirements.
+type: requirement
