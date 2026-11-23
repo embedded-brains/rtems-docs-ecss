@@ -23,6 +23,7 @@ patterns:
 - sdh/*.rst
 - sdh/images/*.pdf
 - sdh/images/*.png
+- sdh/images/*.svg
 pkg-type: workspace
 type: pkg
 workspace-type: directory
