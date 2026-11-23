@@ -1,0 +1,63 @@
+% SPDX-License-Identifier: CC-BY-SA-4.0
+%
+% Copyright (C) 2026 embedded brains GmbH & Co. KG
+\documentclass[tikz,border=4pt]{standalone}
+\usepackage[T1]{fontenc}
+\usepackage[scaled]{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usetikzlibrary{arrows.meta,positioning,fit,backgrounds}
+\definecolor{ebblue}{HTML}{1F4E79}
+\definecolor{boxfill}{HTML}{EAF1F8}
+\definecolor{groupfill}{HTML}{F5F5F5}
+\definecolor{flow}{HTML}{404040}
+\begin{document}
+\begin{tikzpicture}[
+    font=\small,
+    node distance=6mm and 12mm,
+    job/.style={draw=ebblue, fill=boxfill, rounded corners=2pt,
+      minimum width=32mm, minimum height=12mm, align=center},
+    store/.style={draw=gray, fill=white, minimum width=30mm,
+      minimum height=9mm, align=center, font=\footnotesize},
+    group/.style={draw=gray, fill=groupfill, rounded corners=4pt,
+      inner sep=4mm},
+    grouplabel/.style={font=\footnotesize\bfseries, text=gray!70!black},
+    edge/.style={-{Stealth[length=2.5mm]}, thick, draw=flow},
+    note/.style={font=\scriptsize, align=center, fill=white,
+      inner sep=1pt}]
+
+  \node[job] (argos) at (0,0) {\textbf{Argos}\\inspect the change set};
+  \node[job] (hephaistos) at (4.4,0)
+    {\textbf{Hephaistos}\\build the tools\\13 architectures};
+  \node[job] (zerberus) at (8.8,2.1)
+    {\textbf{Zerberus}\\build, test, package\\4 BSPs};
+  \node[job] (sisyphos) at (8.8,0)
+    {\textbf{Sisyphos}\\build all BSPs, run\\the simulator tests};
+  \node[job] (daidalos) at (8.8,-2.1)
+    {\textbf{Daidalos}\\build and test\\5 special configurations};
+  \node[store] (tools) at (4.4,-2.1) {tools package};
+
+  \node[job] (themis) at (-4.6,2.1)
+    {\textbf{Themis}\\export all items\\of \texttt{eb/qual}};
+  \node[store] (export) at (-4.6,0) {export of the base};
+  \node[job] (hermes) at (0,-4.4)
+    {\textbf{Hermes}\\comment on the\\pull request};
+
+  \begin{scope}[on background layer]
+    \node[group, fit=(argos)(hephaistos)(zerberus)(sisyphos)(daidalos)
+      (tools), inner ysep=6mm] (olympos) {};
+  \end{scope}
+  \node[grouplabel, anchor=north west] at (olympos.north west) {Olympos};
+
+  \draw[edge] (themis) -- node[note, right] {saves} (export);
+  \draw[edge] (export) -- node[note, above] {restores} (argos);
+  \draw[edge] (argos) -- node[note, above] {needs} (hephaistos);
+  \draw[edge] (hephaistos) -- node[note, right] {publishes} (tools);
+  \draw[edge] (hephaistos.east) ++(0,0) -- ++(5mm,0) |- (zerberus.west);
+  \draw[edge] (hephaistos) -- (sisyphos);
+  \draw[edge] (hephaistos.east) -- ++(5mm,0) |- (daidalos.west);
+  \draw[edge] (argos) -- node[note, right, pos=0.3] {inspection report}
+    (hermes);
+  \draw[edge] (zerberus.east) -- ++(8mm,0) |- node[note, pos=0.75, below]
+    {package summaries} (hermes.east);
+\end{tikzpicture}
+\end{document}

@@ -51,6 +51,8 @@ document-components:
   - source/qual-eng.md
   - source/interface-items.md
   - source/action-requirements.md
+  - source/github-workflows.md
+  - source/maintainer-tasks.md
   - source/tools.md
   - source/spec-types.md
 - action: copy

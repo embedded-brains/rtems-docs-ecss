@@ -33,19 +33,19 @@ can find the Ubuntu version and all packages needed in the
 
 ## Create a local working tree
 
-This project uses the GitHub fork-and-pull-request workflow. Before making any
-changes to the pre-qualified RTEMS, create a personal fork of the
-[embedded brains RTEMS repository](https://github.com/embedded-brains/rtems) on
-GitHub and clone it to your local development machine. This how-to guide walks
-you through the process of creating a working tree on your machine. The
-workflow to create a pull request is described in another how-to.
+This project uses the GitHub fork-and-pull-request workflow. Before you change
+the pre-qualified RTEMS, create a personal fork of the
+[eb repository](https://github.com/embedded-brains/rtems) on GitHub. Clone it
+to your local development machine. This how-to guide walks you through the
+process of creating a working tree on your machine. The workflow to create a
+pull request is described in another how-to.
 
 ```{note}
 There is no need to build a package to extend the pre-qualified subset
 of RTEMS. Indeed, this would complicate the workflow, since building and
 changing a package takes a lot of time. It is sufficient to use a
 dedicated branch of
-[embedded brains RTEMS repository](https://github.com/embedded-brains/rtems).
+[eb repository](https://github.com/embedded-brains/rtems).
 
 This branch contains:
 
@@ -53,7 +53,7 @@ This branch contains:
 - The RTEMS specification (in the `spec/` folder)
 - The [specthings](https://github.com/specthings/) tools needed for
   specification work
-- A [`Makefile`](https://github.com/embedded-brains/rtems/blob/eb/next/Makefile)
+- A [`Makefile`](https://github.com/embedded-brains/rtems/blob/eb/qual/Makefile)
   for a CI job to build three versions of SPARC BSP configurations
 - The infrastructure to extend the RTEMS pre-qualification feature set
 
@@ -79,7 +79,7 @@ Steps:
 
    Open your web browser and sign in to your GitHub account.
 
-2. **Create a Fork**
+2. **Create a fork**
 
    Navigate to the RTEMS repository:
 
@@ -90,7 +90,7 @@ Steps:
    During the fork creation process:
 
    - Select your personal GitHub account as the owner.
-   - The appropriate branch is `eb/next`
+   - The appropriate branch is `eb/qual`
    - Create the fork.
 
    Let `$${your_github_user}` be the name of your GitHub user. After
@@ -111,7 +111,7 @@ Steps:
    \end{footnotesize}
    ```
 
-3. **Clone Your Fork**
+3. **Clone your fork**
 
    Open a terminal on your Linux machine and clone your fork:
 
@@ -147,7 +147,7 @@ Steps:
    \end{footnotesize}
    ```
 
-4. **Enter the Repository Directory**
+4. **Enter the repository directory**
 
    ```{raw} latex
    \begin{footnotesize}
@@ -164,11 +164,10 @@ Steps:
    \end{footnotesize}
    ```
 
-5. **Add the Original Repository as an Upstream Remote**
+5. **Add the eb repository as a remote**
 
-   Configure the original embedded brains repository as an additional remote.
-   This allows you to synchronize your fork with the latest changes from the
-   main project.
+   Configure the eb repository as an additional remote. This allows you to
+   synchronize your fork with the latest changes from the main project.
 
    ```{raw} latex
    \begin{footnotesize}
@@ -178,14 +177,14 @@ Steps:
    ---
    linenos:
    ---
-   $ git remote add upstream https://github.com/embedded-brains/rtems.git
+   $ git remote add eb https://github.com/embedded-brains/rtems.git
    ```
 
    ```{raw} latex
    \end{footnotesize}
    ```
 
-6. **Verify the Remote Configuration**
+6. **Verify the remote configuration**
 
    Verify that both remotes are configured correctly:
 
@@ -216,17 +215,17 @@ Steps:
    ---
    origin    git@github.com:$${your_github_user}/rtems.git (fetch)
    origin    git@github.com:$${your_github_user}/rtems.git (push)
-   upstream  https://github.com/embedded-brains/rtems.git (fetch)
-   upstream  https://github.com/embedded-brains/rtems.git (push)
+   eb        https://github.com/embedded-brains/rtems.git (fetch)
+   eb        https://github.com/embedded-brains/rtems.git (push)
    ```
 
    ```{raw} latex
    \end{footnotesize}
    ```
 
-7. **Synchronize with the Upstream Repository**
+7. **Synchronize with the eb repository**
 
-   Before starting development, fetch the latest changes from the upstream
+   Before starting development, fetch the latest changes from the eb
    repository:
 
    ```{raw} latex
@@ -237,14 +236,14 @@ Steps:
    ---
    linenos:
    ---
-   $ git fetch upstream
+   $ git fetch eb
    ```
 
    ```{raw} latex
    \end{footnotesize}
    ```
 
-   To update your local `eb/next` branch:
+   To update your local `eb/qual` branch:
 
    ```{raw} latex
    \begin{footnotesize}
@@ -254,8 +253,8 @@ Steps:
    ---
    linenos:
    ---
-   $ git checkout eb/next
-   $ git pull --rebase upstream eb/next
+   $ git checkout eb/qual
+   $ git pull --rebase eb eb/qual
    ```
 
    ```{raw} latex
@@ -281,7 +280,7 @@ Steps:
    \end{footnotesize}
    ```
 
-   To update your local `eb/next` branch:
+   To update your local `eb/qual` branch:
 
    ```{raw} latex
    \begin{footnotesize}
@@ -291,8 +290,8 @@ Steps:
    ---
    linenos:
    ---
-   $ git checkout eb/next
-   $ git pull --rebase origin eb/next
+   $ git checkout eb/qual
+   $ git pull --rebase origin eb/qual
    ```
 
    ```{raw} latex
@@ -304,11 +303,10 @@ allowed. Consider this especially when resolving Git conflicts.
 
 As a result, you now have:
 
-- A fork of the embedded brains RTEMS repository in your GitHub account.
+- A fork of the eb repository in your GitHub account.
 - A local clone on your Linux development machine.
 - An `origin` remote pointing to your fork.
-- An `upstream` remote pointing to the upstream embedded brains RTEMS
-  repository.
+- An `eb` remote pointing to the eb repository.
 
 You are ready to create feature branches, implement changes, and submit pull
 requests.
@@ -317,7 +315,7 @@ requests.
 
 ## Set up a workspace application
 
-For pre-qualification engineering tasks, the `eb/next` branch of RTEMS contains
+For pre-qualification engineering tasks, the `eb/qual` branch of RTEMS contains
 a recommended working environment consisting of:
 
 - An RTEMS tools installation for a @`/glossary/target-arch:/term`

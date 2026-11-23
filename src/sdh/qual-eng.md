@@ -140,6 +140,10 @@ for action requirements.
 
 ## Create a feature branch
 
+Your pull request targets `eb/qual`, so create your branch from `eb/qual`.
+This holds for a fix of the RTEMS sources as well, see
+{ref}`GitHubWorkflowsRepositories`.
+
 A feature branch to accumulate all your changes is typically created like this:
 
 ```{raw} latex
@@ -150,7 +154,7 @@ A feature branch to accumulate all your changes is typically created like this:
 ---
 linenos:
 ---
-$ git checkout -b $${MY_NEW_BRANCH_NAME} eb/next
+$ git checkout -b $${MY_NEW_BRANCH_NAME} eb/qual
 ```
 
 ```{raw} latex
@@ -669,6 +673,43 @@ See section {ref}`DebugWorkspaceApplication`.
 
 See section {ref}`CreateCoverageReport`.
 
+(CommitYourChanges)=
+
+## Commit your changes
+
+Two rules apply to every commit of a pull request against `eb/qual`. Both are
+checked per commit, see {ref}`GitHubWorkflowsCategories`.
+
+**Keep each commit within one category.** The paths which a commit changes
+give its category, for example `source` for the RTEMS sources and `spec` for
+the specification items. Only a commit of the `source` category can also go to
+the rtems.org repository, and a commit which mixes categories cannot.
+
+**Leave what you touch clean.** Format the specification items and the C
+language files which your commit changes. Commit the files exported from the
+specification items you change. To format the items of your commit:
+
+```{raw} latex
+\begin{footnotesize}
+```
+
+```{code-block} none
+---
+linenos:
+---
+$ uv run specverify --format-items \
+    --clang-format-path=.venv/bin/clang-format \
+    --clang-format-style=default:file:_clang-format \
+    --do-not-indent-lists <the items you changed>
+```
+
+```{raw} latex
+\end{footnotesize}
+```
+
+Neither rule can be satisfied afterwards without rewriting history, so it is
+much cheaper to follow them while committing than to repair a finished branch.
+
 ## Create a pull request
 
 Make sure everything compiles and links, the tests are running without
@@ -677,8 +718,7 @@ you have committed all your changes.
 
 1. **Push your branch**
 
-   Push your feature branch to your personal fork of the embedded brains RTEMS
-   repository:
+   Push your feature branch to your fork of the eb repository:
 
    ```{raw} latex
    \begin{footnotesize}
@@ -702,19 +742,24 @@ you have committed all your changes.
 
    Log in to your GitHub account and go to your fork of the repository. Select
    your feature branch. GitHub will offer to create a *pull request* for it. As
-   the target branch in the embedded brains RTEMS repository, select `eb/next`.
-   Give your pull request a name and add a short description. It is advisable
-   to set the pull request to *draft* state initially. Then click on *Create
-   pull request*.
+   the target branch in the eb repository, select `eb/qual`. Give your pull
+   request a name and add a short description. It is advisable to set the pull
+   request to *draft* state initially. Then click on *Create pull request*.
 
 3. **Check and fix errors**
 
    You should see your new pull request now. If not, navigate to the
-   [embedded brains RTEMS repository on GitHub](https://github.com/embedded-brains/rtems),
-   choose the *Pull requests* tab, and select your pull request.
+   [eb repository on GitHub](https://github.com/embedded-brains/rtems), choose
+   the *Pull requests* tab, and select your pull request.
 
    Wait until all CI jobs are completed. If there are any errors, please fix
    them.
+
+   The CI leaves one comment on the pull request holding a table with one row
+   per commit. A row fails either because the commit touches more than one
+   category, or because it leaves something it touched unformatted or not
+   exported, see {ref}`CommitYourChanges`. Both are repaired by amending or
+   splitting the commit and pushing again, not by adding a further commit.
 
    Wait until *GitHub Copilot* finishes its review (you will get an email). If
    the review does not start automatically, *GitHub Copilot* appears in the
@@ -754,6 +799,101 @@ you have committed all your changes.
    Once all issues found by the CI jobs and *GitHub Copilot* are resolved,
    remove the *draft* status. The embedded brains staff will review your pull
    request and merge it.
+
+   Your work can also reach the RTEMS mainline. To submit the commits of the
+   `source` category there, see {ref}`UpstreamPullRequest`.
+
+(UpstreamPullRequest)=
+
+## Open a merge request on gitlab.rtems.org
+
+A fix in the pre-qualified RTEMS helps the RTEMS mainline as well. When the
+rtems.org repository accepts your fix, it also returns with the next baseline
+of the eb repository, and the gap between the two shrinks, see
+{ref}`GitHubWorkflowsRoute`. Open the merge request in parallel to your pull
+request. The two reviews do not wait for each other.
+
+Before you start, you need an account on gitlab.rtems.org and your own fork of
+the [rtems.org repository](https://gitlab.rtems.org/rtems/rtos/rtems). Read the
+[RTEMS Software Engineering manual](https://docs.rtems.org/docs/main/eng/index.html)
+as well, because the merge request follows the rules of RTEMS and not those of
+the eb repository.
+
+1. **Add the remotes**
+
+   Add the rtems.org repository and your GitLab fork as remotes of your clone:
+
+   ```{raw} latex
+   \begin{footnotesize}
+   ```
+
+   ```{code-block} none
+   ---
+   linenos:
+   ---
+   $ git remote add upstream https://gitlab.rtems.org/rtems/rtos/rtems.git
+   $ git remote add gitlab git@gitlab.rtems.org:$${your_gitlab_user}/rtems.git
+   ```
+
+   ```{raw} latex
+   \end{footnotesize}
+   ```
+
+2. **Pick the commits**
+
+   Create a branch from `main` of the rtems.org repository. Then cherry-pick
+   the commits of the `source` category which you want to submit:
+
+   ```{raw} latex
+   \begin{footnotesize}
+   ```
+
+   ```{code-block} none
+   ---
+   linenos:
+   ---
+   $ git fetch upstream
+   $ git switch -c $${MY_UPSTREAM_BRANCH_NAME} upstream/main
+   $ git cherry-pick $${COMMIT}
+   ```
+
+   ```{raw} latex
+   \end{footnotesize}
+   ```
+
+   A commit of another category does not belong there. If a commit does not
+   apply, resolve the conflict on this branch. Olympos already warned you about
+   such a commit in its report.
+
+3. **Push the branch**
+
+   Push the branch to your GitLab fork:
+
+   ```{raw} latex
+   \begin{footnotesize}
+   ```
+
+   ```{code-block} none
+   ---
+   linenos:
+   ---
+   $ git push -u gitlab $${MY_UPSTREAM_BRANCH_NAME}
+   ```
+
+   ```{raw} latex
+   \end{footnotesize}
+   ```
+
+4. **Open the merge request**
+
+   GitLab offers to create a merge request for the new branch. Select `main` of
+   the rtems.org repository as the target. In the description, explain the
+   defect. Where it helps the reviewers, link your pull request in the eb
+   repository.
+
+The RTEMS maintainers review the merge request on their own schedule. Answer
+their comments on this branch. Your pull request against `eb/qual` stays as it
+is.
 
 ## Report a bug
 
