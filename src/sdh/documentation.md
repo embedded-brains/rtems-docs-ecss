@@ -117,6 +117,10 @@ text and code:
   "How to" does not start with a bare infinitive either, so it violates the
   same rule.
 
+- **Subsections**: Divide a section into subsections only if it gets at least
+  two of them. A single subsection adds a heading level and divides nothing, so
+  keep its text in the section itself.
+
 - **MyST headings**: Use the standard Markdown heading markers:
 
   - Level 1: `# Heading`
@@ -742,9 +746,9 @@ Diagrams are generated from source rather than committed as raw images.
   ```
 
   The `Makefile` in the directory builds the generated files of each source.
-  Commit them along with the source, because the documentation build uses
-  only the generated files. A TikZ diagram stays a vector graphic in the HTML
-  and in the PDF output.
+  Commit them along with the source, because the documentation build uses only
+  the generated files. A TikZ diagram stays a vector graphic in the HTML and in
+  the PDF output.
 
 - Every diagram source shall start with the same license and copyright header
   as other files. Write it as comments on lines of their own, which start with
