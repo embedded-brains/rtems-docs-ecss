@@ -724,14 +724,31 @@ linenos:
 
 Diagrams are generated from source rather than committed as raw images.
 
-- Store diagram sources in `src/common/images/`, using the `.puml` extension
-  for [PlantUML](https://plantuml.com/) and the `.dot` extension for
-  [Graphviz](https://graphviz.org/). The `Makefile` in that directory builds a
-  `.png` and a `.pdf` for every diagram source found there.
+- Store a diagram source next to the document which uses it, for example in
+  `src/sdh/images/`. Use `src/common/images/` only for a diagram which more
+  than one document uses.
+
+- Write a diagram in one of these sources:
+
+  ```{table}
+  ---
+  widths: 25,25,50
+  ---
+  | Source                                  | Extension | Generated files |
+  | --------------------------------------- | --------- | --------------- |
+  | [PlantUML](https://plantuml.com/)       | `.puml`   | `.png`, `.pdf`  |
+  | [Graphviz](https://graphviz.org/)       | `.dot`    | `.png`, `.pdf`  |
+  | [TikZ](https://tikz.dev/), `standalone` | `.tex`    | `.svg`, `.pdf`  |
+  ```
+
+  The `Makefile` in the directory builds the generated files of each source.
+  Commit them along with the source, because the documentation build uses
+  only the generated files. A TikZ diagram stays a vector graphic in the HTML
+  and in the PDF output.
 
 - Every diagram source shall start with the same license and copyright header
-  as other files, written as PlantUML/Graphviz comments starting with `'`
-  (PlantUML) or `//` (Graphviz) on a line by itself.
+  as other files. Write it as comments on lines of their own, which start with
+  `'` (PlantUML), `//` (Graphviz) or `%` (TikZ).
 
 - Reference a diagram from a document with a `{figure}` directive using a `.*`
   extension, so the correct format is picked for each output. For example:
@@ -757,12 +774,20 @@ Diagrams are generated from source rather than committed as raw images.
   \end{footnotesize}
   ```
 
-- Use a PlantUML mindmap (`@startmindmap`) to show an item's attributes
-  alongside the activities used to write it, as in
+- Use a PlantUML mindmap (`@startmindmap`) to show the attributes of an item
+  next to the activities which write it, as in
   `action-requirement-workflow.puml` and `interface-item-workflow.puml`. Use a
   PlantUML component diagram (`@startuml` with `[Component]` boxes) to show
-  system components and the relationships between them, as in
-  `workspace-application-components.puml`.
+  system components and their relationships, as in
+  `workspace-application-components.puml`. Use TikZ where the layout matters,
+  for example for repositories and their routes in
+  `repository-relationships.tex`. Give each role of a process a swimlane, as in
+  `upstreaming-workflow.tex`.
+
+- Prefer a wide diagram to a tall one. A diagram which is much taller than it
+  is wide becomes unreadable once it is scaled to the page width. The
+  `left to right direction` directive often turns a tall PlantUML diagram into
+  a wide one.
 
 ## Local validation and formatting
 
