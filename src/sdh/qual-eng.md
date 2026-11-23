@@ -140,8 +140,8 @@ for action requirements.
 
 ## Create a feature branch
 
-Your pull request targets `eb/qual`, so create your branch from `eb/qual`.
-This holds for a fix of the RTEMS sources as well, see
+Your pull request targets `eb/qual`, so create your branch from `eb/qual`. This
+holds for a fix of the RTEMS sources as well, see
 {ref}`GitHubWorkflowsRepositories`.
 
 A feature branch to accumulate all your changes is typically created like this:
@@ -495,47 +495,12 @@ This permits the use of test fixtures. It is helpful to have a look at the
 The RTEMS coding rules apply, see
 [*RTEMS Software Engineering Manual* chapter *Coding Standards*](https://docs.rtems.org/docs/main/eng/coding.html#coding-standards).
 
-```{admonition} Unit vs. validation tests
-Most projects have both *unit tests* and *validation tests*, and use them for
-different purposes.
-
-Unit tests are white box, or glass box, tests: the programmer who wrote the
-code under test can see its source and writes the test to match. They check
-that the code does what the programmer intended, not what a requirement
-says, so requirements play no role in them. Modules are usually tested in
-isolation with the help of mocks, and unit tests are also the usual means to
-reach code coverage goals.
-
-Validation tests are black box tests: written by someone who was not
-involved in producing the code under test and does not look at its source,
-strictly against the requirements, with one or several tests for each
-requirement. This checks that the code actually implements the
-requirements, and that the requirements were not misinterpreted by the
-original programmer.
-
-RTEMS pre-qualification has almost only validation tests instead. They
-still strictly check the requirements, but they are white box tests like
-unit tests, and, since RTEMS has no unit tests, they are also what has to
-reach the code coverage goals, see {ref}`CreateCoverageReport`. With rare
-exceptions, they exercise the public API only, for the following reasons:
-
-- The RTEMS project has always tested at the API level, even for tests
-  that target an internal implementation function.
-- RTEMS traditionally has no mocks for tests and is not prepared to
-  support them.
-- For an operating system, testing every unit in isolation runs into
-  difficulties: some units change the state of the processor at the
-  register level, which makes mocking difficult.
-- RTEMS has no deep function call hierarchies, and internal states are
-  usually independent of each other, so most code can be reached through
-  the API alone.
-- Without unit tests, the validation tests are what has to meet the code
-  coverage goals.
-
-Some validation tests directly manipulate RTEMS internal data structures to
-set up the scenario a requirement describes. This does not turn them into
-unit tests: the check itself still goes through the public API, against the
-requirement, not against the implementation.
+```{admonition} Validation tests and software units
+The validation tests check the requirements, and they are white box tests. The
+action requirements below the API carry the requirements down to the software
+units. The coverage goals require that the tests reach every unit, or that a
+coverage gap item justifies why they do not. See {ref}`UnitVerification` for
+the verification of a software unit.
 ```
 
 ## Write action requirements
@@ -680,10 +645,10 @@ See section {ref}`CreateCoverageReport`.
 Two rules apply to every commit of a pull request against `eb/qual`. Both are
 checked per commit, see {ref}`GitHubWorkflowsCategories`.
 
-**Keep each commit within one category.** The paths which a commit changes
-give its category, for example `source` for the RTEMS sources and `spec` for
-the specification items. Only a commit of the `source` category can also go to
-the rtems.org repository, and a commit which mixes categories cannot.
+**Keep each commit within one category.** The paths which a commit changes give
+its category, for example `source` for the RTEMS sources and `spec` for the
+specification items. Only a commit of the `source` category can also go to the
+rtems.org repository, and a commit which mixes categories cannot.
 
 **Leave what you touch clean.** Format the specification items and the C
 language files which your commit changes. Commit the files exported from the
