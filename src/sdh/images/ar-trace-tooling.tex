@@ -1,0 +1,48 @@
+% SPDX-License-Identifier: CC-BY-SA-4.0
+%
+% Copyright (C) 2026 embedded brains GmbH & Co. KG
+\documentclass[tikz,border=4pt]{standalone}
+\usepackage[T1]{fontenc}
+\usepackage[scaled]{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usetikzlibrary{arrows.meta,backgrounds,positioning,calc}
+\definecolor{ebblue}{HTML}{1F4E79}
+\definecolor{boxfill}{HTML}{EAF1F8}
+\definecolor{codefill}{HTML}{FFF4E0}
+\definecolor{codeline}{HTML}{9C6500}
+\definecolor{groupfill}{HTML}{F5F5F5}
+\definecolor{flow}{HTML}{404040}
+\begin{document}
+\begin{tikzpicture}[
+    font=\small, node distance=8mm and 10mm,
+    tool/.style={draw=ebblue, fill=boxfill, rounded corners=2pt,
+      minimum width=30mm, minimum height=12mm, align=center},
+    data/.style={draw=codeline, fill=codefill, minimum width=30mm,
+      minimum height=12mm, align=center},
+    edge/.style={-{Stealth[length=2.5mm]}, thick, draw=flow}]
+
+  \node[data] (src) {sources with\\\texttt{@defgroup}, \texttt{@ingroup}};
+  \node[tool, right=of src] (dox1) {Doxygen\\first run};
+  \node[data, right=of dox1] (tag) {tag file};
+  \node[tool, right=of tag] (hub) {link hub};
+  \node[data, above=of hub] (items) {specification\\items};
+  \node[tool, right=of hub] (linker) {SDD linker};
+  \node[data, right=of linker] (hdr) {header with\\Traceability\\paragraphs};
+  \node[tool, below=of hdr] (dox2) {Doxygen\\SDD run};
+  \node[data, left=of dox2] (sdd) {SDD};
+  \node[tool, below=of hub] (srs) {SRS builder};
+  \node[data, left=of srs] (srsdoc) {SRS};
+
+  \draw[edge] (src) -- (dox1);
+  \draw[edge] (dox1) -- (tag);
+  \draw[edge] (tag) -- (hub);
+  \draw[edge] (items) -- (hub);
+  \draw[edge] (hub) -- (linker);
+  \draw[edge] (linker) -- (hdr);
+  \draw[edge] (hdr) -- (dox2);
+  \draw[edge] (src.south) |- ([yshift=-14mm]dox2.south) -- (dox2.south);
+  \draw[edge] (dox2) -- (sdd);
+  \draw[edge] (hub) -- (srs);
+  \draw[edge] (srs) -- (srsdoc);
+\end{tikzpicture}
+\end{document}
