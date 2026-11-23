@@ -247,12 +247,18 @@ the current item's directory; `../../type/if/id` climbs out of
 The `dir` attribute records how the function uses the memory a pointer
 parameter refers to. Use this decision procedure:
 
+```{table}
+---
+class: longtable
+widths: 42,13,45
+---
 | Parameter shape                                                               | `dir` value | Example                                                                                                                 |
 | ----------------------------------------------------------------------------- | ----------- | ----------------------------------------------------------------------------------------------------------------------- |
 | Passed by value, not a pointer (including opaque descriptors like `mqd_t`)    | `null`      | `int`, `size_t`, `rtems_name`                                                                                           |
 | Pointer, function only *reads* through it                                     | `in`        | `const struct timespec *`                                                                                               |
 | Pointer, function only *writes* through it, or initializes a brand-new object | `out`       | the `id` output parameter above, `pthread_cond_init()`'s attribute pointer                                              |
 | Pointer, function *reads the existing state and then modifies it*             | `inout`     | destructors (`pthread_attr_destroy()`), synchronization primitives that block and change state (`pthread_mutex_lock()`) |
+```
 
 `name` is passed by value, so `dir: null`. `id` is a pointer that the directive
 only ever writes to (it stores the freshly created object's identifier there;
