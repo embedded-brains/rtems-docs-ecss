@@ -50,6 +50,8 @@ document-components:
   - source/specification-how-to.md
   - source/qual-eng.md
   - source/interface-items.md
+  - source/action-requirement-model.md
+  - source/unit-verification.md
   - source/action-requirements.md
   - source/github-workflows.md
   - source/maintainer-tasks.md

@@ -22,8 +22,10 @@ Software Unit and Integration Test Plan, the Software Validation Specification,
 and generated C-file comments) is covered in
 {ref}`where the generated text ends up <QualEngWhereTextAppears>`.
 
-An action requirement models a directive as a small, semi-formal finite state
-machine:
+An action requirement models a directive as a small, semi-formal state
+transition table. {ref}`ActionRequirementModel` explains the model, its
+relation to EARS and its limits. {ref}`UnitVerification` explains how action
+requirements reach the software units. In short:
 
 - **Pre-conditions**: every input, and every piece of system state, that can
   affect the outcome. Each pre-condition has a name and a list of possible
