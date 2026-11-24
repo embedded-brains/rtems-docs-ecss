@@ -78,6 +78,9 @@ key `k` is `f`.
 
 - Every file shall have a copyright statement at the beginning of the file.
 
+- A file which cannot carry a comment shall have an entry in `REUSE.toml`.
+  `make analyse` runs `reuse lint` to check this.
+
 ## Content Guidelines
 
 - Use British English, but prefer -ize/-ization spellings and allow "license".
@@ -126,6 +129,7 @@ key `k` is `f`.
   - `LICENSES`
   - `Makefile`
   - `README.md`
+  - `REUSE.toml`
 
 - For all other file and directory names the following rules shall apply:
 

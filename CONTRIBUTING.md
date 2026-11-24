@@ -72,6 +72,15 @@ Use a separate clone for the container.  The container and the host must not
 share the `.venv` directory, because `make` builds it for one Python
 interpreter.
 
+## Licensing information
+
+The project follows the [REUSE Specification](https://reuse.software/spec/).
+Each file names its license and its copyright holders.  A file which can carry
+a comment starts with an `SPDX-License-Identifier` line and a copyright line.
+For a file which cannot carry a comment, add an entry to `REUSE.toml`.  The
+`LICENSES` directory holds the text of each license.  `make analyse` runs
+`reuse lint` to check this.
+
 ## Documentation rules
 
 The

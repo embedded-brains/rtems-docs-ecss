@@ -34,6 +34,9 @@ documentation-clean: | prepare
 documentation-remove: | prepare
 	rm -rf $(BUILD)
 
+analyse: | prepare
+	uv run reuse lint
+
 prepare: $(VENV_MARKER)
 
 $(VENV_MARKER): uv.lock
