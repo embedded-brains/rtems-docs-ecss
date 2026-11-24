@@ -1,0 +1,92 @@
+# SPDX-License-Identifier: BSD-2-Clause
+
+# Copyright (C) 2026 embedded brains GmbH & Co. KG
+
+version = 1
+
+[[annotations]]
+path = ["test-logs/empty.json", "uv.lock"]
+SPDX-FileCopyrightText = "Copyright (C) 2026 embedded brains GmbH & Co. KG"
+SPDX-License-Identifier = "BSD-2-Clause"
+
+# Graphviz renders these images from the source file of the same name.
+[[annotations]]
+path = ["src/common/images/traceability.pdf", "src/common/images/traceability.png"]
+SPDX-FileCopyrightText = "Copyright (C) 2026 embedded brains GmbH & Co. KG"
+SPDX-License-Identifier = "BSD-2-Clause"
+
+# PlantUML, Graphviz and LaTeX render these images from the source file of the
+# same name.
+[[annotations]]
+path = ["src/sdh/images/*.pdf", "src/sdh/images/*.png", "src/sdh/images/*.svg"]
+SPDX-FileCopyrightText = "Copyright (C) 2026 embedded brains GmbH & Co. KG"
+SPDX-License-Identifier = "CC-BY-SA-4.0"
+
+[[annotations]]
+path = "src/package-manual/waivers/**"
+SPDX-FileCopyrightText = "Copyright (C) 2021 embedded brains GmbH & Co. KG"
+SPDX-License-Identifier = "CC-BY-SA-4.0"
+
+[[annotations]]
+path = "src/tn/QT-109/QT-109.pdf"
+SPDX-FileCopyrightText = "Copyright (C) 2019, 2020, 2021 embedded brains GmbH"
+SPDX-License-Identifier = "CC-BY-SA-4.0"
+
+[[annotations]]
+path = "src/tn/space-profile/tn-space-profile.pdf"
+SPDX-FileCopyrightText = [
+  "Copyright (C) 2019, 2020, 2021 EDISOFT",
+  "Copyright (C) 2019, 2020, 2021 embedded brains GmbH",
+]
+SPDX-License-Identifier = "CC-BY-SA-4.0"
+
+[[annotations]]
+path = ["src/v6/FV1-200/FV1-200.pdf", "src/v6/FV3-202/FV3-202.pdf"]
+SPDX-FileCopyrightText = "Copyright (C) 2021 Trinity College Dublin"
+SPDX-License-Identifier = "CC-BY-SA-4.0"
+
+[[annotations]]
+path = "src/v6/FV2-201/FV2-201.pdf"
+SPDX-FileCopyrightText = "Copyright (C) 2019, 2020, 2021 Trinity College Dublin"
+SPDX-License-Identifier = "CC-BY-SA-4.0"
+
+# The clip art "A cute bunny" of https://publicdomainvectors.org/
+[[annotations]]
+path = ["src/common/build/latex/logo.pdf", "src/user/tr/build/latex/logo.pdf"]
+SPDX-FileCopyrightText = "Skob"
+SPDX-License-Identifier = "CC0-1.0"
+
+[[annotations]]
+path = "src/common/build/latex/blue-dots.pdf"
+SPDX-FileCopyrightText = "Copyright (C) 2019 embedded brains GmbH & Co. KG"
+SPDX-License-Identifier = "CC-BY-SA-4.0 OR BSD-2-Clause"
+
+[[annotations]]
+path = ["src/index/fonts/lato-bold.woff2", "src/index/fonts/lato-normal.woff2"]
+SPDX-FileCopyrightText = "Copyright (c) 2011-2015 by tyPoland Lukasz Dziedzic"
+SPDX-License-Identifier = "OFL-1.1"
+
+[[annotations]]
+path = ["src/index/fonts/Roboto-Slab-Bold.woff2", "src/index/fonts/Roboto-Slab-Regular.woff2"]
+SPDX-FileCopyrightText = "Font data copyright Google 2013"
+SPDX-License-Identifier = "Apache-2.0"
+
+[[annotations]]
+path = "dummy-software/waf"
+SPDX-FileCopyrightText = "Thomas Nagy, 2005-2018"
+SPDX-License-Identifier = "BSD-3-Clause"
+
+[[annotations]]
+path = "dummy-software/gccdeps.py"
+SPDX-FileCopyrightText = "Thomas Nagy, 2008-2010"
+SPDX-License-Identifier = "BSD-3-Clause"
+
+[[annotations]]
+path = "CODE_OF_CONDUCT.md"
+SPDX-FileCopyrightText = "Organization for Ethical Source"
+SPDX-License-Identifier = "CC-BY-SA-4.0"
+
+[[annotations]]
+path = "DCO.txt"
+SPDX-FileCopyrightText = "Copyright (C) 2004, 2006 The Linux Foundation and its contributors."
+SPDX-License-Identifier = "LicenseRef-DCO"

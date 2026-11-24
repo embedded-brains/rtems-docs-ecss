@@ -26,3 +26,8 @@ dependencies = [
     "sphinx-rtd-theme>=3.1.0",
     "sphinxcontrib-bibtex>=2.6.5",
 ]
+
+[dependency-groups]
+dev = [
+    "reuse[charset-normalizer]>=6.3.0",
+]
