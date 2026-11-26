@@ -1,0 +1,18 @@
+SPDX-License-Identifier: CC-BY-SA-4.0 OR BSD-2-Clause
+copyrights:
+- Copyright (C) 2026 embedded brains GmbH & Co. KG
+enabled-by: true
+glossary-type: term
+links:
+- role: glossary-member
+  uid: group
+term: transition map coverage
+text: |
+  The property of a ${transition-map:/term} that each combination of
+  ${pre-condition:/term} states has an entry.  The tools check it, together
+  with the ${transition-map-disjointness:/term}.  With pre-conditions whose
+  states cover all system states, it makes the requirements complete in the
+  sense of the ${faa:/term} requirements handbook
+  ${/ref/research/lempia-2009-remh:/cite}: they assign a value to each output
+  for every system state.
+type: glossary

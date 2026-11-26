@@ -1,0 +1,18 @@
+SPDX-License-Identifier: CC-BY-SA-4.0 OR BSD-2-Clause
+copyrights:
+- Copyright (C) 2026 embedded brains GmbH & Co. KG
+enabled-by: true
+glossary-type: term
+links:
+- role: glossary-member
+  uid: group
+term: transition map disjointness
+text: |
+  The property of a ${transition-map:/term} that no combination of
+  ${pre-condition:/term} states has two entries for the same configuration.
+  The tools check it, together with the ${transition-map-coverage:/term}.  With
+  pre-conditions whose states exclude each other, it makes the requirements
+  consistent in the sense of the ${faa:/term} requirements handbook
+  ${/ref/research/lempia-2009-remh:/cite}: they assign only one value for every
+  system state.
+type: glossary

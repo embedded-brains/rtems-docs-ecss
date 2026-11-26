@@ -1,0 +1,17 @@
+SPDX-License-Identifier: CC-BY-SA-4.0 OR BSD-2-Clause
+copyrights:
+- Copyright (C) 2026 embedded brains GmbH & Co. KG
+enabled-by: true
+glossary-type: term
+links:
+- role: glossary-member
+  uid: group
+term: post-condition
+text: |
+  A condition of an ${action-requirement:/term} which describes an effect of
+  its trigger, such as a return status.  It lists the states which it can take
+  after the trigger.  The ${transition-map:/term} assigns one of these states
+  to each combination of ${pre-condition:/term} states.  Like a postcondition
+  of the SWEBOK Guide, it states how the state, the parameters or the return
+  value changed ${/ref/research/washizaki-2026-swebok:/cite}.
+type: glossary

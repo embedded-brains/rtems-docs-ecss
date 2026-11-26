@@ -1,0 +1,16 @@
+SPDX-License-Identifier: CC-BY-SA-4.0 OR BSD-2-Clause
+copyrights:
+- Copyright (C) 2026 embedded brains GmbH & Co. KG
+enabled-by: true
+glossary-type: term
+links:
+- role: glossary-member
+  uid: group
+term: state transition table
+text: |
+  A table which lists the transitions of a state machine.  Each row gives the
+  state after an event for one state before the event.  The
+  ${transition-map:/term} of an ${action-requirement:/term} has this form.  A
+  state machine represents software as a set of states, events and transitions
+  ${/ref/research/washizaki-2026-swebok:/cite}.
+type: glossary
