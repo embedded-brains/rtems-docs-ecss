@@ -410,6 +410,10 @@ convention:
   system state must map to exactly one state of each pre-condition, never zero
   and never more than one.
 
+Each state above sets one value in its `test-code`. Where a state needs a value
+at each edge of a range, such as a size, see
+{ref}`ActionRequirementsRepresentatives`.
+
 ````{admonition} Helper functions for the C code
 The pre-condition `Free`, state `No`, needs every free timer object seized.
 The call `T_seize_objects( Create, NULL )` above does this. It is declared in
@@ -833,6 +837,470 @@ meaning. This has caught real correctness mistakes that a passing `specverify`
 did not -- treat it as mandatory whenever you reshape an existing
 transition-map, not just when you write one from scratch.
 
+(ActionRequirementsRepresentatives)=
+
+## Cover the edges of a class with representatives
+
+A specification often defines one outcome for a whole range of input values,
+while the implementation takes a different path through parts of this range. An
+error of the implementation shows where the path changes, so the test has to
+reach each of these places. A pre-condition state can therefore run a list of
+values instead of one value.
+
+`rtems_timer_create()` has no numeric input, so this section invents a small
+function, `copy()`. It is a simplified form of `memcpy()` of the C library and
+behaves like it, so your attention stays on the test technique and not on the
+example.
+
+### Edges of `copy()`
+
+`copy()` copies `n` bytes from the memory referenced by `src` to the memory
+referenced by `dst`. Each positive size has the same outcome, so the
+specification has one class of positive sizes.
+
+The implementation splits this class. It copies words of four bytes where it
+can, and single bytes otherwise:
+
+```{raw} latex
+\begin{footnotesize}
+```
+
+```{code-block} c
+---
+linenos:
+emphasize-lines: 3,4,12
+---
+void copy( unsigned char *dst, const unsigned char *src, size_t n )
+{
+  if ( n >= 4 && (uintptr_t) src % 4 == 0 ) {
+    while ( n >= 4 ) {
+      copy_word( dst, src );
+      dst += 4;
+      src += 4;
+      n -= 4;
+    }
+  }
+
+  while ( n > 0 ) {
+    *dst++ = *src++;
+    --n;
+  }
+}
+```
+
+```{raw} latex
+\end{footnotesize}
+```
+
+The highlighted lines compare the size. Line 3 selects the word loop for a size
+of at least four, and line 4 copies words while at least four bytes remain.
+Both draw an edge at four through the class of positive sizes, because the
+sizes on its two sides take different paths. Line 12 copies the remaining bytes
+while the size is greater than zero, so it marks the lower edge of the class.
+The buffer which holds the source marks its upper edge. A fault in a path shows
+only for a size which takes this path, so the test needs a size on each side
+of each edge.
+
+Line 3 shows a second fact. The word loop runs only if `src` is aligned to
+four. Otherwise the byte loop copies all bytes. The alignment of `src` does not
+change the outcome, but it decides which code runs.
+
+A test with one value per state runs one path of the class only. A test with a
+state for each edge runs all paths, but then the requirement names the edges of
+one implementation, and the @`/glossary/transition-map:/term` repeats the same
+outcome for each of these states. The
+@`/glossary/pre-condition-state-representative:/plural` solve both problems.
+The state stays a class of the specification, and the test runs a list of
+values at its edges.
+
+### Property, class and value
+
+The previous subsection used three ideas: the size, the class of positive sizes
+and the sizes at its edges. Each of them has its own place in the item:
+
+```{table}
+---
+class: longtable
+widths: 20,40,40
+---
+| Level          | Holds                                          | Example of `copy()`                                   |
+| -------------- | ---------------------------------------------- | ----------------------------------------------------- |
+| pre-condition  | one property of an input or of the environment | `N`, the size, and `SrcAlignment`, the start of `src` |
+| state          | a class of this property                       | `N` `Positive`, `SrcAlignment` `Unaligned`            |
+| representative | a value of the class, at its edges             | the sizes 1, 3, 4, 5 and the largest, the offsets 1 and 3 |
+```
+
+The text of a state describes the class, so the requirement does not name the
+word size. The representatives name the values, so the test runs each edge
+which the implementation has.
+
+(ActionRequirementsMerge)=
+
+### Merge boundary states into their class
+
+An item which covers the edges with states has a state for each of them. The
+following figure shows such an item for the size of `copy()` above the same
+item with representatives:
+
+```{figure} ../images/ar-representatives-merge.*
+---
+alt: The size states of copy with a state per edge and with representatives
+width: 100%
+---
+A state for each edge against one class with representatives, not to scale
+```
+
+The dashed line marks the comparisons with four of the code above. With a
+state for each edge, seven states cover the size. All states from `One` to
+`Long` have the same outcome. They merge into the state `Positive`, and its five
+representatives take the values at the edges. `Zero` stays a state, because a
+size of zero copies no byte and so has an outcome of its own.
+
+Apply four rules when you merge:
+
+- Merge the states of one property which split one class at the edges of the
+  implementation. The class becomes the state, and the edge values become its
+  representatives.
+
+- Do not merge two states because their outcomes are equal. `Aligned` and
+  `Unaligned` of `copy()` have the same outcome, but they are different classes
+  of the start address.
+
+- Never remove an input property from the requirement. The outcome of `copy()`
+  does not depend on the alignment, but `SrcAlignment` stays a pre-condition.
+  Line 3 selects the loop by the start address, so the test has to set it.
+
+- Let the implementation choose the edges and the representatives, but never
+  the properties. The interface and the specification of the function define
+  its properties.
+
+A merge changes the transition-map on purpose, so the diff check of
+{ref}`Step 7 <ActionRequirementsStep7>` is not empty afterwards. Instead, check
+that the merged state has the transition-map entries of each state which it
+replaces.
+
+### Write the representatives
+
+A pre-condition state lists its representatives in the attribute
+`representatives`. Each entry has a `name` and a `test-code`. The state
+`Positive` of `copy()` reads as follows:
+
+```{raw} latex
+\begin{footnotesize}
+```
+
+```{code-block} yaml
+---
+linenos:
+---
+- name: Positive
+  representatives:
+  - name: One
+    test-code: |
+      ctx->n = 1;
+  - name: Three
+    test-code: |
+      ctx->n = 3;
+  - name: Four
+    test-code: |
+      ctx->n = 4;
+  - name: Five
+    test-code: |
+      ctx->n = 5;
+  - name: Max
+    test-code: |
+      ctx->n = sizeof( ctx->src_buf ) - ctx->offset;
+  test-code: null
+  text: |
+    While n is greater than zero.
+```
+
+```{raw} latex
+\end{footnotesize}
+```
+
+The code of the representative runs first, and then the `test-code` of the
+state runs. Each representative of `Positive` sets the size, and the state has
+nothing to add, so its `test-code` is `null`. The code of `Max` follows from
+the limit of the buffer, which
+{ref}`a later subsection <ActionRequirementsInfeasible>` explains.
+
+Where the representatives share code, put the shared code into the state. The
+representatives of `Unaligned` set the offset of `src` in its buffer. The state
+then sets `src` from the offset, which each representative needs:
+
+```{raw} latex
+\begin{footnotesize}
+```
+
+```{code-block} yaml
+---
+linenos:
+---
+- name: Unaligned
+  representatives:
+  - name: One
+    test-code: |
+      ctx->offset = 1;
+  - name: Three
+    test-code: |
+      ctx->offset = 3;
+  test-code: |
+    ctx->src = &ctx->src_buf[ ctx->offset ];
+  text: |
+    While the source starts at an address which is not aligned to four.
+```
+
+```{raw} latex
+\end{footnotesize}
+```
+
+Name a representative after its value or its position in the class, such as
+`One`, `Four` or `Max`. The test log appends this name to the name of the
+state, as in `PositiveMax`, so the name has to identify the value. The
+generator rejects a pre-condition in which such a joined name equals the name
+of another state or another joined name. Only a pre-condition state has
+representatives. The generator rejects them on a state of a
+@`/glossary/post-condition:/term`.
+
+### Combination of the representatives
+
+The transition-map does not change when a state gets representatives. Each
+variant of the map runs once for each representative index, up to the largest
+count of representatives among its states. A state with fewer representatives
+repeats its last one. As a result, each representative runs at least once per
+variant, and the number of runs grows with the largest list and not with the
+product of the lists.
+
+The variant of `copy()` with the states `Unaligned` and `Positive` shows a gap
+of this rule. `Positive` has five representatives, so the variant runs five
+times. `Unaligned` has two and repeats the offset 3 from index 1 on. The offset
+1 therefore meets only the size 1, where line 3 selects the byte loop anyway.
+Suppose that line 3 tests `( (uintptr_t) src & 2 ) == 0` and so misses the
+offset 1. The word loop then reads from an unaligned address, which traps on
+the SPARC GR740, but no run shows it. The implementation selects its loop from
+the size and the offset together, so the test has to run their values
+together.
+
+The optional item attribute `representative-products` does this:
+
+```{raw} latex
+\begin{footnotesize}
+```
+
+```{code-block} yaml
+---
+linenos:
+---
+representative-products:
+- - SrcAlignment
+  - N
+```
+
+```{raw} latex
+\end{footnotesize}
+```
+
+Each entry of the list is a group of at least two pre-conditions. A group acts
+as one composite condition. Its representatives are all combinations of the
+representatives of the current states of its pre-conditions, and the last
+pre-condition of the group changes fastest. A pre-condition is in at most one
+group. A state without representatives counts as one value. The variant
+`Unaligned`, `Positive` therefore runs 2 times 5, or 10 combinations:
+
+```{figure} ../images/ar-representatives-grid.*
+---
+alt: The runs of five sizes and two offsets without and with a product
+width: 100%
+---
+Without the product, the offset 1 meets only the size 1
+```
+
+With the product, the run of the offset 1 and the size 4 traps on the
+faulty test of line 3.
+
+Use a product only where the implementation needs the values together, and
+state the reason in the rationale. The cost of a product grows with the product
+of its lists, here from five to ten runs.
+
+(ActionRequirementsInfeasible)=
+
+### Handle an infeasible representative
+
+The buffer of the source holds 16 bytes. `Max` takes the largest size, which is
+16 for an aligned source. The variant `Unaligned`, `Positive` runs `Max` with
+an offset. For the offset 3, a size of 16 reaches three bytes beyond the
+buffer, so the value is infeasible in this combination.
+
+Where the class has another feasible value, take it. The largest size which
+the buffer holds after the offset is still a value of the class `Positive`, so
+the run still checks the requirement. The code of `Max` therefore takes 16
+minus the offset, which is 15 and 13 for the two offsets. The pre-conditions
+prepare in the order of the item, so `SrcAlignment` comes before `N`, and `Max`
+reads the offset which `Unaligned` set.
+
+Where the class has no feasible value in this combination, skip the run with
+`$${.:skip}` in the code of the representative. If `Max` had no substitute
+value, its code would read:
+
+```{raw} latex
+\begin{footnotesize}
+```
+
+```{code-block} yaml
+---
+linenos:
+---
+- name: Max
+  test-code: |
+    if ( ctx->offset != 0 ) {
+      $${.:skip}
+      ctx->n = 1;
+    } else {
+      ctx->n = sizeof( ctx->src_buf );
+    }
+```
+
+```{raw} latex
+\end{footnotesize}
+```
+
+The code after a skip still runs, so it has to leave the test context valid.
+The skip only sets a flag. The rest of the code of the representative, the code
+of the state and the prepare code of the following pre-conditions run as usual.
+Only then does the test leave out the action and the checks of this run. Here
+the size 1 keeps the copy within the buffer.
+
+The skip affects this run only. The other representatives of the variant still
+run. At the end of a test case run, the test checks that each representative of
+a state ran at least once, if the state ran. A representative which skips in
+every variant of its state therefore fails the test. With a skip without a
+condition, `Max` reports this line:
+
+```{raw} latex
+\begin{footnotesize}
+```
+
+```{code-block} none
+---
+linenos:
+---
+F:*:0:RUN/NA/NA/NA:tc-copy-example.c:410:representative PositiveMax did not run
+```
+
+```{raw} latex
+\end{footnotesize}
+```
+
+State each skip and each substitute value in the rationale.
+
+### Pre-condition with one state
+
+Each pre-condition so far has at least two states. A property can also be an
+input of the function although no state can split it. The bytes which `copy()`
+copies are such an input. The specification copies any byte value in the same
+way, so the property has one class.
+
+The item has the pre-condition `Content` with the one state `Any` and the
+representatives `Zero` and `AllOnes`, which fill the source with the bytes
+0x00 and 0xFF. The two values are the edges of the range of a byte. The state
+text reads "While the source holds any bytes."
+
+A pre-condition with one state is a valid dimension, so do not invent a second
+state to split it.
+
+### Explain the edges in the rationale
+
+The state text names the class, so a reviewer cannot see from it why the test
+takes its values. The rationale gives the reason for each edge. The rationale
+of `copy()` reads:
+
+> The implementation compares the size against zero and four. The Positive
+> state takes the size one and the sizes one below, at and above four. It also
+> takes the largest size which the source buffer holds after the offset of the
+> source.
+>
+> The Unaligned state takes the offsets one and three, the least and the
+> greatest offset to the preceding aligned address.
+>
+> The representative product of SrcAlignment and N runs each size with each
+> offset. The implementation selects the word loop by the size and the offset
+> together.
+
+Name each comparison of the implementation which draws an edge, and the values
+which you take at it. Name each representative product with the reason why the
+implementation needs its values together.
+
+### Find the failing representative in the test log
+
+The scope of a test run names the current state of each pre-condition. For a
+state with representatives, it appends the name of the representative to the
+name of the state without a separator. The colon separates the fields of the
+line, so it cannot separate the two names.
+
+Suppose that line 12 of `copy()` reads `while ( n > 1 )`. The byte loop then
+leaves the last byte uncopied. The run of the offset 1 and the size `Max`
+reports this line, among others:
+
+```{raw} latex
+\begin{footnotesize}
+```
+
+```{code-block} none
+---
+linenos:
+---
+F:13:0:RUN/UnalignedOne/PositiveMax/AnyAllOnes:tc-copy-example.c:582:memcmp(ctx->dst, ctx->src, ctx->n) == 0
+```
+
+```{raw} latex
+\end{footnotesize}
+```
+
+The line gives the test step, the processor, the scope, the source position
+and the failed check. The scope `UnalignedOne/PositiveMax/AnyAllOnes` names
+`SrcAlignment` `Unaligned` with its representative `One`, `N` `Positive` with
+its representative `Max` and `Content` `Any` with its representative
+`AllOnes`. You can therefore reproduce the failure without a search through the
+representatives.
+
+### Relation to `memcpy()`
+
+`copy()` follows `memcpy()` of the pre-qualified library in
+`cpukit/libc/string/memcpy.c`. The real implementation differs in three points:
+
+- It works with the size of type `long` instead of four bytes.
+
+- It copies blocks of four words in a loop of its own before it copies single
+  words.
+
+- It runs the word loops only if both `dest` and `src` are aligned.
+
+Each point adds edges or a property. The action requirement of `memcpy()` is
+`spec/c/string/req/memcpy.yml` in the RTEMS sources, and its test is
+`testsuites/validation/tc-string-memcpy.c`.
+
+### Limits of the generator
+
+The generator rejects an item which exceeds one of these limits:
+
+```{table}
+---
+class: longtable
+widths: 60,40
+---
+| Quantity                                            | Limit |
+| --------------------------------------------------- | ----- |
+| characters of the scope of a test run               | 128   |
+| representatives of one state                        | 1024  |
+| combinations of one representative product         | 1024  |
+```
+
+{ref}`SpecTypeActionRequirementState`,
+{ref}`SpecTypeActionRequirementRepresentative` and
+{ref}`SpecTypeActionRequirementItemType` define the attributes
+`representatives` and `representative-products`.
+
 ## Reference: The transition-map grammar
 
 This section is a complete reference for the `pre-conditions` and
@@ -1033,6 +1501,11 @@ mistake: ask yourself "does this post-condition's concept even make sense on
 this path" (→ `N/A`) versus "does it make sense, and the answer happens to be
 'nothing changed'" (→ `Nop`).
 
+A @`/glossary/skip-reason:/term` removes a combination of states from the
+transition-map. In contrast, `$${.:skip}` in the code of a representative
+removes one run of one value, and the combination of states stays in the map.
+See {ref}`ActionRequirementsRepresentatives` for this case.
+
 ### Never merge independently-varying effects
 
 This was already applied in Step 4 above, but it deserves restating as a
@@ -1076,6 +1549,10 @@ one):
    produce the same outcome, combine them with a bare list under `if` (implicit
    `or`), as `PostCondA`'s second branch does in the synthetic example above.
 
+The pass merges branches of the transition-map. It never merges two states of a
+pre-condition because their outcomes are equal. A state is a class of its
+property, and only the rules of {ref}`ActionRequirementsMerge` merge states.
+
 ## Checklist
 
 Before you consider an action requirement finished:
@@ -1096,8 +1573,21 @@ Before you consider an action requirement finished:
 - [ ] `N/A` is used only where a post-condition's concept does not apply on a
   feasible path, `Nop` for a meaningful "nothing happened" outcome, and a skip
   reason for logically impossible pre-condition combinations.
+- [ ] Each state is a class of its property. No two states of one property
+  split one class at a boundary of the implementation.
+- [ ] Each input property of the function is a pre-condition, also where its
+  states have equal outcomes.
+- [ ] The representatives of a state cover each edge of its class which the
+  implementation has, and the rationale gives the reason for each edge.
+- [ ] A representative product groups only pre-conditions whose values the
+  implementation needs together, and the rationale states the reason.
+- [ ] A representative which is infeasible in a combination takes another value
+  of its class or skips with `$${.:skip}`. The code sets a valid value also on
+  the path of the skip. Each representative still runs in some variant, and the
+  rationale states each skip.
 - [ ] `specwareview --filter action-compact-table` was captured before and
-  after any transition-map rewrite, and the diff is empty.
+  after any transition-map rewrite, and the diff is empty. After a merge of
+  states, the merged state has the entries of each state which it replaces.
 - [ ] The format command of {ref}`Step 7 <ActionRequirementsStep7>`,
   `specverify spec`, and `specwareview` all ran clean.
 
