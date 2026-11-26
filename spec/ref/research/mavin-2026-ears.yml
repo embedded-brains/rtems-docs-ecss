@@ -1,0 +1,14 @@
+SPDX-License-Identifier: CC-BY-SA-4.0 OR BSD-2-Clause
+author:
+- Mavin, Alistair
+copyrights:
+- Copyright (C) 2026 embedded brains GmbH & Co. KG
+enabled-by: true
+links: []
+note: 'Official guide, accessed 2026-11-06'
+reference-type: misc
+title: 'EARS: Easy Approach to Requirements Syntax'
+type: reference
+work-hash: null
+work-url: https://alistairmavin.com/ears/
+year: '2026'

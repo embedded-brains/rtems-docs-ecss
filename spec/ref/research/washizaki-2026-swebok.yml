@@ -1,0 +1,17 @@
+SPDX-License-Identifier: CC-BY-SA-4.0 OR BSD-2-Clause
+author:
+- Washizaki, Hironori
+copyrights:
+- Copyright (C) 2026 embedded brains GmbH & Co. KG
+edition: '4.0a'
+enabled-by: true
+links: []
+month: August
+note: Editor
+organization: IEEE Computer Society
+reference-type: manual
+title: Guide to the Software Engineering Body of Knowledge (SWEBOK Guide)
+type: reference
+work-hash: null
+work-url: https://www.computer.org/education/bodies-of-knowledge/software-engineering/v4
+year: '2026'
