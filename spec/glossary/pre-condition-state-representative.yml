@@ -1,0 +1,17 @@
+SPDX-License-Identifier: CC-BY-SA-4.0 OR BSD-2-Clause
+copyrights:
+- Copyright (C) 2026 embedded brains GmbH & Co. KG
+enabled-by: true
+glossary-type: term
+links:
+- role: glossary-member
+  uid: group
+term: pre-condition state representative
+text: |
+  A value of the class which a state of a ${pre-condition:/term} stands for. A
+  state may list several representatives, such as the values at the edges of its
+  class. The test of the ${action-requirement:/term} runs each representative at
+  least once in each combination of states which contains the state. A
+  representative corresponds to the representative of a choice in the
+  category-partition method ${/ref/research/ostrand-1988-cp:/cite}.
+type: glossary
