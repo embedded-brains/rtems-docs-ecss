@@ -10,7 +10,7 @@ links:
 term: task
 text: |
   This project uses the
-  [thread definition of Wikipedia](https://en.wikipedia.org/wiki/Thread_(computing)):
+  [thread definition of Wikipedia](https://en.wikipedia.org/wiki/Thread_%28computing%29):
   "a thread of execution is the smallest sequence of programmed
   instructions that can be managed independently by a scheduler, which is
   typically a part of the operating system."
