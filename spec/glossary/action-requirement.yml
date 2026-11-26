@@ -1,0 +1,17 @@
+SPDX-License-Identifier: CC-BY-SA-4.0 OR BSD-2-Clause
+copyrights:
+- Copyright (C) 2026 embedded brains GmbH & Co. KG
+enabled-by: true
+glossary-type: term
+links:
+- role: glossary-member
+  uid: group
+term: action requirement
+text: |
+  A requirement which states the outcome of one trigger for each combination of
+  the states of its ${pre-condition:/plural}.  Its ${post-condition:/plural}
+  describe the outcome, and its ${transition-map:/term} assigns an outcome to
+  each combination.  Each entry of the map reads as one complex requirement in
+  the form of ${ears:/term} ${/ref/research/mavin-2026-ears:/cite}.  An action
+  requirement gives the ${behavioural-view:/term} of its trigger.
+type: glossary

@@ -1,0 +1,18 @@
+SPDX-License-Identifier: CC-BY-SA-4.0 OR BSD-2-Clause
+copyrights:
+- Copyright (C) 2026 embedded brains GmbH & Co. KG
+enabled-by: true
+glossary-type: term
+links:
+- role: glossary-member
+  uid: group
+term: pre-condition
+text: |
+  A condition of an ${action-requirement:/term} which affects the outcome of
+  its trigger, such as an input or a state of the system.  Its states divide
+  the system states into classes, so that each system state belongs to exactly
+  one of them.  The ${transition-map:/term} combines the states of all
+  pre-conditions.  A pre-condition and its states correspond to a category and
+  its choices in the category-partition method
+  ${/ref/research/ostrand-1988-cp:/cite}.
+type: glossary

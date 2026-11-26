@@ -1,0 +1,16 @@
+SPDX-License-Identifier: CC-BY-SA-4.0 OR BSD-2-Clause
+copyrights:
+- Copyright (C) 2026 embedded brains GmbH & Co. KG
+enabled-by: true
+glossary-type: term
+links:
+- role: glossary-member
+  uid: group
+term: design group
+text: |
+  A requirement which states that the software architecture has a component for
+  one module.  Its identifier names the Doxygen group of the module, so that
+  the ${softwareunit:/plural} of the module trace to it.  The
+  ${action-requirement:/plural} of the implementation layers refine the design
+  group of their module.
+type: glossary

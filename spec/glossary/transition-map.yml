@@ -1,0 +1,18 @@
+SPDX-License-Identifier: CC-BY-SA-4.0 OR BSD-2-Clause
+copyrights:
+- Copyright (C) 2026 embedded brains GmbH & Co. KG
+enabled-by: true
+glossary-type: term
+links:
+- role: glossary-member
+  uid: group
+term: transition map
+text: |
+  The part of an ${action-requirement:/term} which assigns the
+  ${post-condition:/term} states or a ${skip-reason:/term} to each combination
+  of ${pre-condition:/term} states.  It is a ${state-transition-table:/term}
+  with data.  The tools check its ${transition-map-coverage:/term} and its
+  ${transition-map-disjointness:/term}.  It has the form of a decision table,
+  which relates each combination of conditions to its actions
+  ${/ref/research/washizaki-2026-swebok:/cite}.
+type: glossary
