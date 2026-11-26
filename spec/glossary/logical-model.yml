@@ -1,0 +1,17 @@
+SPDX-License-Identifier: CC-BY-SA-4.0 OR BSD-2-Clause
+copyrights:
+- Copyright (C) 2026 embedded brains GmbH & Co. KG
+enabled-by: true
+glossary-type: term
+links:
+- role: glossary-member
+  uid: group
+term: logical model
+text: |
+  A model of what the software shall do, without the way in which the software
+  does it.  It consists of a ${structural-view:/term}, a
+  ${functional-view:/term} and a ${behavioural-view:/term} of the same
+  entities.  Through these shared entities, a reader understands the software
+  requirements as a whole.  ECSS-E-ST-40C Rev.1 defines the term in clause
+  3.2.13 ${/ref/ecss/e-st-40c-r1:/cite}.
+type: glossary

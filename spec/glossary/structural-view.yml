@@ -1,0 +1,17 @@
+SPDX-License-Identifier: CC-BY-SA-4.0 OR BSD-2-Clause
+copyrights:
+- Copyright (C) 2026 embedded brains GmbH & Co. KG
+enabled-by: true
+glossary-type: term
+links:
+- role: glossary-member
+  uid: group
+term: structural view
+text: |
+  The view of a ${logical-model:/term} which shows the entities of the software
+  and their relations, such as objects, types and operations.  In this project,
+  the interface items give it.  The ${functional-view:/term} and the
+  ${behavioural-view:/term} refer to these entities.  It corresponds to a
+  structural model of the SWEBOK Guide
+  ${/ref/research/washizaki-2026-swebok:/cite}.
+type: glossary

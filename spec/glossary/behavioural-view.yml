@@ -1,0 +1,18 @@
+SPDX-License-Identifier: CC-BY-SA-4.0 OR BSD-2-Clause
+copyrights:
+- Copyright (C) 2026 embedded brains GmbH & Co. KG
+enabled-by: true
+glossary-type: term
+links:
+- role: glossary-member
+  uid: group
+term: behavioural view
+text: |
+  The view of a ${logical-model:/term} which shows how the software responds to
+  an event, through the state before and the state after the event.  In this
+  project, the ${action-requirement:/plural} give it, one trigger at a time.  A
+  state transition diagram or a ${state-transition-table:/term} is one form of
+  it ${/ref/ecss/e-hb-40a:/cite}.  ECSS-E-ST-40C Rev.1 requires a logical model
+  to include a behavioural view but does not define the term
+  ${/ref/ecss/e-st-40c-r1:/cite}.
+type: glossary

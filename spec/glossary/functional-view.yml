@@ -1,0 +1,17 @@
+SPDX-License-Identifier: CC-BY-SA-4.0 OR BSD-2-Clause
+copyrights:
+- Copyright (C) 2026 embedded brains GmbH & Co. KG
+enabled-by: true
+glossary-type: term
+links:
+- role: glossary-member
+  uid: group
+term: functional view
+text: |
+  The view of a ${logical-model:/term} which shows what each part of the
+  software shall do, from the top down.  In this project, the requirements of
+  the interface groups and the functional requirements give it.  They refine
+  the entities of the ${structural-view:/term}.  It corresponds to the
+  functional model of a method which ECSS-E-HB-40A names as an example of a
+  logical model ${/ref/ecss/e-hb-40a:/cite}.
+type: glossary
