@@ -71,14 +71,14 @@ chapters or sections relevant to your work:
 
 (SdhIntroQualification)=
 
-## Understand qualification
+## Qualification
 
 Qualification is intended to demonstrate that a product can be used in
 safety-critical applications. The development process and the product must
 undergo certification by an authority and must follow a standard that defines
 rules and requirements that must be met.
 
-## Understand pre-qualification
+## Pre-qualification
 
 Usually only a whole product is qualifiable (software and hardware together,
 for example an airplane or a satellite). Parts of a product, such as RTEMS,
@@ -95,7 +95,7 @@ documentation demanded by the qualification standard. As a result, the user of
 such a pre-qualified part has significantly less effort to qualify the whole
 product.
 
-## Understand qualification standards
+## Qualification standards
 
 Software qualification is governed by standards that define what a product must
 do to demonstrate that it is safe, reliable, and fit for its intended use. The
@@ -127,7 +127,7 @@ throughout its development and reviews this evidence. At the end of the
 process, the authority certifies that the product meets the applicable standard
 and is therefore qualified for its intended use.
 
-## Understand the ECSS standard
+## ECSS standards
 
 For European space applications, the relevant standards are provided by
 [ECSS (European Cooperation for Space Standardization)](https://ecss.nl/standards/),
@@ -157,7 +157,7 @@ You do not need to read these standards before continuing with this book. They
 are extensive documents, and this book provides the instructions needed to work
 on pre-qualifying RTEMS without requiring you to study the standards first.
 
-## Understand ECSS software criticality categories
+## ECSS software criticality categories
 
 Not all software has the same importance for the safety and success of a space
 mission. ECSS therefore assigns software to one of four criticality categories
@@ -188,7 +188,7 @@ own verification activities.
 For the pre-qualification of RTEMS, the criticality category is usually B
 provided an ISVV is conducted.
 
-## Understand the history of RTEMS pre-qualification
+## History of RTEMS pre-qualification
 
 RTEMS pre-qualification has evolved considerably over the years. For the first
 @`/glossary/esa:/term` project, EDISOFT pre-qualified RTEMS 4.8.
@@ -229,7 +229,7 @@ details. If you want to support RTEMS maintenance, see
 [RTEMS Foundation](https://www.rtemsfoundation.org/).
 ```
 
-## Understand the RTEMS pre-qualified API
+## Pre-qualified RTEMS API
 
 Not all features of RTEMS have been pre-qualified. Instead only those parts of
 the API which are mostly used in space applications have been selected for
@@ -243,7 +243,7 @@ defined on a per-file basis. See {ref}`QualEngAddFunction` for details.
 
 (SdhIntroRTEMSPreQualification)=
 
-## Understand RTEMS pre-qualification projects
+## RTEMS pre-qualification projects
 
 RTEMS pre-qualification is carried out within an *ESA project*. This is
 important because ESA acts as the certification authority: it needs to review
@@ -300,13 +300,13 @@ internally that the package has undergone the required qualification process.
 When a space project later uses that package, the qualification work covered by
 it does not have to be repeated.
 
-## Find an overview of the content of a package
+## Content of a package
 
 The actual content of a package varies. The chapter *Software configuration
 item overview* of the @`doc-package-manual:/cite-long` provides a complete list
 for the package you are using.
 
-## Understand the role of ESA in product qualification
+## Role of ESA in product qualification
 
 Imagine a company that wants to build a new satellite with application software
 running on top of RTEMS. At the end of the project, the company wants ESA to
