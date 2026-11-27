@@ -102,20 +102,29 @@ text and code:
 
   - Incorrect: `# Set Up The Build Environment`
 
-- **Phrasing**: Section headings shall use the imperative/advice form (a bare
-  infinitive verb), not a question. Do not phrase a heading as "How to ...",
-  with or without a trailing question mark.
+- **Phrasing**: The form of a heading follows what the reader does with the
+  section. Ask whether the reader performs the section before you pick the
+  form.
 
-  - Correct: `## Create a feature branch`
+  - A section which the reader performs, such as a procedure, is a task. Its
+    heading starts with a bare infinitive.
+
+  - A section which describes a concept, an example or a reference is no task.
+    Its heading is a noun phrase.
+
+  A heading is never a question, never starts with "How to" and never starts
+  with an -ing form. This follows the
+  [Google developer documentation style guide](https://developers.google.com/style/headings).
+
+  - Correct task heading: `## Create a feature branch`
+
+  - Correct concept heading: `## Branch scheme`
 
   - Incorrect: `## How to create a feature branch?`
 
-  Per the
-  [Google developer documentation style guide](https://developers.google.com/style/headings),
-  a task-based heading shall start with a bare infinitive (for example
-  `Create an instance`, not `Creating an instance`). A heading opening with
-  "How to" does not start with a bare infinitive either, so it violates the
-  same rule.
+  - Incorrect: `## Creating a feature branch`
+
+  - Incorrect, because the reader performs nothing: `## Use a branch scheme`
 
 - **Subsections**: Divide a section into subsections only if it gets at least
   two of them. A single subsection adds a heading level and divides nothing, so
