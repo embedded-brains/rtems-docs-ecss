@@ -65,7 +65,7 @@ implementation sources (`cpukit/`) and the validation test suite sources
 (`testsuites/validation/`) so that you can read the actual C implementation you
 are specifying.
 
-## Step 1: scaffold the requirement
+## Step 1: Scaffold the requirement
 
 Every `req/*.yml` file has the same overall shape, so start from a minimal
 skeleton rather than inventing the structure from scratch: one placeholder
@@ -179,7 +179,7 @@ specification.
 
 (ActionRequirementsStep2)=
 
-## Step 2: read the implementation
+## Step 2: Read the implementation
 
 A directive's pre-conditions and post-conditions come from two sources. Get all
 of them right. Full code coverage depends on it: a missing pre-condition or
@@ -314,7 +314,7 @@ timer object available, and otherwise success. This is exactly the kind of
 white-box inspection that determines your pre-conditions and post-conditions --
 for a function this small, the implementation *is* the specification.
 
-## Step 3: derive the pre-conditions
+## Step 3: Derive the pre-conditions
 
 Ask, for every parameter and every relevant piece of system state: what
 distinct value domains change the outcome? Each parameter is a natural starting
@@ -442,7 +442,7 @@ does this: its `test-local-includes` key references the shared
 `tx-support.h`/`tx-support.c` pair.
 ````
 
-## Step 4: derive the post-conditions, and keep them separate
+## Step 4: Derive the post-conditions, and keep them separate
 
 The naive approach is to write one post-condition, `Status`, with four states
 (`Ok`, `InvName`, `InvAddr`, `TooMany`) and be done. But look again at what the
@@ -573,7 +573,7 @@ not-yet-resolved post-condition cannot be evaluated. That is exactly why
 `Status` is listed first here: both `Name` and `IdObj` branch on whether
 `Status` resolved to `Ok`.
 
-## Step 5: the trigger action
+## Step 5: The trigger action
 
 The trigger action is the one line of C that actually calls the function under
 test:
@@ -603,7 +603,7 @@ conventions -- treat them as plumbing you will pick up by reading existing
 `req/*.yml` items and getting review feedback, rather than something this
 chapter derives from first principles.
 
-## Step 6: write the transition-map
+## Step 6: Write the transition-map
 
 With three pre-conditions of two states each, there are eight reachable
 combinations. The most literal way to specify the behavior is one row per
@@ -724,7 +724,7 @@ than `true` (since `if`/`then` can only test pre-condition and post-condition
 
 (ActionRequirementsStep7)=
 
-## Step 7: render, format, and validate
+## Step 7: Render, format, and validate
 
 Render the transition-map back into a table and check it against your intent.
 For an overview of the `specwareview` and `specverify` tools used in this step,
@@ -799,7 +799,7 @@ $ uv run specwareview
 \end{footnotesize}
 ```
 
-### The diff check: formatting is not semantics
+### The diff check: Formatting is not semantics
 
 `specverify` only proves the item is *structurally* valid -- well-formed YAML,
 resolvable links, no missing attributes. It does **not** prove that a rewrite
@@ -833,7 +833,7 @@ meaning. This has caught real correctness mistakes that a passing `specverify`
 did not -- treat it as mandatory whenever you reshape an existing
 transition-map, not just when you write one from scratch.
 
-## Reference: the transition-map grammar
+## Reference: The transition-map grammar
 
 This section is a complete reference for the `pre-conditions` and
 `post-conditions` blocks inside a `transition-map` descriptor. The

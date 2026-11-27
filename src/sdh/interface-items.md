@@ -62,7 +62,7 @@ $ ls spec/rtems/timer/if
 \end{footnotesize}
 ```
 
-## Step 1: check whether the item already exists
+## Step 1: Check whether the item already exists
 
 Before creating anything, search for an existing item. Never blindly overwrite
 an existing interface item -- it may carry carefully curated descriptions,
@@ -88,7 +88,7 @@ If an item already exists, read it, understand it, and only change what you
 were asked to change. For the rest of this chapter we pretend the file does not
 exist yet, so that you can see how each attribute is derived.
 
-## Step 2: pick the file location and the interface kind
+## Step 2: Pick the file location and the interface kind
 
 Interface items are grouped by component. `rtems_timer_create()` belongs to the
 Timer Manager, so its file goes into `spec/rtems/timer/if/create.yml`,
@@ -109,7 +109,7 @@ construct it documents:
 {ref}`InterfaceItemsOtherKinds` at the end of this chapter covers the other
 four kinds.
 
-## Step 3: write the brief
+## Step 3: Write the brief
 
 The `brief` attribute is a single sentence, in the **imperative mood**,
 summarizing what the directive does.
@@ -178,7 +178,7 @@ Several other Classic API constructor directives (`rtems_task_create()`,
 leftover, terse brief. Write new items, and any item you are asked to touch, to
 the current rule; do not copy an old brief just because it is what is on disk.
 
-## Step 4: document the parameters and their direction
+## Step 4: Document the parameters and their direction
 
 `rtems_timer_create()` has this C signature. This signature, and the other
 excerpts from `spec/rtems/timer/if/create.yml` throughout this chapter, are
@@ -264,7 +264,7 @@ widths: 42,13,45
 only ever writes to (it stores the freshly created object's identifier there;
 it never reads whatever garbage was there before), so `dir: out`.
 
-## Step 5: document the return value
+## Step 5: Document the return value
 
 The `return` attribute is a dictionary with two keys:
 
@@ -355,7 +355,7 @@ A few rules that catch people out:
 - Small numbers in prose are spelled out (`zero`, not `0`); the numbers inside
   `value:` stay numeric.
 
-## Step 6: notes and cross-references
+## Step 6: Notes and cross-references
 
 The `notes` attribute must reference the governing standard: the C standard,
 POSIX, or a FreeBSD man page for functions that come from there.
@@ -454,7 +454,7 @@ header file alone: a single header such as `<stdlib.h>` mixes C23 functions
 (`malloc()`), POSIX functions (`setenv()`), and FreeBSD extensions
 (`arc4random()`) -- check each function's actual origin.
 
-## Step 7: errno conditions
+## Step 7: The errno conditions
 
 `rtems_timer_create()` does not set `errno` (it uses the status-code mechanism
 instead), so this step does not apply to our running example. Many
@@ -530,7 +530,7 @@ Rules for these descriptions:
 
 (interface-items-step-8)=
 
-## Step 8: format and validate
+## Step 8: Format and validate
 
 Once the item's content is in place, two things remain: mechanical formatting,
 and structural validation. Do this every time you touch a `.yml` file, no

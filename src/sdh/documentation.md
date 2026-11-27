@@ -102,6 +102,14 @@ text and code:
 
   - Incorrect: `# Set Up The Build Environment`
 
+- **Colon**: The part of a heading after a colon reads as a heading of its
+  own, so its first word starts with a capital letter. A code literal keeps its
+  case.
+
+  - Correct: `## Step 1: Scaffold the requirement`
+
+  - Incorrect: `## Step 1: scaffold the requirement`
+
 - **Phrasing**: The form of a heading follows what the reader does with the
   section. Ask whether the reader performs the section before you pick the
   form.
