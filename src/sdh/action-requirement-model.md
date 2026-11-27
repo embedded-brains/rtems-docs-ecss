@@ -154,7 +154,7 @@ finite automaton. In the terms of model-based testing, the pre-condition
 classes make the model transition based, and the post-condition relations make
 it a model in pre and post form @`/ref/research/utting-2006-mbt:/cite`.
 
-## Worked example: seize a semaphore without waiting
+## Worked example: Seize a semaphore without waiting
 
 The item `/score/sem/req/seize-try` specifies how the semaphore handler behaves
 when a task tries to seize a counting semaphore and does not want to wait. The
